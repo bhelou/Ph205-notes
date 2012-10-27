@@ -1,0 +1,691 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrbook
+\begin_preamble
+\usepackage{braket}
+\end_preamble
+\options unicode=true, hidelinks
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize 11
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1cm
+\topmargin 1cm
+\rightmargin 1cm
+\bottommargin 3cm
+\headheight 2cm
+\headsep 2cm
+\footskip 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+The correlation function can be calculated with
+\begin_inset Formula 
+\begin{eqnarray}
+\left\langle \sigma_{i}\sigma_{i+r}\right\rangle  & = & \frac{1}{Z}\left(\sum_{\left\{ \sigma\right\} }\sigma_{i}\sigma_{i+r}\exp\left(-\beta E\right)\right)\\
+ & \equiv & \frac{1}{Z}\xi
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Calculating the partition function
+\end_layout
+
+\begin_layout Standard
+I assume we have 
+\begin_inset Formula $n-1$
+\end_inset
+
+ spins 
+\end_layout
+
+\begin_layout Standard
+We first rewrite the energy in a more convenient format.
+ We have that 
+\begin_inset Formula 
+\begin{eqnarray}
+E & = & -\beta J\sum_{i}\sigma_{i}\sigma_{i+1}-\beta H\sum_{i=1}^{n-1}\sigma_{i}\\
+ & = & -\beta J\sum_{i}\sigma_{i}\sigma_{i+1}-\beta H\left(\sum_{i=1}^{n-1}\frac{\sigma_{i}}{2}+\sum_{i=1}^{n-1}\frac{\sigma_{i}}{2}\right)\\
+ & = & -\beta J\sum_{i}\sigma_{i}\sigma_{i+1}-\beta H\left(\sum_{i=0}^{n-2}\frac{\sigma_{i+1}}{2}+\sum_{i=1}^{n-1}\frac{\sigma_{i}}{2}\right)\\
+ & = & -\beta J\sum_{i}\sigma_{i}\sigma_{i+1}-\beta H\left(\sum_{i=1}^{n-2}\frac{\sigma_{i}+\sigma_{i+1}}{2}+\frac{\sigma_{1}}{2}+\frac{\sigma_{n-1}}{2}\right)\\
+ & = & -\beta J\sum_{i}\sigma_{i}\sigma_{i+1}-\beta H\left(\sum_{i=1}^{n-1}\frac{\sigma_{i}+\sigma_{i+1}}{2}\right),\\
+\end{eqnarray}
+
+\end_inset
+
+where in the last equality we used the periodic boundary conditions.
+ 
+\end_layout
+
+\begin_layout Standard
+Hence, we have thata 
+\begin_inset Formula 
+\begin{eqnarray}
+Z & = & \sum_{\left\{ \sigma\right\} }\exp\left(-\beta E\right)\nonumber \\
+ & = & \sum_{\left\{ \sigma\right\} }\exp\left(\beta J\sum_{i}\sigma_{i}\sigma_{i+1}+\beta H\sum_{i}\frac{\sigma_{i}+\sigma_{i+1}}{2}\right)\nonumber \\
+ & = & \sum_{\left\{ \sigma\right\} }\prod_{i}\exp\left(\beta J\sigma_{i}\sigma_{i+1}+\beta H\frac{\sigma_{i}+\sigma_{i+1}}{2}\right)\nonumber \\
+ & = & \sum_{\left\{ \sigma\right\} }\braket{\sigma_{1}|\hat{T}_{i}|\sigma_{2}}\braket{\sigma_{2}|\hat{T}_{i}|\sigma_{3}}...\braket{\sigma_{n-2}|\hat{T}_{i}|\sigma_{n-1}}\braket{\sigma_{n-1}|\hat{T}_{i}|\sigma_{1}}\label{eq:exprTempZ}
+\end{eqnarray}
+
+\end_inset
+
+where in the last equality we used periodic boundary conditions and 
+\begin_inset Formula 
+\begin{equation}
+\hat{T}_{i}=\exp\left(\beta J\hat{\sigma}_{i}\hat{\sigma}_{i+1}+\beta H\frac{\hat{\sigma}_{i}+\hat{\sigma}_{i+1}}{2}\right).
+\end{equation}
+
+\end_inset
+
+The possible values of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\hat{T}$
+\end_inset
+
+ are given by the following transfer matrix
+\begin_inset Formula 
+\begin{eqnarray}
+T & = & \left(\begin{array}{ccc}
+ & \sigma_{i+1}=1 & \sigma_{i+1}=-1\\
+\sigma_{i}=1 & \exp\left(\beta J+\beta H\right) & \exp\left(-\beta J\right)\\
+\sigma_{i}=-1 & \exp\left(-\beta J\right) & \exp\left(\beta J-\beta H\right)
+\end{array}\right).
+\end{eqnarray}
+
+\end_inset
+
+We will write the transfer matrix in the more concise form 
+\begin_inset Formula 
+\begin{equation}
+T=\left(\begin{array}{cc}
+a & b\\
+b & c
+\end{array}\right),
+\end{equation}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{eqnarray*}
+a & \equiv & \exp\left(\beta J+\beta H\right)\\
+b & \equiv & \exp\left(-\beta J\right)\\
+c & \equiv & \exp\left(\beta J-\beta H\right).
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:exprTempZ"
+
+\end_inset
+
+ can be simplified to 
+\begin_inset Formula 
+\begin{eqnarray}
+Z & = & \sum_{\left\{ \sigma\right\} }\braket{\sigma_{1}|\hat{T}_{i}|\sigma_{2}}\braket{\sigma_{2}|\hat{T}_{i}|\sigma_{3}}...\braket{\sigma_{n-2}|\hat{T}_{i}|\sigma_{n-1}}\braket{\sigma_{n-1}|\hat{T}_{i}|\sigma_{1}}\\
+ & = & \sum_{\left\{ \sigma\right\} }T_{\sigma_{1}\sigma_{2}}T_{\sigma_{2}\sigma_{3}}...T_{\sigma_{n-1}\sigma_{1}}\\
+ & = & \sum_{\sigma_{1}}\sum_{\sigma_{2}}...\sum_{\sigma_{n}}T_{\sigma_{1}\sigma_{2}}T_{\sigma_{2}\sigma_{3}}...T_{\sigma_{n-1}\sigma_{1}}\\
+ & = & \sum_{\sigma_{1}}\left(\sum_{\sigma_{n-1}}...\left(\sum_{\sigma_{4}}\left(\sum_{\sigma_{3}}\left(\sum_{\sigma_{2}}T_{\sigma_{1}\sigma_{2}}T_{\sigma_{2}\sigma_{3}}\right)T_{\sigma_{3}\sigma_{4}}\right)T_{\sigma_{4}\sigma_{5}}\right)...T_{\sigma_{n-1}\sigma_{1}}\right)\\
+ & = & \sum_{\sigma_{1}}\left(\sum_{\sigma_{n-1}}...\left(\sum_{\sigma_{4}}\left(\sum_{\sigma_{3}}\left(T^{2}\right)_{\sigma_{1}\sigma_{3}}T_{\sigma_{3}\sigma_{4}}\right)T_{\sigma_{4}\sigma_{5}}\right)...T_{\sigma_{n-1}\sigma_{1}}\right)\\
+ & = & \sum_{\sigma_{1}}\left(\sum_{\sigma_{n-1}}...\left(\sum_{\sigma_{5}}\left(\sum_{\sigma_{4}}\left(T^{3}\right)_{\sigma_{1}\sigma_{4}}T_{\sigma_{4}\sigma_{5}}\right)T_{\sigma_{5}\sigma_{6}}\right)...T_{\sigma_{n-1}\sigma_{1}}\right)\\
+ & \vdots & \vdots\\
+ & = & \sum_{\sigma_{1}}\left(\sum_{\sigma_{n-1}}\left(T^{n-2}\right)_{\sigma_{1}\sigma_{n-1}}T_{\sigma_{n-1}\sigma_{1}}\right)\\
+ & = & \sum_{\sigma_{1}}\left(\left(T^{n-1}\right)_{\sigma_{1}\sigma_{1}}\right)=\mbox{Tr}\left[T^{n-1}\right]\\
+ & = & \mbox{Tr}\left[P^{-1}T^{n-1}P\right]\\
+ & = & \mbox{Tr}\left[\left(P^{-1}TP\right)^{n-1}\right],
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $P$
+\end_inset
+
+ is the unitary matrix that diagonalizes 
+\begin_inset Formula $T$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{equation}
+P^{-1}TP=\left(\begin{array}{cc}
+\lambda_{+} & 0\\
+0 & \lambda_{-}
+\end{array}\right),
+\end{equation}
+
+\end_inset
+
+where we used Mathematica to calculate 
+\begin_inset Formula $\lambda_{+}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda_{-}$
+\end_inset
+
+ .
+ Hence, we obtain that 
+\begin_inset Formula 
+\begin{eqnarray}
+Z & = & \mbox{Tr}\left[\left(\begin{array}{cc}
+\lambda_{+}^{n-1} & 0\\
+0 & \lambda_{-}^{n-1}
+\end{array}\right)\right]\\
+ & = & \lambda_{+}^{n-1}+\lambda_{-}^{n-1}.
+\end{eqnarray}
+
+\end_inset
+
+According to Mathematica, 
+\begin_inset Formula 
+\begin{eqnarray}
+\lambda_{\pm} & = & \frac{a+c\pm\sqrt{4b^{2}+\left(a-c\right)^{2}}}{2}\\
+ & = & e^{\beta J}\cosh\left(\beta H\right)\pm\sqrt{e^{-2\beta J}+e^{2J\beta}\sinh^{2}\left(\beta H\right)}\\
+ & = & e^{\beta J}\cosh\left(\beta H\right)\pm e^{\beta J}\sqrt{e^{-4\beta J}+\sinh^{2}\left(\beta H\right)}\\
+ & = & e^{\beta J}\left(\cosh\left(\beta H\right)\pm\sqrt{e^{-4\beta J}+\sinh^{2}\left(\beta H\right)}\right)
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Calculating 
+\begin_inset Formula $\xi$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We have defined that
+\begin_inset Formula 
+\begin{eqnarray*}
+\xi & \equiv & \sum_{\left\{ \sigma\right\} }\sigma_{j}\sigma_{j+r}\exp\left(-\beta E\right)\\
+ & = & \sum_{\left\{ \sigma\right\} }\sigma_{j}\sigma_{j+r}\exp\left(\beta J\sum_{j}\sigma_{i}\sigma_{i+1}+\beta H\sum_{i}\sigma_{i}\right)\\
+ & = & \sum_{\left\{ \sigma\right\} }\prod_{i}\sigma_{j}\sigma_{j+r}\exp\left(\beta J\sigma_{i}\sigma_{i+1}+\beta H\sigma_{i}\right)\\
+ & = & \sum_{\left\{ \sigma\right\} }\prod_{i}\sigma_{j}\sigma_{j+r}\braket{\sigma_{i}|\hat{T}_{i}|\sigma_{i+1}}\\
+ & = & \sum_{\left\{ \sigma\right\} }\braket{\sigma_{1}|\hat{T}_{1}|\sigma_{2}}\braket{\sigma_{2}|\hat{T}_{2}|\sigma_{3}}...\braket{\sigma_{j-1}|\hat{T}_{j-1}|\sigma_{j}}\sigma_{j}\braket{\sigma_{j}|\hat{T}_{j}|\sigma_{j+1}}...\\
+ &  & \braket{\sigma_{j+r-1}|\hat{T}_{j+r-1}|\sigma_{j+r}}\sigma_{j+r}\braket{\sigma_{j+r}|\hat{T}_{j+r}|\sigma_{j+r+1}}...\braket{\sigma_{n-1}|\hat{T}_{n-1}|\sigma_{1}}\\
+ & = & \sum_{\left\{ \sigma\right\} }T_{\sigma_{1}\sigma_{2}}T_{\sigma_{2}\sigma_{3}}...T_{\sigma_{j-1}\sigma_{j}}\sigma_{j}T_{\sigma_{j}\sigma_{j+1}}...T_{\sigma_{j+r-1}\sigma_{j+r}}\sigma_{j+r}T_{\sigma_{j+r}\sigma_{j+r+1}}...T_{\sigma_{n-1}\sigma_{1}}
+\end{eqnarray*}
+
+\end_inset
+
+Use what we did for the partition function:
+\begin_inset Formula 
+\begin{eqnarray*}
+\xi & = & \sum_{\left\{ \sigma\right\} }\left(T^{j-1}\right)_{\sigma_{1}\sigma_{j}}\sigma_{j}\left(T^{r}\right)_{\sigma_{j}\sigma_{j+r}}\sigma_{j+r}\left(T^{\underbrace{n-1-j-r+1}_{n-\left(j+r\right)}}\right)_{\sigma_{j+r}\sigma_{1}}\\
+ & = & \sum_{\sigma_{1}}\left(\sum_{\sigma_{j+r}}\left(\sum_{\sigma_{j}}\left(T^{j-1}\right)_{\sigma_{1}\sigma_{j}}\sigma_{j}\left(T^{r}\right)_{\sigma_{j}\sigma_{j+r}}\right)\sigma_{j+r}\left(T^{n-\left(j+r\right)}\right)_{\sigma_{j+r}\sigma_{1}}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+in the first equality, the 
+\begin_inset Formula $j-1$
+\end_inset
+
+ is because we contracted everything 
+\begin_inset Formula $\left(1...j\right)$
+\end_inset
+
+ except for 
+\begin_inset Formula $1$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+ and the intial starting point is 
+\begin_inset Formula $T^{1}$
+\end_inset
+
+ so we add 
+\begin_inset Formula $T^{1+j-2=j-1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Claim
+The sum 
+\begin_inset Formula 
+\begin{equation}
+\sum_{\sigma_{j}}A_{i\sigma_{j}}\sigma_{j}B_{\sigma_{j}k}
+\end{equation}
+
+\end_inset
+
+is equivalent to 
+\begin_inset Formula 
+\begin{equation}
+\left(AGB\right)_{ik},
+\end{equation}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{equation}
+G\equiv\left(\begin{array}{cccc}
+\sigma_{1}\\
+ & \sigma_{2}\\
+ &  & \ddots\\
+ &  &  & \sigma_{n}
+\end{array}\right).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+We have that 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(A\left(\begin{array}{cccc}
+\sigma_{1}\\
+ & \sigma_{2}\\
+ &  & \ddots\\
+ &  &  & \sigma_{n}
+\end{array}\right)B\right)_{ik} & = & \sum_{j}A_{ij}\left(GB\right)_{jk}\\
+ & = & \sum_{jl}A_{ij}G_{jl}B_{lk}\\
+ & = & \sum_{jl}A_{ij}\sigma_{j}\delta_{jl}B_{lk}\\
+ & = & \sum_{j}A_{ij}\sigma_{j}B_{jk},
+\end{eqnarray*}
+
+\end_inset
+
+as required.
+\end_layout
+
+\begin_layout Standard
+Hence, defining 
+\begin_inset Formula $\bm{\sigma}$
+\end_inset
+
+by 
+\begin_inset Formula 
+\begin{equation}
+\bm{\sigma}=\left(\begin{array}{cc}
+1=\sigma_{1,1}\\
+ & -1=\sigma_{1,2}
+\end{array}\right)
+\end{equation}
+
+\end_inset
+
+we can write that 
+\begin_inset Formula 
+\begin{eqnarray*}
+\xi & = & \sum_{\sigma_{1}}\left(\sum_{\sigma_{j+r}}\left(\sum_{\sigma_{j}}\left(T^{j-1}\right)_{\sigma_{1}\sigma_{j}}\sigma_{j}\left(T^{r}\right)_{\sigma_{j}\sigma_{j+r}}\right)\sigma_{j+r}\left(T^{n-\left(j+r\right)}\right)\right)\\
+ & = & \sum_{\sigma_{1}}\left(\sum_{\sigma_{j+r}}\left(T^{j-1}\bm{\sigma}T^{r}\right)_{\sigma_{1}\sigma_{j+r}}\sigma_{j+r}\left(T^{n-\left(j+r\right)}\right)_{\sigma_{j+r}\sigma_{1}}\right)\\
+ & = & \sum_{\sigma_{1}}\left(T^{j-1}\bm{\sigma}T^{r}\bm{\sigma}T^{n-\left(j+r\right)}\right)_{\sigma_{1}\sigma_{1}}\\
+ & = & \mbox{Tr}\left[T^{j-1}\bm{\sigma}T^{r}\bm{\sigma}T^{n-\left(j+r\right)}\right]\\
+ & = & \mbox{Tr}\left[\bm{\sigma}T^{r}\bm{\sigma}T^{n-\left(j+r\right)+\left(j-1\right)}\right]\\
+ & = & \mbox{Tr}\left[\bm{\sigma}T^{r}\bm{\sigma}T^{n-\left(r+1\right)}\right],
+\end{eqnarray*}
+
+\end_inset
+
+where in the last equality, we used the cyclic property of the trace.
+ Continuing the calculating we have that
+\begin_inset Formula 
+\begin{eqnarray}
+\xi & = & \mbox{Tr}\left[\bm{\sigma}T^{r}\bm{\sigma}T^{n-\left(r+1\right)}\right]\\
+ & = & \mbox{Tr}\left[\bm{\sigma}\left(\bm{\sigma}T^{r}+\left[T^{r},\bm{\sigma}\right]\right)T^{n-\left(r+1\right)}\right]\\
+ & = & \mbox{Tr}\left[\bm{\sigma}^{2}T^{n-1}\right]+\mbox{Tr}\left(\left(\bm{\sigma}\left[T^{r},\bm{\sigma}\right]\right)T^{n-\left(r+1\right)}\right)
+\end{eqnarray}
+
+\end_inset
+
+What is 
+\begin_inset Formula $\left[T,\bm{\sigma}\right]$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+We have that 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mbox{Tr}\left[AB\right] & = & \mbox{Tr}\left[P^{-1}ABP\right]\\
+ & = & \mbox{Tr}\left[\left(P^{-1}AP\right)\left(P^{-1}BP\right)\right]\\
+\end{eqnarray*}
+
+\end_inset
+
+Let 
+\begin_inset Formula $P$
+\end_inset
+
+ be the matrix that diagonalizes 
+\begin_inset Formula $T$
+\end_inset
+
+ then 
+\begin_inset Formula 
+\begin{eqnarray*}
+\xi=\mbox{Tr}\left[\bm{\sigma}T^{r}\bm{\sigma}T^{n-\left(r+1\right)}\right] & = & \mbox{Tr}\left[P^{-1}\bm{\sigma}T^{r}\bm{\sigma}T^{n-\left(r+1\right)}P\right]\\
+ & = & \mbox{Tr}\left[\left(P^{-1}\bm{\sigma}P\right)\left(P^{-1}T^{r}P\right)\left(P^{-1}\bm{\sigma}P\right)\left(P^{-1}T^{n-\left(r+1\right)}P\right)\right]\\
+ & = & \mbox{Tr}\left[\left(P^{-1}\bm{\sigma}P\right)\left(\begin{array}{cc}
+\lambda_{+}^{r}\\
+ & \lambda_{-}^{r}
+\end{array}\right)\left(P^{-1}\bm{\sigma}P\right)\left(\begin{array}{cc}
+\lambda_{+}^{n-\left(r+1\right)}\\
+ & \lambda_{-}^{n-\left(r+1\right)}
+\end{array}\right)\right]
+\end{eqnarray*}
+
+\end_inset
+
+Using Mathematica, we notice that 
+\begin_inset Formula $\left(P^{-1}\bm{\sigma}P\right)$
+\end_inset
+
+ is of the form 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula 
+\begin{equation}
+S\equiv\left(\begin{array}{cc}
+s_{1} & s_{2}\\
+s_{3} & -s_{1}
+\end{array}\right)
+\end{equation}
+
+\end_inset
+
+so using Mathematica we obtain that
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\xi & = & \mbox{Tr}\left[\left(P^{-1}\bm{\sigma}P\right)\left(\begin{array}{cc}
+\lambda_{+}^{r}\\
+ & \lambda_{-}^{r}
+\end{array}\right)\left(P^{-1}\bm{\sigma}P\right)\left(\begin{array}{cc}
+\lambda_{+}^{n-\left(r+1\right)}\\
+ & \lambda_{-}^{n-\left(r+1\right)}
+\end{array}\right)\right]\\
+ & = & \mbox{Tr}\left[\left(\begin{array}{cc}
+s_{1} & s_{2}\\
+s_{3} & -s_{1}
+\end{array}\right)\left(\begin{array}{cc}
+\lambda_{+}^{r}\\
+ & \lambda_{-}^{r}
+\end{array}\right)\left(\begin{array}{cc}
+s_{1} & s_{2}\\
+s_{3} & -s_{1}
+\end{array}\right)\left(\begin{array}{cc}
+\lambda_{+}^{n-\left(r+1\right)}\\
+ & \lambda_{-}^{n-\left(r+1\right)}
+\end{array}\right)\right]\\
+ & = & \left(\lambda_{+}^{n-1}+\lambda_{-}^{n-1}\right)s_{1}^{2}+\left(\lambda_{+}^{r}\lambda_{-}^{n-\left(r+1\right)}+\lambda_{+}^{\left(n-\left(r+1\right)\right)}\lambda_{-}^{r}\right)s_{2}s_{3}.
+\end{eqnarray*}
+
+\end_inset
+
+In the thermodynamic limit 
+\begin_inset Formula $n\rightarrow\infty$
+\end_inset
+
+ while 
+\begin_inset Formula $r$
+\end_inset
+
+ remains finite.
+ We also have that 
+\begin_inset Formula $\lambda_{+}>\lambda_{-}$
+\end_inset
+
+, so we can write that 
+\begin_inset Formula 
+\begin{eqnarray*}
+\xi & \approx & s_{1}^{2}\lambda_{+}^{n}+\lambda_{+}^{n-r}\lambda_{-}^{r}s_{2}s_{3}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Combining the results
+\end_layout
+
+\begin_layout Standard
+We have that 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left\langle \sigma_{i}\sigma_{i+r}\right\rangle  & = & \frac{\xi}{Z}\\
+ & \approx & \frac{s_{1}^{2}\lambda_{+}^{n}+\lambda_{+}^{n-r}\lambda_{-}^{r}s_{2}s_{3}}{\lambda_{+}^{n}}\\
+ & = & s_{1}^{2}+\left(\frac{\lambda_{-}}{\lambda_{+}}\right)^{r}s_{2}s_{3}
+\end{eqnarray*}
+
+\end_inset
+
+Using Mathematica, this can be simplified to 
+\begin_inset Formula 
+\begin{eqnarray}
+s_{1}^{2} & = & \frac{4e^{2J\beta}\sinh^{2}\left(H\beta\right)}{4e^{-2J\beta}+4e^{2J\beta}\sinh^{2}\left(H\beta\right)}\\
+ & = & \frac{\sinh^{2}\left(H\beta\right)}{e^{-4J\beta}+\sinh^{2}\left(H\beta\right)}
+\end{eqnarray}
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\begin{eqnarray*}
+s_{2}s_{3} & = & \frac{1}{1+e^{4J\beta}\sinh^{2}\left(H\beta\right)}.
+\end{eqnarray*}
+
+\end_inset
+
+Hence, we can write that 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left\langle \sigma_{i}\sigma_{i+r}\right\rangle  & = & \frac{\sinh^{2}\left(H\beta\right)}{e^{-4J\beta}+\sinh^{2}\left(H\beta\right)}+\frac{1}{1+e^{4J\beta}\sinh^{2}\left(H\beta\right)}\left(\frac{e^{\beta J}\left(\cosh\left(\beta H\right)-\sqrt{e^{-4\beta J}+\sinh^{2}\left(\beta H\right)}\right)}{e^{\beta J}\left(\cosh\left(\beta H\right)+\sqrt{e^{-4\beta J}+\sinh^{2}\left(\beta H\right)}\right)}\right)^{r}\\
+ & = & \frac{\sinh^{2}\left(H\beta\right)}{e^{-4J\beta}+\sinh^{2}\left(H\beta\right)}+\frac{e^{-4J\beta}}{e^{-4J\beta}+\sinh^{2}\left(H\beta\right)}\left(\frac{\cosh\left(\beta H\right)-\sqrt{e^{-4\beta J}+\sinh^{2}\left(\beta H\right)}}{\cosh\left(\beta H\right)+\sqrt{e^{-4\beta J}+\sinh^{2}\left(\beta H\right)}}\right)^{r}\\
+ & = & \frac{1}{e^{-4J\beta}+\sinh^{2}\left(H\beta\right)}\left[\sinh^{2}\left(H\beta\right)+e^{-4J\beta}\left(\frac{\cosh\left(\beta H\right)-\sqrt{e^{-4\beta J}+\sinh^{2}\left(\beta H\right)}}{\cosh\left(\beta H\right)+\sqrt{e^{-4\beta J}+\sinh^{2}\left(\beta H\right)}}\right)^{r}\right].
+\end{eqnarray*}
+
+\end_inset
+
+As expected, this does not depend on 
+\begin_inset Formula $i$
+\end_inset
+
+ due to the translational symmetry of the system.
+\end_layout
+
+\begin_layout Standard
+In a completely similar fashion, 
+\begin_inset Formula $\left\langle \sigma\right\rangle $
+\end_inset
+
+ can be calculated by 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left\langle \sigma\right\rangle  & = & \frac{1}{Z}\mbox{tr}\left(\bm{\sigma}T^{n-1}\right)\\
+ & = & \frac{1}{Z}\mbox{tr}\left(\left(\begin{array}{cc}
+s_{1} & s_{2}\\
+s_{3} & -s_{1}
+\end{array}\right)\left(\begin{array}{cc}
+\lambda_{+}^{n-1}\\
+ & \lambda_{-}^{n-1}
+\end{array}\right)\right)\\
+ & = & \frac{1}{Z}s_{1}\left(\lambda_{+}^{n-1}-\lambda_{-}^{n-1}\right)\\
+ & \approx & \frac{1}{Z}s_{1}\lambda_{+}^{n}\approx s_{1}
+\end{eqnarray*}
+
+\end_inset
+
+and we have that 
+\begin_inset Formula 
+\begin{eqnarray}
+s_{1} & = & -\frac{e^{J\beta}\text{Sinh}[H\beta]}{\sqrt{e^{-2J\beta}+e^{2J\beta}\text{Sinh}[H\beta]^{2}}}
+\end{eqnarray}
+
+\end_inset
+
+and so 
+\begin_inset Formula 
+\begin{eqnarray}
+\left\langle \sigma\right\rangle  & = & -\frac{e^{J\beta}\sinh\left(\beta H\right)}{\sqrt{e^{-2J\beta}+e^{2J\beta}\sinh^{2}\left(\beta H\right)}}\\
+ & = & -\frac{\sinh\left(\beta H\right)}{\sqrt{e^{-4J\beta}+\sinh^{2}\left(\beta H\right)}}.
+\end{eqnarray}
+
+\end_inset
+
+Hence, 
+\begin_inset Formula 
+\begin{eqnarray}
+\mbox{cov}\left(\sigma_{i},\sigma_{i+r}\right) & = & \left\langle \sigma_{i}\sigma_{i+r}\right\rangle -\left\langle \sigma_{i}\right\rangle \left\langle \sigma_{i+r}\right\rangle \\
+ & = & \left\langle \sigma_{1}\sigma_{1+r}\right\rangle -\left\langle \sigma\right\rangle ^{2}\\
+ & = & \frac{1}{e^{-4J\beta}+\sinh^{2}\left(H\beta\right)}\left[\sinh^{2}\left(H\beta\right)+e^{-4J\beta}\left(\frac{\cosh\left(\beta H\right)-\sqrt{e^{-4\beta J}+\sinh^{2}\left(\beta H\right)}}{\cosh\left(\beta H\right)+\sqrt{e^{-4\beta J}+\sinh^{2}\left(\beta H\right)}}\right)^{r}\right]\\
+ &  & -\left(-\frac{\sinh\left(\beta H\right)}{\sqrt{e^{-4J\beta}+\sinh^{2}\left(\beta H\right)}}\right)^{2}\\
+ & = & \frac{e^{-4J\beta}}{e^{-4J\beta}+\sinh^{2}\left(H\beta\right)}\left(\frac{\cosh\left(\beta H\right)-\sqrt{e^{-4\beta J}+\sinh^{2}\left(\beta H\right)}}{\cosh\left(\beta H\right)+\sqrt{e^{-4\beta J}+\sinh^{2}\left(\beta H\right)}}\right)^{r}\\
+ & = & \frac{1}{1+e^{4J\beta}\sinh^{2}\left(H\beta\right)}\left(\frac{\cosh\left(\beta H\right)-\sqrt{e^{-4\beta J}+\sinh^{2}\left(\beta H\right)}}{\cosh\left(\beta H\right)+\sqrt{e^{-4\beta J}+\sinh^{2}\left(\beta H\right)}}\right)^{r}\\
+ & = & \frac{1}{1+e^{4J\beta}\sinh^{2}\left(H\beta\right)}e^{r/\Delta l},
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\begin{equation}
+\Delta l=\ln\left(\frac{\cosh\left(\beta H\right)+\sqrt{e^{-4\beta J}+\sinh^{2}\left(\beta H\right)}}{\cosh\left(\beta H\right)-\sqrt{e^{-4\beta J}+\sinh^{2}\left(\beta H\right)}}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

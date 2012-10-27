@@ -1,0 +1,1646 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrbook
+\begin_preamble
+
+\usepackage{braket}
+\end_preamble
+\options unicode=true
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize 11
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1cm
+\topmargin 1cm
+\rightmargin 1cm
+\bottommargin 3cm
+\headheight 2cm
+\headsep 2cm
+\footskip 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Intro
+\end_layout
+
+\begin_layout Standard
+QFT is about the fields and how particles affect those fields
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ph205Intro.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Particles and fields.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Key players in the theory of QFT are:
+\end_layout
+
+\begin_layout Enumerate
+The function 
+\begin_inset Quotes eld
+\end_inset
+
+field
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula $\phi\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The action 
+\begin_inset Formula $S\left[\phi\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+Classical Field Theory
+\end_layout
+
+\begin_layout Standard
+Intro/Stuff that will be useful in QFT:
+\end_layout
+
+\begin_layout Enumerate
+Wave physics and many waves equations
+\end_layout
+
+\begin_layout Enumerate
+Theory of solitons.
+ in 1d, solitons are kinks.
+ 2d are vortices.
+ 3d are monopoles and 4d instantons.
+ Solitons are tightly related to symmetry breaking (e.g.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eq44"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Section
+The action
+\end_layout
+
+\begin_layout Standard
+The action (which is a functional) is defined by
+\begin_inset Formula 
+\begin{equation}
+S\left[\phi\right]=\int_{M^{n}}\mathcal{L}\left[\phi\left(x\right)\right]d^{n}x
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ is the lagrangian that describes the system,
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{L} & = & T-V
+\end{eqnarray*}
+
+\end_inset
+
+(
+\begin_inset Formula $T$
+\end_inset
+
+ is K.E.
+ and 
+\begin_inset Formula $V$
+\end_inset
+
+ is P.E.), 
+\begin_inset Formula $\phi\left(x\right)$
+\end_inset
+
+ is the 
+\begin_inset Quotes eld
+\end_inset
+
+field
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Formula $M^{n}$
+\end_inset
+
+ (Minkowsky space of dimension 
+\begin_inset Formula $n$
+\end_inset
+
+) is the spactime and combines space dimensions (1,2,3) with time dimension
+ (and 
+\begin_inset Formula $x$
+\end_inset
+
+ is a coordinate of that spacetime).
+\end_layout
+
+\begin_layout Standard
+The action and the Lagrangian completely characterize the system.
+\end_layout
+
+\begin_layout Subsection
+EOMS
+\end_layout
+
+\begin_layout Standard
+How to reformulate functional minimization problems (like action) into PDEs:
+\begin_inset Formula 
+\begin{equation}
+\partial_{\phi}S=\partial_{\phi}\mathcal{L}-\partial_{\mu}\left(\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\phi\right)}\right)=0\label{eq:eom1}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\partial_{\phi}S$
+\end_inset
+
+ kind of means 
+\begin_inset Formula $\phi\left(x\right)\rightarrow\phi\left(x\right)+\partial\phi\left(x\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Examples
+\end_layout
+
+\begin_layout Subsubsection
+2nd order potential
+\end_layout
+
+\begin_layout Standard
+Consider the following action
+\begin_inset Formula 
+\begin{equation}
+S=\int d^{n}x\left(\underbrace{\frac{1}{2}\left(\partial_{\mu}\phi\right)\left(\partial^{\mu}\phi\right)}_{K.E.}-\underbrace{\frac{m}{2}\phi^{2}\left(x\right)}_{P.E.}\right),
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $m$
+\end_inset
+
+ is a constant/parameter.
+ The EOMs (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:eom1"
+
+\end_inset
+
+) become
+\begin_inset Formula 
+\begin{equation}
+\left(\square+m^{2}\right)\phi\left(x\right)=0,
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\square=\partial_{t}^{2}-\nabla^{2}$
+\end_inset
+
+.
+ To obtain the EOMs we differentiated a quadratic function and so we obtained
+ a linear PDE (?).The solutions are of the form:
+\begin_inset Formula 
+\begin{equation}
+\phi=e^{ikx+i\omega t}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Klein-Gordon theory
+\end_layout
+
+\begin_layout Standard
+A 4th order (in 
+\begin_inset Formula $\phi$
+\end_inset
+
+) action (Klein-Gordon theory):
+\begin_inset Formula 
+\begin{equation}
+S=\int d^{n}x\left(\frac{1}{2}\partial_{\mu}\phi\partial^{\mu}\phi-\underbrace{\frac{\lambda}{4}\left(\phi^{2}-a^{2}\right)^{2}}_{P.E.}\right)
+\end{equation}
+
+\end_inset
+
+(this is relevant to describing dynamics of Higgs-Boson).
+ The potential is shown in the figure: 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ph205KleinGordonPotential.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Klein-Gordon potential and equilibrium points
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+.
+ Eoms (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eom1"
+
+\end_inset
+
+) becomes that of Solitons with dimension 
+\begin_inset Formula $n=1$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\square\phi-\lambda\phi\left(\phi^{2}-a^{2}\right)=0
+\end{equation}
+
+\end_inset
+
+(this is a cubic equation - called the Klein-Gordon equation - because we
+ differentiated a quadratic Lagrangian and assume the K.E.
+ part is obtained just like partial differentiating wrt to 
+\begin_inset Formula $\phi$
+\end_inset
+
+ the K.E.
+ term in the Lagrangian).
+ If we assume 
+\begin_inset Formula $n=1$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\nabla_{x}^{2}\phi-\lambda\phi\left(\phi^{2}-a^{2}\right)=0,
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\nabla_{x}^{2}=d^{2}/dx^{2}$
+\end_inset
+
+.
+ Notice that this is a symmetric equation in 
+\begin_inset Formula $\phi\rightarrow-\phi$
+\end_inset
+
+ but we will see that the soliton breaks the symmetry (it has to (??)).
+ This equation turns out to have the solution
+\begin_inset Formula 
+\begin{equation}
+\phi\left(x\right)=\pm a\tanh\left(\sqrt{\frac{\lambda}{2}}ax\right)\label{eq:eq44}
+\end{equation}
+
+\end_inset
+
+and notice 
+\begin_inset Formula $\phi\left(x=\pm\infty\right)=\pm a$
+\end_inset
+
+ and we say that 
+\begin_inset Formula $\phi$
+\end_inset
+
+ migrates from one vacuum (which we define to be 
+\begin_inset Formula $\pm a$
+\end_inset
+
+) to another vacuum.
+ Such behavior defines a soliton.
+ Also, the solution if not even like the EOM.
+\end_layout
+
+\begin_layout Subsubsection
+Sine-Gordon theory and Bogomolny Bound
+\end_layout
+
+\begin_layout Standard
+Sine-Gordon theory:
+\begin_inset Formula 
+\begin{equation}
+S=\int d^{n}x\left(\frac{1}{2}\partial_{\mu}\phi\partial^{\mu}\phi-\left(1-\cos\phi\right)\right).
+\end{equation}
+
+\end_inset
+
+This gives the EOM:
+\begin_inset Formula 
+\begin{equation}
+\square\phi+\sin\phi=0
+\end{equation}
+
+\end_inset
+
+e.g.
+ 
+\begin_inset Formula $\phi_{tt}-\phi_{xx}+\sin\phi=0$
+\end_inset
+
+.
+ This has soliton solutions that interpolate (alternate) between 
+\begin_inset Formula $\phi=2\pi n$
+\end_inset
+
+ and 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ (these are the minima of the potential).
+ The trick of solving such soliton equations is the Bogomolny Bound:
+\begin_inset Formula 
+\begin{eqnarray*}
+E & = & T+V\\
+ & = & \int_{-\infty}^{\infty}dx\left(\frac{1}{2}\left(\partial_{t}\phi\right)^{2}+\frac{1}{2}\left(\partial_{x}\phi\right)^{2}+\left(1-\cos\phi\right)\right)
+\end{eqnarray*}
+
+\end_inset
+
+(where we consider that the K.E.
+ is the part that contains derivatives) where each term is positive (adding
+ contributions to 
+\begin_inset Formula $E$
+\end_inset
+
+ - trying to find minimum).
+ Assume that we have a single kink that moves from 
+\begin_inset Formula $2\pi m$
+\end_inset
+
+ to 
+\begin_inset Formula $2\pi\left(m+1\right)$
+\end_inset
+
+.
+ The potential will look like: 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ph205SineGordonPotential.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Sine-Gordon equation and assumed behavior of 
+\begin_inset Formula $\phi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+E & \geq & \int_{-\infty}^{\infty}dx\left(\frac{1}{2}\phi_{x}^{2}+\left(1-\cos\phi\right)\right)\\
+ & = & \int_{-\infty}^{\infty}dx\left[\frac{1}{2}\phi_{x}^{2}+2\sin^{2}\left(\frac{\phi}{2}\right)\right]dx\\
+ & = & \int_{-\infty}^{\infty}dx\left(\frac{1}{2}\left[\phi_{x}\pm2\sin\left(\frac{\phi}{2}\right)\right]^{2}\mp2\sin\left(\frac{\phi}{2}\right)\underbrace{\phi_{x}}_{\frac{d\phi}{dx}}\right)dx\\
+ & = & \left(\int_{-\infty}^{\infty}dx\frac{1}{2}\left[\phi_{x}\pm2\sin\left(\frac{\phi}{2}\right)\right]^{2}\right)\pm\left.4\cos\left(\frac{\phi}{2}\right)\right|_{-\infty}^{\infty}\\
+ & \geq & 8
+\end{eqnarray*}
+
+\end_inset
+
+*
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+We have that 
+\begin_inset Formula 
+\begin{equation}
+\left.4\cos\left(\frac{\phi}{2}\right)\right|_{-\infty}^{\infty}=8
+\end{equation}
+
+\end_inset
+
+because we assumed that the solution 
+\begin_inset Formula $\phi$
+\end_inset
+
+ moves from one stable equilibrium point: 
+\begin_inset Formula $2\pi m$
+\end_inset
+
+ at 
+\begin_inset Formula $x\rightarrow-\infty$
+\end_inset
+
+ to another stable equilibrium point: 
+\begin_inset Formula $2\pi\left(m+1\right)$
+\end_inset
+
+ at 
+\begin_inset Formula $x\rightarrow\infty$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+In order to saturate the bound (i.e.
+ to have 
+\begin_inset Formula $E=8$
+\end_inset
+
+) we have a 1st order equation (BPS equations)*
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+this is because 
+\begin_inset Formula $\left(\int_{-\infty}^{\infty}dx\frac{1}{2}\left[\phi_{x}\pm2\sin\left(\frac{\phi}{2}\right)\right]^{2}\right)$
+\end_inset
+
+ is positive so it's contributions can only add to the energy
+\end_layout
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\phi_{x}\pm2\sin\frac{\phi}{2}=0
+\end{equation}
+
+\end_inset
+
+Assume 
+\begin_inset Formula $\phi$
+\end_inset
+
+ increases then (direction that we move from one vacuum to another) 
+\begin_inset Formula 
+\begin{equation}
+\phi_{x}-2\sin\frac{\phi}{2}=0
+\end{equation}
+
+\end_inset
+
+We then obtin that 
+\begin_inset Formula 
+\begin{equation}
+\int dx=\int\frac{d\phi}{2\sin\frac{\phi}{2}}=\log\tan\left(\frac{\phi}{4}\right)
+\end{equation}
+
+\end_inset
+
+and then we invert to obtain 
+\begin_inset Formula $\phi$
+\end_inset
+
+ in terms of 
+\begin_inset Formula $x$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{equation}
+\phi=4\arctan e^{x-x_{0}}
+\end{equation}
+
+\end_inset
+
+This solution lends itself to interpreting 
+\begin_inset Formula $\phi$
+\end_inset
+
+ as a particle: it is localized (arctan has an abrupt change - a kink- over
+ a narrow window) and has a center of mass given by 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ (this is the center of the region in which the kink is localized).
+ With this solution it can be verified that 
+\begin_inset Formula $E=8$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Chern-Simons theory
+\end_layout
+
+\begin_layout Standard
+Consider
+\begin_inset Formula 
+\begin{equation}
+S=\frac{k}{4\pi}\int_{M^{3}}Tr\left(AdA+A\wedge A\wedge A\right)
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $M^{3}$
+\end_inset
+
+ is a 3d spacetime, 
+\begin_inset Formula $A$
+\end_inset
+
+ is the gauge 
+\begin_inset Quotes eld
+\end_inset
+
+field
+\begin_inset Quotes erd
+\end_inset
+
+ and d and 
+\begin_inset Formula $\wedge$
+\end_inset
+
+ are differential geometry operators.
+ EOMs will not be linear because the lagrangian is not quadratic.
+ 
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial S}{\partial A}=0
+\end{equation}
+
+\end_inset
+
+implies that ('Euler Lagrange equations)
+\begin_inset Formula 
+\begin{equation}
+F_{A}\equiv dA+A\wedge A=0
+\end{equation}
+
+\end_inset
+
+For example, 
+\begin_inset Formula $dA$
+\end_inset
+
+ is the magnetic field and 
+\begin_inset Formula $F_{A}$
+\end_inset
+
+ is the field strength.
+\end_layout
+
+\begin_layout Subsubsection
+Yang-Mills theory
+\end_layout
+
+\begin_layout Standard
+Consider
+\begin_inset Formula 
+\begin{equation}
+S\left[A\right]=Im\tau\int Tr\left(F_{A}\wedge F_{A}+iF_{A}\wedge*F_{A}\right),
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $Im\tau>0$
+\end_inset
+
+, 
+\begin_inset Formula $\tau=\theta/2\pi+4\pi i/g^{2}$
+\end_inset
+
+ with 
+\begin_inset Formula $g$
+\end_inset
+
+ is called the coupling constant.
+\end_layout
+
+\begin_layout Chapter
+Quantum Field Theory (QFT)
+\end_layout
+
+\begin_layout Standard
+In contrast with classical field theory, QFT uses functionals (such as the
+ action) directly rather than EOMs.
+\end_layout
+
+\begin_layout Section
+The Partition function
+\end_layout
+
+\begin_layout Standard
+Consider the particle-wave duality (that occurs like for example in the
+ double slit experiment - 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://en.wikipedia.org/wiki/File:Doubleslit3Dspectrum.gif
+\end_layout
+
+\end_inset
+
+ - for electrons).
+ The wave continuous part will help us calculate probabilities for the discrete
+ entity: the particle.
+\end_layout
+
+\begin_layout Standard
+The problem of calculating probabilities relies on the fundamental ingredient
+ of the partition function:
+\begin_inset Formula 
+\begin{equation}
+Z=\int_{\mbox{possible fields}}\mathcal{D}\phi e^{-S\left[\phi\right]/\hbar}.\label{eq:ph205 partition qft}
+\end{equation}
+
+\end_inset
+
+Since 
+\begin_inset Formula $\hbar$
+\end_inset
+
+ is very small, we can often approximately do this integral in the saddle
+ point approximation (we find configurations to satisfy 
+\begin_inset Formula $\partial_{\phi}S\left[\phi\right]=0$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Section
+Operators
+\end_layout
+
+\begin_layout Standard
+Another fundamental ingredient is the operator 
+\begin_inset Formula $\mathcal{O}$
+\end_inset
+
+, which can relay to us information (analogy given: thermometer), e.g.
+ 
+\begin_inset Formula $\mathcal{O}\left(x\right)=\phi\left(x\right)$
+\end_inset
+
+ or 
+\begin_inset Formula $\phi^{k}\left(x\right)$
+\end_inset
+
+, etc ...
+ 
+\begin_inset Formula $\mathcal{O}$
+\end_inset
+
+ are combinations of basic building blocks like the field 
+\begin_inset Formula $\phi$
+\end_inset
+
+.
+ We can have also more complicated non-local operators such as 
+\begin_inset Formula $\mathcal{O}=Tr_{R}Holy\left(A\left(x\right)\right),$
+\end_inset
+
+ where 
+\begin_inset Formula $R$
+\end_inset
+
+ characterizes a knot (so 
+\begin_inset Formula $\mathcal{O}$
+\end_inset
+
+ is a function of not just one point 
+\begin_inset Formula $\vec{x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Analogy between stat Mechanics and QFT
+\end_layout
+
+\begin_layout Standard
+Two types of randomness appear in physics:
+\end_layout
+
+\begin_layout Enumerate
+Quantum, when certain parameters are in the order of 
+\begin_inset Formula $\hbar$
+\end_inset
+
+.
+ There will be a characteristic partition function: 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:ph205 partition qft"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Thermal, with the characteristic parameter given by 
+\begin_inset Formula $T=\mbox{Temperature}=\beta^{-1}$
+\end_inset
+
+.
+ In statistical mechanics, 
+\begin_inset Formula $Z=\sum_{\mbox{all configurations}}e^{-\beta E}$
+\end_inset
+
+, with 
+\begin_inset Formula $e^{-\beta E}$
+\end_inset
+
+ being the statistical weight.
+\end_layout
+
+\begin_layout Subsection
+Ising Model
+\end_layout
+
+\begin_layout Standard
+Consider 
+\begin_inset Formula 
+\begin{equation}
+\sigma=\pm1,
+\end{equation}
+
+\end_inset
+
+which characterizes spins on a lattice - to every point in space and time,
+ a value is assigned.
+ We can interpret 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ as a field.
+ We need to write down an action to describe the system.
+ The analog of action in stat mechanics is the energy:
+\begin_inset Formula 
+\begin{equation}
+E=-J\sum_{\left\langle i,j\right\rangle \mbox{ nearest neighbors}}\sigma_{i}\sigma_{j}-H\sum_{i}\sigma_{i}.
+\end{equation}
+
+\end_inset
+
+This is a good model for magnets if 
+\begin_inset Formula $J>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+1D Ising Model
+\end_layout
+
+\begin_layout Standard
+Assume a circular configuration of 
+\begin_inset Formula $N$
+\end_inset
+
+ spins with periodic conditions: 
+\begin_inset Formula $\sigma_{i}=\sigma_{i+N}$
+\end_inset
+
+.
+ We have that 
+\begin_inset Formula 
+\begin{eqnarray*}
+Z & = & \sum_{\left\{ \sigma\right\} }\exp\left(\beta J\sum_{i}\sigma_{i}\sigma_{j+1}+\beta H\sum_{i}\sigma_{i}\right).
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This can be solved as we have a local interaction (interaction the same
+ wherever we look at it) 
+\end_layout
+
+\begin_layout Standard
+In the context of QFT, locality is a powerful concept and means that we
+ have translational invariant.
+ 
+\end_layout
+
+\begin_layout Standard
+To solve it, define the 
+\emph on
+transfer matrix
+\emph default
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+T & = & \left(\begin{array}{cc}
+e^{\beta\left(J+H\right)} & e^{-\beta J}\\
+e^{-\beta J} & e^{\beta\left(J-H\right)}
+\end{array}\right)\\
+ & = & \left\{ \braket{\sigma|T|\sigma^{'}}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+and it specifies all possible values of the product 
+\begin_inset Formula $\braket{\sigma|T|\sigma^{'}}$
+\end_inset
+
+.
+ Using 
+\begin_inset Formula $T$
+\end_inset
+
+, we can rewrite the partition function to be
+\begin_inset Formula 
+\begin{eqnarray}
+Z & = & Tr\left(T^{N}\right)\\
+ & = & \sum_{\sigma_{1}}\sum_{\sigma_{2}}...\sum_{\sigma_{N}}T_{\sigma_{1}\sigma_{2}}T_{\sigma_{2}\sigma_{3}}...
+\end{eqnarray}
+
+\end_inset
+
+The eigenvalues of 
+\begin_inset Formula $T$
+\end_inset
+
+ can be calculated to be 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula 
+\begin{equation}
+\lambda_{\pm}=e^{\beta J}\left[\cosh\left(\beta H\right)\pm\sqrt{\sinh^{2}\left(\beta H\right)+e^{-4\beta J}}\right]
+\end{equation}
+
+\end_inset
+
+Writing 
+\begin_inset Formula $T$
+\end_inset
+
+ in diagonal form, ew have that 
+\begin_inset Formula 
+\begin{eqnarray*}
+Z & = & Tr\left(T^{N}\right)\\
+ & = & \lambda_{+}^{N}+\lambda_{-}^{N}\approx\lambda_{+}^{N}
+\end{eqnarray*}
+
+\end_inset
+
+for 
+\begin_inset Formula $N\gg1$
+\end_inset
+
+ and because 
+\begin_inset Formula $\lambda_{+}>\lambda_{-}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Operators in the context of the Ising Model
+\end_layout
+
+\begin_layout Standard
+One legitimate choice of an operator (no unique choice) is 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{O}=\sigma_{i}.
+\end{equation}
+
+\end_inset
+
+We have that 
+\begin_inset Formula 
+\begin{eqnarray}
+\left\langle \mathcal{O}\right\rangle  & = & \left\langle \sigma_{i}\right\rangle =\frac{1}{Z}\sum_{\left\{ \sigma\right\} }\sigma_{i}e^{-\beta E}\\
+ & = & \frac{1}{Z}Tr\left(T^{N}\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right)\right)\\
+ & = & \frac{\sinh\left(\beta+1\right)}{\sqrt{\sinh^{2}\left(\beta H\right)+e^{-4\beta J}}}
+\end{eqnarray}
+
+\end_inset
+
+where the matrix 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right)$
+\end_inset
+
+ reflects the possible values of 
+\begin_inset Formula $\sigma$
+\end_inset
+
+*
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+We have that
+\begin_inset Formula 
+\begin{eqnarray*}
+Tr\left(T^{N}\right) & = & \sum_{\sigma_{1}}\sum_{\sigma_{2}}...\sum_{\sigma_{N}}T_{\sigma_{1}\sigma_{2}}T_{\sigma_{2}\sigma_{3}}...
+\end{eqnarray*}
+
+\end_inset
+
+so 
+\begin_inset Formula 
+\begin{eqnarray*}
+? & = & \sum_{\sigma_{1}}\sum_{\sigma_{2}}...\sum_{\sigma_{N}}\sigma_{2}T_{\sigma_{1}\sigma_{2}}T_{\sigma_{2}\sigma_{3}}...
+\end{eqnarray*}
+
+\end_inset
+
+For simplicity, let 
+\begin_inset Formula $\sigma_{i}=\sigma_{2}$
+\end_inset
+
+, then we claim that 
+\begin_inset Formula 
+\begin{eqnarray*}
+\sum_{\sigma_{2}}\sigma_{2}T_{\sigma_{1}\sigma_{2}}T_{\sigma_{2}\sigma_{3}} & = & \left[T\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right)T\right]_{\sigma_{1}\sigma_{3}}.\\
+ & \equiv & \left(TGT\right)_{\sigma_{1}\sigma_{3}},
+\end{eqnarray*}
+
+\end_inset
+
+where we defined 
+\begin_inset Formula 
+\begin{eqnarray*}
+G & \equiv & \left(\begin{array}{cc}
+1=\sigma_{1} & 0\\
+0 & -1=\sigma_{2}
+\end{array}\right)
+\end{eqnarray*}
+
+\end_inset
+
+as 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(T\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right)T\right)_{ab} & = & \sum_{i}T_{ai}\left(GT\right)_{ib}\\
+ & = & \sum_{ij}T_{ai}G_{ij}T_{jb}\\
+ & = & \sum_{ij}T_{ai}\sigma_{i}\delta_{ij}T_{jb}\\
+ & = & \sum_{i}T_{ai}\sigma_{i}T_{ib}
+\end{eqnarray*}
+
+\end_inset
+
+Hence, 
+\begin_inset Formula 
+\begin{equation}
+\sum_{\sigma_{1}}\sum_{\sigma_{2}}...\sum_{\sigma_{N}}\sigma_{2}T_{\sigma_{1}\sigma_{2}}T_{\sigma_{2}\sigma_{3}}...=Tr\left(T^{l}GT^{k}\right),
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $l$
+\end_inset
+
+ and 
+\begin_inset Formula $k$
+\end_inset
+
+ are some integers.
+ Using the cyclic property of the trace 
+\begin_inset Formula $Tr\left(T^{l}GT^{k}\right)=Tr\left(GT^{k+l}\right)=Tr\left(GT^{N}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Exercise
+Compute the correlation function 
+\begin_inset Formula $\left\langle \sigma_{i}\sigma_{i+r}\right\rangle $
+\end_inset
+
+ and it measures the (degree of) order of the system.
+\end_layout
+
+\begin_layout Section
+Perturbation theory (Feynmann diagrams)
+\end_layout
+
+\begin_layout Standard
+In QFT, can rarely compute the partition function exactly.
+\end_layout
+
+\begin_layout Standard
+To do so, first decompose the action in the following way:
+\begin_inset Formula 
+\[
+S=S_{free\mbox{(i..e quadratic)}}+S_{interaction}.
+\]
+
+\end_inset
+
+
+\begin_inset Formula $S_{interaction}$
+\end_inset
+
+ will often depend on small parameters of the theory, which allow us to
+ carry out a perturbation calculation.
+\end_layout
+
+\begin_layout Example
+As an example, 
+\begin_inset Formula 
+\begin{equation}
+S\left[A\right]=\int\underbrace{AdA}_{S_{free}}+\underbrace{\frac{2}{3\sqrt{k}}A^{3}}_{S_{interaction}}.
+\end{equation}
+
+\end_inset
+
+Moreover, we can take 
+\begin_inset Formula $k\rightarrow\infty$
+\end_inset
+
+, which will give us a small parameter and will allow us to do a nice perturbati
+on.
+ 
+\begin_inset Formula $k\rightarrow\infty$
+\end_inset
+
+ is the 'nice' perturbative limit.
+\end_layout
+
+\begin_layout Standard
+Also,
+\end_layout
+
+\begin_layout Example
+Take (and assume space consists of one point, i.e.
+ 
+\begin_inset Formula $M^{n}=M^{0}$
+\end_inset
+
+) 
+\begin_inset Formula 
+\begin{equation}
+S=\underbrace{m^{2}\phi^{2}}_{S_{free}}+\underbrace{\delta m^{2}\phi^{2}}_{S_{int}},
+\end{equation}
+
+\end_inset
+
+where the second term is a small correction to the first.
+ Since we are working in 0d, we have that 
+\begin_inset Formula $\int\mathcal{D}\phi=\int d\phi$
+\end_inset
+
+ and so we have that (
+\begin_inset Formula $\hbar=1$
+\end_inset
+
+) 
+\begin_inset Formula 
+\begin{equation}
+Z=\int\mathcal{D}\phi e^{-S^{'}\left[\phi\right]=-m^{2}\phi^{2}}=\frac{\sqrt{\pi}}{m}.
+\end{equation}
+
+\end_inset
+
+In our example, 
+\begin_inset Formula 
+\begin{eqnarray}
+Z & = & \sqrt{\frac{\pi}{\left(m^{2}+\delta m^{2}\right)}}\\
+ & = & \sqrt{\frac{\pi}{m}}\left(1+\frac{\delta m^{2}}{m^{2}}\right)^{-1/2}\\
+ & = & \sqrt{\frac{\pi}{m}}\left(1-\frac{1}{2}\frac{\delta m^{2}}{m^{2}}+\frac{3}{8}\left(\frac{\delta m^{2}}{m^{2}}\right)+...\right).
+\end{eqnarray}
+
+\end_inset
+
+For the simple case of 
+\begin_inset Formula $S=m^{2}\phi^{2}$
+\end_inset
+
+, using 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:ph205 green simple sol"
+
+\end_inset
+
+ 
+\begin_inset Formula $G=1/m^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Analysis of the free part of the action
+\end_layout
+
+\begin_layout Standard
+Consider
+\begin_inset Formula 
+\begin{equation}
+\square G\left(x,y\right)=\delta\left(x-y\right),\label{eq:ph205 green simple}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $G$
+\end_inset
+
+ is the green's function and will turn out to be the 2-point correlation
+ function (in the example of the Ising model, it is equal to 
+\begin_inset Formula $\left\langle \sigma_{i}\sigma_{i+r}\right\rangle $
+\end_inset
+
+).
+ It is called the propagator
+\end_layout
+
+\begin_layout Standard
+Use the Fourier transform: 
+\begin_inset Formula 
+\begin{equation}
+f\left(p\right)=\int dxe^{ipx}f\left(x\right),
+\end{equation}
+
+\end_inset
+
+then 
+\begin_inset Formula $\square G\left(x,y\right)=\delta\left(x-y\right)$
+\end_inset
+
+ (Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:ph205 green simple sol"
+
+\end_inset
+
+) becomes
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(p^{2}+m^{2}\right)G\left(p\right) & = & 1
+\end{eqnarray*}
+
+\end_inset
+
+and so
+\begin_inset Formula 
+\begin{equation}
+G\left(p\right)=\frac{1}{p^{2}+m^{2}}.\label{eq:ph205 green simple sol}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Notation: 
+\end_layout
+
+\begin_layout Enumerate
+This course uses the Einstein summation convention.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\partial_{\mu}$
+\end_inset
+
+ is an abbreviation of 
+\begin_inset Formula $\partial_{x^{\mu}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Contractions:
+\begin_inset Formula 
+\begin{equation}
+A_{\mu\alpha_{1}...\alpha_{n}}B^{\mu\beta_{1}...\beta_{n}}=A_{\mu\alpha_{1}...\alpha_{n}}B_{\nu\beta_{1}...\beta_{n}}g^{\mu\nu},
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $g_{\mu\nu}g^{\nu\lambda}=\delta_{\mu}^{\,\lambda}$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\begin{eqnarray*}
+g_{\mu\nu} & = & \left(\begin{array}{cccc}
+-1\\
+ & 1\\
+ &  & 1\\
+ &  &  & 1
+\end{array}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Terminology
+\end_layout
+
+\begin_layout Chapter
+Misc
+\end_layout
+
+\begin_layout Section
+Books
+\end_layout
+
+\begin_layout Enumerate
+Recommendation from someone: 
+\begin_inset Quotes eld
+\end_inset
+
+but once you become more experienced, Ryder will start looking very basic
+ but it is important for a first timer nonetheless
+\end_layout
+
+\begin_layout Standard
+http://www.amazon.com/Quantum-Field-Theory-Lewis-Ryder/dp/0521478146/ref=sr_1_1?ie
+=UTF8&qid=1349142023&sr=8-1&keywords=quantum+ryder
+\end_layout
+
+\begin_layout Standard
+Zee is another good book.
+ But not very rigorous
+\end_layout
+
+\begin_layout Standard
+it gives you a very broad overview
+\end_layout
+
+\begin_layout Standard
+it has to be supplemented with something
+\end_layout
+
+\begin_layout Standard
+http://www.amazon.com/Quantum-Field-Theory-Nutshell-Princeton/dp/0691140340/ref=sr
+_1_1?ie=UTF8&qid=1349142111&sr=8-1&keywords=quantum+zee
+\end_layout
+
+\begin_layout Standard
+Greiner is very good for brute force calculations
+\end_layout
+
+\begin_layout Standard
+there will be a lot of them in QFT
+\end_layout
+
+\begin_layout Standard
+so it's very handy to have something already worked out
+\end_layout
+
+\begin_layout Standard
+maybe for debugging purposes
+\end_layout
+
+\begin_layout Standard
+or when you're just too lazy to do it yourself without making too many errors
+\end_layout
+
+\begin_layout Standard
+http://www.amazon.com/Relativistic-Quantum-Mechanics-Wave-Equations/dp/3540674578/
+ref=sr_1_6?s=books&ie=UTF8&qid=1349142248&sr=1-6&keywords=quantum+greiner
+\end_layout
+
+\begin_layout Standard
+http://www.amazon.com/Field-Quantization-Joachim-Reinhardt/dp/3540780483/ref=sr_1_
+4?s=books&ie=UTF8&qid=1349142248&sr=1-4&keywords=quantum+greiner
+\end_layout
+
+\begin_layout Standard
+http://www.amazon.com/Quantum-Electrodynamics-Walter-Greiner/dp/3540875603/ref=sr_
+1_5?s=books&ie=UTF8&qid=1349142248&sr=1-5&keywords=quantum+greiner
+\end_layout
+
+\begin_layout Standard
+http://www.amazon.com/Gauge-Theory-Interactions-Walter-Greiner/dp/3540878424/ref=s
+r_1_7?s=books&ie=UTF8&qid=1349142248&sr=1-7&keywords=quantum+greiner
+\end_layout
+
+\begin_layout Standard
+http://www.amazon.com/Quantum-Chromodynamics-Walter-Greiner/dp/3540485341/ref=sr_1
+_3?s=books&ie=UTF8&qid=1349142248&sr=1-3&keywords=quantum+greiner
+\end_layout
+
+\begin_layout Standard
+in that order pedagogically
+\end_layout
+
+\begin_layout Standard
+it will be a huge pain in the ass calculating these cross-sections
+\end_layout
+
+\begin_layout Standard
+to make things worse, QCD is even harder
+\end_layout
+
+\begin_layout Standard
+because of non-abelian shit
+\end_layout
+
+\begin_layout Standard
+and the fact that perturbation doesn't work
+\end_layout
+
+\begin_layout Standard
+like what we talked about this afternoon
+\end_layout
+
+\begin_layout Standard
+QED is nice and simple
+\end_layout
+
+\begin_layout Standard
+however there are some gay ass processes with Bhabha, compton scattering
+ etc.
+ and that faggot Klein-Nishina formula.
+ Some trace formulas for those faggot gamma matrices.
+ Those are the only painful things in QED
+\end_layout
+
+\begin_layout Standard
+I mean, only tedious calculations
+\end_layout
+
+\begin_layout Standard
+in which case, Greiner would really come in handy
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

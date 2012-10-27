@@ -1,0 +1,350 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrbook
+\begin_preamble
+
+\usepackage{braket}
+\end_preamble
+\options unicode=true
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize 11
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1cm
+\topmargin 1cm
+\rightmargin 1cm
+\bottommargin 3cm
+\headheight 2cm
+\headsep 2cm
+\footskip 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Introduction
+\end_layout
+
+\begin_layout Section
+Optical Amplification
+\end_layout
+
+\begin_layout Standard
+Laser action requires optical amplification which relies on two main concepts,
+ shown in the figure below: 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/bassa_000/Desktop/aph190 optical amplification.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Optical amplification.
+ 
+\begin_inset Formula $G$
+\end_inset
+
+ is the gain.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Road Map to understanding how lasers work
+\end_layout
+
+\begin_layout Enumerate
+We will look at Rabi oscillations and how a coherent wave is resonant with
+ a 2-level system.
+ Specifically, we will investigate the power flow between the atom and the
+ field and we will determine the conditions needed for sustained amplification
+ of the input field.
+\end_layout
+
+\begin_layout Enumerate
+Then, we will introduce damping (and the related concept of susceptibility)
+ into the system.
+\end_layout
+
+\begin_layout Enumerate
+We will study rate equations which will combine all of the concepts studied
+ in the previous points and will help us determine when laser action is
+ possible.
+\end_layout
+
+\begin_layout Chapter
+Simple Semi-Classical treatment of the laser
+\end_layout
+
+\begin_layout Section
+Assumptions
+\end_layout
+
+\begin_layout Standard
+This chapter presents the most simple treatment of the laser, and will make
+ use of the following 
+\emph on
+assumptions
+\emph default
+:
+\end_layout
+
+\begin_layout Enumerate
+Approximate the atom as a 2-level system.
+ The first level is an s-wave (ground state) and the second is a p-wave
+ (first excited state).
+\end_layout
+
+\begin_layout Enumerate
+The atom is isolated (i.e.
+ no damping), so will assume that the atom is alone and it is not interacting
+ with other radiation modes than the input field.
+\end_layout
+
+\begin_layout Enumerate
+The rotating wave approximation (RWA) which will help us treat the interaction
+ of the electron with the field analytically.
+ Specifically, we will find that the interaction term in the Hamiltonian
+ is time-dependent and we will assume that the original eigenbasis of the
+ system stays relevant (so the eigenbasis changes adiabatically - i.e.
+ slowly in time).
+\end_layout
+
+\begin_layout Section
+Two-level systems
+\end_layout
+
+\begin_layout Subsection
+Description
+\end_layout
+
+\begin_layout Standard
+A 2 level system is modeled in the following way: 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../aph190 2 level system.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:aph190 2 level system"
+
+\end_inset
+
+2 level system interacting with an incoming field
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ The energy difference between the two levels will be denoted by
+\begin_inset Formula 
+\begin{equation}
+\hbar\Omega\equiv E_{2}-E_{1}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Heuristic justification of the 2 level atom assumption
+\end_layout
+
+\begin_layout Standard
+In reality, atoms contain many more energy states than just 2 states.
+ However, many of the energy states play no role in the interaction of the
+ electron with the field as only a few states can satisfy the conservation
+ of energy condition.
+ Moreover, transitions that satisfy the resonance condition dominate the
+ dynamics.
+ Note though that for a very strong field, this statement breaks down.
+\end_layout
+
+\begin_layout Subsection
+Hamiltonian
+\end_layout
+
+\begin_layout Standard
+The system is modeled with the following Hamiltonian
+\begin_inset Formula 
+\begin{equation}
+H=H_{0}-\vec{\mu}.\vec{\mathcal{E}}\left(\vec{x},\vec{t}\right),\label{eq:test}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ is is the Hamiltonian of the system, 
+\begin_inset Formula $\vec{\mu}=q\vec{x}$
+\end_inset
+
+ is the atomic dipole moment operator with electron charge 
+\begin_inset Formula $q$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{\mathcal{E}}\left(\vec{x},\vec{t}\right)=\mbox{re}\left[\vec{E}\left(\vec{x},\vec{t}\right)\right]$
+\end_inset
+
+ with 
+\begin_inset Formula $\vec{E}=\vec{E}_{0}\exp\left[i\left(\vec{k}.\vec{r}-\omega t\right)\right]$
+\end_inset
+
+ being the electric field shown in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:aph190 2 level system"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_body
+\end_document
