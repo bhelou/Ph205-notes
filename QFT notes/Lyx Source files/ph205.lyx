@@ -4326,10 +4326,10 @@ reference "eq:hamiltonianExercise35"
 
 \end_inset
 
-) 
+) that the hamiltonian density is given 
 \begin_inset Formula 
 \begin{equation}
-H=\Pi^{\dagger}\Pi+\nabla\phi^{\dagger}.\nabla\phi+m^{2}\phi^{\dagger}\phi-\Omega_{0}.
+\mathcal{H}=\Pi^{\dagger}\Pi+\nabla\phi^{\dagger}.\nabla\phi+m^{2}\phi^{\dagger}\phi-\Omega_{0}.
 \end{equation}
 
 \end_inset
@@ -4362,13 +4362,34 @@ and
 
 \end_inset
 
-Hence,
+BLAH (follow page 27 of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Srednicki200702"
+
+\end_inset
+
+) to get that (
+\begin_inset Formula $H=\int d^{3}x\mathcal{H}$
+\end_inset
+
+)
 \begin_inset Formula 
-\begin{eqnarray}
-\phi^{\dagger}\phi & = & \int\tilde{dk}\tilde{ds}\left[a^{\dagger}\left(\vec{k}\right)e^{-ikx}+b\left(\vec{k}\right)e^{ikx}\right]\left[a\left(\vec{s}\right)e^{isx}+b^{\dagger}\left(\vec{s}\right)e^{-isx}\right]\\
- & = & \int\tilde{dk}\tilde{ds}\left(a^{\dagger}\left(\vec{k}\right)a\left(\vec{s}\right)e^{ix\left(s-k\right)}+a^{\dagger}\left(\vec{k}\right)b^{\dagger}\left(\vec{s}\right)e^{-ix\left(s+k\right)}+b\left(k\right)a\left(s\right)e^{ix\left(k+s\right)}+b\left(k\right)b^{\dagger}\left(s\right)e^{ix\left(k-s\right)}\right)\\
- & = & \left(2\pi\right)^{3}\int\tilde{dk}\left(a^{\dagger}\left(\vec{k}\right)a\left(k\right)+a^{\dagger}\left(\vec{k}\right)b^{\dagger}\left(-k\right)+b\left(k\right)a\left(-k\right)+b\left(k\right)b^{\dagger}\left(k\right)\right)\\
-\end{eqnarray}
+\begin{equation}
+H=\int\tilde{dk}\omega\left[a^{\dagger}\left(\vec{k}\right)a\left(\vec{k}\right)+b^{\dagger}\left(\vec{k}\right)b\left(\vec{k}\right)\right]+\left(2\mathcal{E}_{0}-\Omega_{0}\right)V,
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $V$
+\end_inset
+
+ is the volume of the space and
+\begin_inset Formula 
+\begin{equation}
+\mathcal{E}_{0}=\frac{1}{2\left(2\pi\right)^{3}}\int d^{3}k\omega.
+\end{equation}
 
 \end_inset
 
@@ -5664,6 +5685,12 @@ where
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:ThePathIntegralHarmonicOscillator"
+
+\end_inset
+
 The path integral for the Harmonic Oscillator
 \end_layout
 
@@ -5856,7 +5883,7 @@ Using
 \end_inset
 
  is unimportant because it is just a normalization factor: let 
-\begin_inset Formula $\braket{0|0}=1$
+\begin_inset Formula $\braket{0|0}_{f=0}=1$
 \end_inset
 
 ; it does not play a role in calculating correlation functions.
@@ -5959,6 +5986,422 @@ The 4 point function is given by
 \begin_inset Formula 
 \begin{equation}
 \braket{0|T\hat{q}\left(t_{1}\right)\hat{q}\left(t_{2}\right)\hat{q}\left(t_{3}\right)\hat{q}\left(t_{3}\right)|0}=\frac{1}{i^{2}}\left[G\left(t_{1}-t_{2}\right)G\left(t_{3}-t_{4}\right)+G\left(t_{1}-t_{3}\right)G\left(t_{2}-t_{4}\right)+G\left(t_{1}-t_{4}\right)G\left(t_{2}-t_{3}\right)\right].
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The Path Integral for free field theory
+\end_layout
+
+\begin_layout Standard
+Consider the following Hamiltonian density:
+\begin_inset Formula 
+\begin{equation}
+\mathcal{H}=\frac{1}{2}\Pi^{2}+\frac{1}{2}\left(\nabla\phi\right)^{2}+\frac{1}{2}m\phi^{2},
+\end{equation}
+
+\end_inset
+
+where
+\begin_inset Formula $\phi\left(x\right)$
+\end_inset
+
+ is the analogue of 
+\begin_inset Formula $q\left(t\right)$
+\end_inset
+
+ and is the 
+\begin_inset Quotes eld
+\end_inset
+
+field
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The source terms will now be denoted with 
+\begin_inset Formula $J\left(x\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+J\left(x\right)\leftrightarrow f\left(t\right).
+\end{equation}
+
+\end_inset
+
+To regularize concrete expressions, the equivalent of 
+\begin_inset Formula $\mathcal{H}\rightarrow\left(1-i\epsilon\right)\mathcal{H}$
+\end_inset
+
+ will be 
+\begin_inset Formula $m^{2}\rightarrow m^{2}-i\epsilon$
+\end_inset
+
+.
+ 
+\begin_inset Formula $m^{2}\rightarrow m^{2}-i\epsilon$
+\end_inset
+
+ will be 
+\series bold
+\bar under
+assumed
+\bar default
+ 
+\series default
+in what follows.
+ 
+\end_layout
+
+\begin_layout Standard
+We have that
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}=-\frac{1}{2}\partial^{\mu}\phi\partial_{\mu}\phi-\frac{1}{2}m^{2}\phi^{2}.
+\end{equation}
+
+\end_inset
+
+Moreover, 
+\begin_inset Formula 
+\begin{equation}
+Z\left(J\right)\equiv\braket{0|0}_{J}=\int\mathcal{D}\phi\underbrace{\exp\left(i\int d^{4}x\left[\mathcal{L}+J\phi\right]\right)}_{e^{iS}},
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $Z$
+\end_inset
+
+ is the partition function.
+\end_layout
+
+\begin_layout Standard
+Introduce the Fourier transform of 
+\begin_inset Formula $\phi$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray}
+\tilde{\phi}\left(k\right) & = & \int d^{4}xe^{-ikx}\phi\left(x\right),\\
+\phi\left(x\right) & = & \int\frac{d^{4}k}{\left(2\pi\right)^{4}}e^{ikx}\tilde{\phi}\left(k\right).
+\end{eqnarray}
+
+\end_inset
+
+And so we can write that (the procedure is nearly identical to what was
+ done in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:ThePathIntegralHarmonicOscillator"
+
+\end_inset
+
+)
+\begin_inset Formula 
+\begin{eqnarray}
+S & = & \frac{1}{2}\int\frac{d^{4}k}{\left(2\pi\right)^{4}}\left[-\tilde{\phi}\left(k\right)\left(k^{2}+m^{2}\right)\tilde{\phi}\left(-k\right)+\tilde{J}\left(k\right)\tilde{\phi}\left(-k\right)+\tilde{J}\left(-k\right)\tilde{\phi}\left(k\right)\right]\\
+ & = & \frac{1}{2}\int\frac{d^{4}k}{\left(2\pi\right)^{4}}\left[\frac{\tilde{J}\left(k\right)\tilde{J}\left(-k\right)}{k^{2}+m^{2}}-\tilde{\chi}\left(k\right)\left(k^{2}+m^{2}\right)\tilde{\chi}\left(-k\right)\right],
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\begin{equation}
+\tilde{\chi}\left(k\right)=\tilde{\phi}\left(k\right)-\frac{\tilde{J}\left(k\right)}{k^{2}+m^{2}}.
+\end{equation}
+
+\end_inset
+
+Note that 
+\begin_inset Formula $\mathcal{D}\phi=\mathcal{D}\chi$
+\end_inset
+
+ because 
+\begin_inset Formula $\chi$
+\end_inset
+
+ is 
+\begin_inset Formula $\phi$
+\end_inset
+
+ with an added (functional) constant.
+ Normalizing (i.e.
+ 
+\begin_inset Formula $Z\left(0\right)=\braket{0|0}_{J=0}=1$
+\end_inset
+
+), we get that 
+\begin_inset Formula 
+\begin{eqnarray}
+Z\left(J\right) & = & \exp\left[\frac{i}{2}\int\frac{d^{4}k}{\left(2\pi\right)^{4}}\frac{\tilde{J}\left(k\right)\tilde{J}\left(-k\right)}{k^{2}+m^{2}-i\epsilon}\right]\\
+ & = & \exp\left[\frac{i}{2}\int d^{4}xd^{4}x^{'}J\left(x\right)\Delta\left(x^{'}-x\right)J\left(x^{'}\right)\right],\label{eq:solPartitionFunction0}
+\end{eqnarray}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{equation}
+\Delta\left(x-x^{'}\right)\equiv\int\frac{d^{4}k}{\left(2\pi\right)^{4}}\frac{\exp\left[ik\left(x-x^{'}\right)\right]}{k^{2}+m^{2}-i\epsilon}
+\end{equation}
+
+\end_inset
+
+and is called the Feynman propagator.
+ Indeed,
+\begin_inset Formula 
+\begin{equation}
+\left(-\partial_{x}^{2}+m^{2}\right)\Delta\left(x-x^{'}\right)=\delta^{4}\left(x-x^{'}\right),
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\partial_{x}=\partial_{x^{\mu}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\partial_{x}^{2}=\partial_{\mu}\partial^{\mu}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Calculating correlation functions
+\end_layout
+
+\begin_layout Standard
+We have that 
+\begin_inset Formula 
+\begin{equation}
+\braket{0|T\phi\left(x_{1}\right)...|0}=\left.\frac{1}{i}\frac{\partial}{\partial J\left(x_{1}\right)}...Z\left(J\right)\right|_{J=0}.
+\end{equation}
+
+\end_inset
+
+In particular,
+\begin_inset Formula 
+\begin{eqnarray}
+\braket{0|T\phi\left(x_{1}\right)\phi\left(x_{2}\right)|0} & = & \left.\frac{1}{i}\frac{\partial}{\partial J\left(x_{1}\right)}\frac{1}{i}\frac{\partial}{\partial J\left(x_{2}\right)}Z\left(J\right)\right|_{J=0}\\
+ & = & \left.\frac{1}{i}\frac{\partial}{\partial J\left(x_{1}\right)}\left[\int d^{4}x^{'}\Delta\left(x_{2}-x_{1}\right)J\left(x^{'}\right)\right]Z\left(J\right)\right|_{J=0}\\
+ & = & \left.\left(\frac{1}{i}\Delta\left(x_{2}-x_{1}\right)+\mbox{terms with Js}\right)Z\left(J\right)\right|_{J=0}\\
+ & = & \frac{1}{i}\Delta\left(x_{2}-x_{1}\right).
+\end{eqnarray}
+
+\end_inset
+
+More generally, using Wick's theorem, we have that
+\begin_inset Formula 
+\begin{equation}
+\braket{0|T\phi\left(x_{1}\right)...\phi\left(x_{2}\right)|0}=\frac{1}{i^{m}}\sum_{S_{2m}/\sim"pairing"}\Delta\left(x_{S\left(1\right)}-x_{S\left(2\right)}\right)\times...\times\Delta\left(x_{S\left(2m-1\right)}-x_{S\left(2m\right)}\right).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+Consider
+\begin_inset Formula 
+\begin{equation}
+\braket{0|T\phi\left(x_{1}\right)\phi\left(x_{2}\right)\phi\left(x_{3}\right)\phi\left(x_{4}\right)|0}=\frac{1}{i^{2}}\left[\Delta\left(x_{1}-x_{2}\right)\Delta\left(x_{3}-x_{4}\right)+\Delta\left(x_{1}-x_{3}\right)\Delta\left(x_{2}-x_{4}\right)+\Delta\left(x_{1}-x_{4}\right)\Delta\left(x_{2}-x_{3}\right)\right].
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Feynman Diagrams
+\end_layout
+
+\begin_layout Subsection
+Normalizations convention
+\end_layout
+
+\begin_layout Standard
+We will be making use of the following normalizations:
+\end_layout
+
+\begin_layout Enumerate
+We have that
+\begin_inset Formula 
+\begin{equation}
+\braket{0|\phi\left(x\right)|0}=0,
+\end{equation}
+
+\end_inset
+
+(this effectively saying as 
+\begin_inset Formula $\phi\left(x\right)$
+\end_inset
+
+ is a linear combination of creation and annihilation operators with no
+ added constant - e.g.
+ 
+\begin_inset Formula $\phi\left(x\right)=\sum a\left(k\right)e^{ikx}+h.c.$
+\end_inset
+
+), where 
+\begin_inset Formula $\left|0\right\rangle $
+\end_inset
+
+ denotes vacuum state.
+\end_layout
+
+\begin_layout Enumerate
+Letting 
+\begin_inset Formula $\left|k\right\rangle $
+\end_inset
+
+ being a one-particle state (
+\begin_inset Formula $\left|k\right\rangle \sim a^{\dagger}\left(k\right)\left|0\right\rangle $
+\end_inset
+
+), we have that
+\begin_inset Formula 
+\begin{equation}
+\braket{k|\phi\left(x\right)|0}=e^{-ikx}.
+\end{equation}
+
+\end_inset
+
+Moreover,
+\begin_inset Formula 
+\begin{equation}
+\braket{k^{'}|k}=\left(2\pi\right)^{3}2k^{0}\delta^{3}\left(\vec{k}-\vec{k}^{'}\right).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\phi^{3}$
+\end_inset
+
+ theory
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}=\frac{1}{2}\left(\partial_{\mu}\phi\right)\left(\partial^{\mu}\phi\right)-\frac{1}{2}m^{2}\phi^{2}+\frac{1}{3!}g\phi^{3},
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $g$
+\end_inset
+
+ is called the coupling constant and the 
+\begin_inset Formula $\phi^{3}$
+\end_inset
+
+ term represents the interaction term in our exactly solvable model (i.e.
+ the 
+\begin_inset Formula $\phi^{2}$
+\end_inset
+
+ free field model).
+ The Hamiltonian density is given by
+\begin_inset Formula 
+\begin{equation}
+\mathcal{H}=\frac{1}{2}\Pi^{2}+\frac{1}{2}m^{2}\phi^{2}-\frac{1}{3!}g\phi^{3}.
+\end{equation}
+
+\end_inset
+
+Notice that there is an instability because 
+\begin_inset Formula $\mathcal{H}\rightarrow-\infty$
+\end_inset
+
+ as 
+\begin_inset Formula $g\phi^{3}\rightarrow\infty$
+\end_inset
+
+.
+ However, this instability will not be visible in the perturbation theory
+ that we will be doing.
+ 
+\end_layout
+
+\begin_layout Standard
+Write the full path integral
+\begin_inset Formula 
+\begin{eqnarray}
+Z\left(J\right) & = & \braket{0|0}_{J}\\
+ & = & \int\mathcal{D}\phi\exp\left[i\int d^{4}x\left(\mathcal{L}_{0}+\mathcal{L}_{int}+J\phi\right)\right],
+\end{eqnarray}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{eqnarray}
+\mathcal{L}_{0} & = & \frac{1}{2}\left(\partial_{\mu}\phi\right)\left(\partial^{\mu}\phi\right)-\frac{1}{2}m^{2}\phi^{2},\\
+\mathcal{L}_{int} & = & \frac{1}{3!}g\phi^{3}.
+\end{eqnarray}
+
+\end_inset
+
+Define 
+\begin_inset Formula $W$
+\end_inset
+
+ to be the logarithm of the partition function: 
+\begin_inset Formula 
+\begin{equation}
+Z\left(J\right)=\exp\left[iW\left(J\right)\right].
+\end{equation}
+
+\end_inset
+
+We can write
+\begin_inset Formula 
+\begin{eqnarray}
+Z\left(J\right) & = & \exp\left[i\int d^{4}x\mathcal{L}_{int}\left(\frac{1}{i}\frac{\partial}{\partial J\left(x\right)}\right)\right]\times\int\mathcal{D}\phi e^{i\int d^{4}x\left[\mathcal{L}_{0}+J\phi\right]}\\
+ & \sim & \exp\left[i\int d^{4}x\mathcal{L}_{int}\left(\frac{1}{i}\frac{\partial}{\partial J\left(x\right)}\right)\right]\times Z_{0}\left(J\right),
+\end{eqnarray}
+
+\end_inset
+
+where (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:solPartitionFunction0"
+
+\end_inset
+
+) 
+\begin_inset Formula 
+\begin{equation}
+Z_{0}\left(J\right)=\exp\left[\frac{i}{2}\int d^{4}xd^{4}x^{'}J\left(x\right)\Delta\left(x-x^{'}\right)J\left(x^{'}\right)\right].
 \end{equation}
 
 \end_inset
@@ -6315,6 +6758,10 @@ Misc
 Books
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
 \begin_layout Enumerate
 Recommendation from someone: 
 \begin_inset Quotes eld
@@ -6324,103 +6771,103 @@ but once you become more experienced, Ryder will start looking very basic
  but it is important for a first timer nonetheless
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 http://www.amazon.com/Quantum-Field-Theory-Lewis-Ryder/dp/0521478146/ref=sr_1_1?ie
 =UTF8&qid=1349142023&sr=8-1&keywords=quantum+ryder
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Zee is another good book.
  But not very rigorous
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 it gives you a very broad overview
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 it has to be supplemented with something
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 http://www.amazon.com/Quantum-Field-Theory-Nutshell-Princeton/dp/0691140340/ref=sr
 _1_1?ie=UTF8&qid=1349142111&sr=8-1&keywords=quantum+zee
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Greiner is very good for brute force calculations
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 there will be a lot of them in QFT
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 so it's very handy to have something already worked out
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 maybe for debugging purposes
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 or when you're just too lazy to do it yourself without making too many errors
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 http://www.amazon.com/Relativistic-Quantum-Mechanics-Wave-Equations/dp/3540674578/
 ref=sr_1_6?s=books&ie=UTF8&qid=1349142248&sr=1-6&keywords=quantum+greiner
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 http://www.amazon.com/Field-Quantization-Joachim-Reinhardt/dp/3540780483/ref=sr_1_
 4?s=books&ie=UTF8&qid=1349142248&sr=1-4&keywords=quantum+greiner
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 http://www.amazon.com/Quantum-Electrodynamics-Walter-Greiner/dp/3540875603/ref=sr_
 1_5?s=books&ie=UTF8&qid=1349142248&sr=1-5&keywords=quantum+greiner
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 http://www.amazon.com/Gauge-Theory-Interactions-Walter-Greiner/dp/3540878424/ref=s
 r_1_7?s=books&ie=UTF8&qid=1349142248&sr=1-7&keywords=quantum+greiner
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 http://www.amazon.com/Quantum-Chromodynamics-Walter-Greiner/dp/3540485341/ref=sr_1
 _3?s=books&ie=UTF8&qid=1349142248&sr=1-3&keywords=quantum+greiner
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 in that order pedagogically
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 it will be a huge pain in the ass calculating these cross-sections
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 to make things worse, QCD is even harder
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 because of non-abelian shit
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 and the fact that perturbation doesn't work
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 like what we talked about this afternoon
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 QED is nice and simple
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 however there are some gay ass processes with Bhabha, compton scattering
  etc.
  and that faggot Klein-Nishina formula.
@@ -6428,13 +6875,18 @@ however there are some gay ass processes with Bhabha, compton scattering
  Those are the only painful things in QED
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 I mean, only tedious calculations
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 in which case, Greiner would really come in handy
 \begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
