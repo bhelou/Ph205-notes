@@ -4,33 +4,13 @@
 \begin_header
 \textclass scrbook
 \begin_preamble
-\usepackage{breqn}
 \usepackage{braket}
-
-% Add support for automatic equation breaking
-\gdef\wrap@breqn@environ#1#2{
-    \expandafter\let\csname breqn@oldbegin@#1\expandafter\endcsname\csname #1\endcsname
-    \expandafter\let\csname breqn@oldend@#1\expandafter\endcsname\csname end#1\endcsname
-    \expandafter\gdef\csname breqn@begin@#1\endcsname{%
-        \expandafter\let\csname #1\expandafter\endcsname\csname breqn@oldbegin@#1\endcsname%
-        \begin{#2}%
-    }
-    \expandafter\gdef\csname breqn@end@#1\endcsname{%
-        \expandafter\let\csname end#1\expandafter\endcsname\csname breqn@oldend@#1\endcsname%
-        \end{#2}%
-        \expandafter\let\csname #1\expandafter\endcsname\csname breqn@begin@#1\endcsname%
-        \expandafter\let\csname end#1\expandafter\endcsname\csname breqn@end@#1\endcsname%
-    }
-    \expandafter\let\csname #1\expandafter\endcsname\csname breqn@begin@#1\endcsname
-    \expandafter\let\csname end#1\expandafter\endcsname\csname breqn@end@#1\endcsname
-}
-\wrap@breqn@environ{equation}{dmath}
-\wrap@breqn@environ{equation*}{dmath*}
-
-\global\let\[=\equation
- \global\let\]=\endequation
+\usepackage{color}
+\usepackage{cancel}
+\usepackage{simplewick}
+\usepackage{feyn} 
 \end_preamble
-\options unicode=true
+\options unicode = true, noglobalbang
 \use_default_options true
 \begin_modules
 theorems-ams
@@ -58,7 +38,7 @@ figs-within-sections
 \bibtex_command default
 \index_command default
 \float_placement H
-\paperfontsize 11
+\paperfontsize 10
 \spacing single
 \use_hyperref true
 \pdf_bookmarks true
@@ -109,6 +89,93 @@ figs-within-sections
 \end_header
 
 \begin_body
+
+\begin_layout Standard
+
+\size tiny
+\begin_inset FormulaMacro
+\newcommand{\braket}[1]{\Braket{#1}}
+{\left\langle #1\right\rangle }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\colwhite}[1]{\textcolor{white}{#1}}
+{\textcolor{white}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\colblack}[1]{\textcolor{black}{#1}}
+{\textcolor{black}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\colred}[1]{\textcolor{red}{#1}}
+{\textcolor{red}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\colblue}[1]{\textcolor{blue}{#1}}
+{\textcolor{blue}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\colgreen}[1]{\textcolor{green}{#1}}
+{\textcolor{green}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\colcyan}[1]{\textcolor{cyan}{#1}}
+{\textcolor{cyan}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\colmagenta}[1]{\textcolor{magenta}{#1}}
+{\textcolor{magenta}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\colyellow}[1]{\textcolor{yellow}{#1}}
+{\textcolor{yellow}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
 
 \begin_layout Title
 Ph205 Notes
@@ -4944,7 +5011,7 @@ In the limit that
 )
 \begin_inset Formula 
 \begin{equation}
-\braket{q^{''},t^{''}|q^{'},t^{'}}=\int\mathcal{D}q\left(t\right)\mathcal{D}p\left(t\right)\exp\left[i\int_{t^{'}}^{t^{''}}dt\left(p\left(t\right)\dot{q}\left(t\right)-H\left(p\left(t\right),q\left(t\right)\right)\right)\right],
+\braket{q^{''},t^{''}|q^{'},t^{'}}=\int\mathcal{D}q\left(t\right)\mathcal{D}p\left(t\right)\exp\left[i\int_{t^{'}}^{t^{''}}dt\left(p\left(t\right)\dot{q}\left(t\right)-H\left(p\left(t\right),q\left(t\right)\right)\right)\right],\label{eq:fullExprPathIntegral}
 \end{equation}
 
 \end_inset
@@ -5315,7 +5382,7 @@ Integration over poles (note: it is important to loop in the same way; looping
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Taking the 
 \begin_inset Formula $t\rightarrow\infty$
 \end_inset
@@ -5357,6 +5424,7 @@ When we take the limit that
 \begin_inset Formula $\left\{ dq^{''}dq^{'}\psi_{0}^{*}\left(q^{''}\right)\psi_{0}\left(q^{'}\right)\right\} $
 \end_inset
 
+.
 
 \family default
 \series default
@@ -5406,7 +5474,7 @@ When we take the limit that
  can be written to be 
 \begin_inset Formula 
 \begin{equation}
-\braket{0|0}_{f,h}=\lim_{t^{'}\rightarrow-\infty,t^{''}\rightarrow\infty}\int dq^{''}dq^{'}\psi_{0}^{*}\left(q^{''}\right)\braket{q^{''},t^{''}|q^{'},t^{'}}_{f,h}\psi_{0}\left(q^{'}\right),\label{eq:expected00}
+\braket{0|0}_{f,h}=\lim_{{t^{'}\rightarrow-\infty\atop t^{''}\rightarrow\infty}}\int dq^{''}dq^{'}\psi_{0}^{*}\left(q^{''}\right)\braket{q^{''},t^{''}|q^{'},t^{'}}_{f,h}\psi_{0}\left(q^{'}\right),\label{eq:expected00}
 \end{equation}
 
 \end_inset
@@ -5435,6 +5503,20 @@ Note that
 \end_inset
 
  appearing as a bra.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:onlyGroundStateSurvives"
+
+\end_inset
+
+As 
+\begin_inset Formula $t\rightarrow\infty$
+\end_inset
+
+, only the ground sate survives
 \end_layout
 
 \begin_layout Standard
@@ -5472,7 +5554,7 @@ Indeed, (assuming a discrete spectrum of energies)
 \begin{eqnarray}
 \left|q^{'},t^{'}\right\rangle  & = & e^{iHt^{'}}\left|q^{'}\right\rangle \\
  & = & \sum_{n=0}^{\infty}e^{iHt^{'}}\left|n\right\rangle \braket{n|q^{'}}\\
- & = & \sum_{n=0}^{\infty}e^{iE_{n}t^{'}}\psi_{n}^{*}\left(q^{'}\right)\left|n\right\rangle ,
+ & = & \sum_{n=0}^{\infty}e^{iE_{n}t^{'}}\psi_{n}^{*}\left(q^{'}\right)\left|n\right\rangle ,\label{eq:tempeqNBa}
 \end{eqnarray}
 
 \end_inset
@@ -5490,7 +5572,7 @@ where
 \begin_inset Formula $\left|0\right\rangle $
 \end_inset
 
- with energy 0 and 
+ with energy 0 and with wavefunction 
 \begin_inset Formula $\psi_{0}\left(q\right)=\braket{q|0}$
 \end_inset
 
@@ -5499,7 +5581,7 @@ where
 \begin_inset Formula $E_{n}$
 \end_inset
 
- has a small imaginary, which means that 
+ has a small imaginary part, which means that 
 \family roman
 \series medium
 \shape up
@@ -5522,7 +5604,18 @@ where
 status collapsed
 
 \begin_layout Plain Layout
-We have that (note that the 
+Using 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:tempeqNBa"
+
+\end_inset
+
+ and that 
+\begin_inset Formula $H\rightarrow\left(1-i\epsilon\right)H$
+\end_inset
+
+, we have that (note that the 
 \begin_inset Formula $f,h$
 \end_inset
 
@@ -5541,7 +5634,7 @@ We have that (note that the
 
 \begin_inset Formula 
 \begin{equation}
-\braket{q^{''},t^{''}|q^{'},t^{'}}_{f,h}=\psi_{0}\left(q^{''}\right)\psi_{0}^{*}\left(q^{'}\right)\braket{0|0}
+\braket{q^{''},t^{''}|q^{'},t^{'}}_{f,h}=\psi_{0}\left(q^{''}\right)\psi_{0}^{*}\left(q^{'}\right)\braket{0|0},
 \end{equation}
 
 \end_inset
@@ -5566,7 +5659,7 @@ for any finite positive
 \begin_inset Formula $\alpha_{n}$
 \end_inset
 
-.
+, entailing that only the ground state survives the limit.
 \end_layout
 
 \end_inset
@@ -6008,6 +6101,22 @@ The 4 point function is given by
 Exercises
 \end_layout
 
+\begin_layout Subsubsection
+Normalization Factor of 
+\begin_inset Formula $\mathcal{D}q$
+\end_inset
+
+ after integrating out 
+\begin_inset Formula $p$
+\end_inset
+
+ for 
+\begin_inset Formula $H=p^{2}/2m+V\left(q\right)$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Exercise
 \begin_inset CommandInset label
 LatexCommand label
@@ -6215,7 +6324,7 @@ Letting
 Hence, we have that
 \begin_inset Formula 
 \begin{equation}
-\mathcal{D}q=\prod_{i=1}^{N}dq_{i}\left(\sqrt{\frac{m\left(N+1\right)}{2\pi iT}}\right)^{N+1}=\prod_{i=1}^{N}dq_{i}\left(\sqrt{\frac{m}{2\pi i\delta t}}\right)^{N+1}.
+\mathcal{D}q=\prod_{i=1}^{N}dq_{i}\left(\sqrt{\frac{m\left(N+1\right)}{2\pi iT}}\right)^{N+1}=\prod_{i=1}^{N}dq_{i}\left(\sqrt{\frac{m}{2\pi i\delta t}}\right)^{N+1}.\label{eq:constantDqp2PlusVH}
 \end{equation}
 
 \end_inset
@@ -6462,8 +6571,960 @@ Hence,
 
 \end_layout
 
+\begin_layout Subsubsection
+The Euclidean Harmonic oscillator: Finding H.O.
+ ground state using Path integrals
+\end_layout
+
+\begin_layout Problem
+(From Gukov's course) After the Wick rotation
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+wick rotation
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $t\rightarrow-it$
+\end_inset
+
+ [[
+\begin_inset Formula $idt_{old}\rightarrow-dt_{new}$
+\end_inset
+
+*
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+We have that 
+\begin_inset Formula $idt_{old}\rightarrow-dt_{new}$
+\end_inset
+
+ (the path integral is expressed as - see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fullExprPathIntegral"
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+\braket{q^{''},t^{''}|q^{'},t^{'}}=\int\mathcal{D}q\left(t\right)\mathcal{D}p\left(t\right)\exp\left[i\int_{t^{'}}^{t^{''}}dt\left(p\left(t\right)\dot{q}\left(t\right)-H\left(p\left(t\right),q\left(t\right)\right)\right)\right]
+\end{equation}
+
+\end_inset
+
+but now we have that
+\begin_inset Formula 
+\begin{equation}
+\braket{q^{''}|e^{-HT}|q^{'}}=\int\mathcal{D}q\exp\left(-\frac{1}{2}\int_{0}^{T}dt\left(\dot{q}^{2}+\omega^{2}q^{2}\right)\right),
+\end{equation}
+
+\end_inset
+
+let's figure out the time transformation) so 
+\begin_inset Formula $t_{new}=-it_{old}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+, which implies that 
+\begin_inset Formula $t_{old}=it_{new}$
+\end_inset
+
+]], the Euclidean Lagrangian
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Euclidean Lagrangian
+\end_layout
+
+\end_inset
+
+ of a harmonic oscillator is
+\begin_inset Formula 
+\begin{equation}
+L=\frac{1}{2}\dot{q}^{2}+\frac{1}{2}\omega^{2}q^{2}.
+\end{equation}
+
+\end_inset
+
+and the path integral looks like 
+\begin_inset Formula 
+\begin{equation}
+\braket{q^{''}|e^{-HT}|q^{'}}=\int\mathcal{D}q\exp\left(-\frac{1}{2}\int_{0}^{T}dt\left(\dot{q}^{2}+\omega^{2}q^{2}\right)\right).
+\end{equation}
+
+\end_inset
+
+(1)Perform the path integral by summing over all “field” configurations
+ 
+\begin_inset Formula $q\left(t\right)$
+\end_inset
+
+ which satisfy the boundary conditions 
+\begin_inset Formula $q\left(t=0\right)=q^{'}$
+\end_inset
+
+ and 
+\begin_inset Formula $q\left(t=T\right)=q^{''}$
+\end_inset
+
+ .
+ Specifically, make the time periodic by identifying 
+\begin_inset Formula $t\sim t+T$
+\end_inset
+
+ and follow the sequence of steps: (1) find the classical solution 
+\begin_inset Formula $q_{class}(t)$
+\end_inset
+
+ satisfying these boundary conditions; (2) by expanding 
+\begin_inset Formula $q(t)$
+\end_inset
+
+ around the classical solution 
+\begin_inset Formula $q_{class}(t)$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{equation}
+q\left(t\right)=q_{class}\left(t\right)+\sum_{k}q_{k}\sin\frac{\pi kt}{T}
+\end{equation}
+
+\end_inset
+
+perform the integral over 
+\begin_inset Formula $q_{k}$
+\end_inset
+
+'s; (3) analyze the result in the large 
+\begin_inset Formula $T$
+\end_inset
+
+ limit and read off the energy 
+\begin_inset Formula $E_{0}$
+\end_inset
+
+ of the ground state and the ground state wave function (up to normalization)
+\begin_inset Formula 
+\begin{equation}
+\psi_{0}\left(q\right)\sim e^{-\omega q^{2}/2}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+The Euclidean Lagrangian
+\end_layout
+
+\begin_layout Standard
+We originally had that 
+\begin_inset Formula 
+\begin{eqnarray}
+L & = & \frac{1}{2}\dot{q}^{2}-\frac{1}{2}\omega^{2}q^{2}\\
+ & = & \frac{1}{2}\left(\frac{d}{dt_{old}}q\right)^{2}-\frac{1}{2}\omega^{2}q^{2}.
+\end{eqnarray}
+
+\end_inset
+
+This becomes
+\begin_inset Formula 
+\begin{eqnarray}
+L & = & \frac{1}{2}\left(\frac{d}{idt_{new}}q\right)^{2}-\frac{1}{2}\omega^{2}q^{2}\\
+ & = & -\frac{1}{2}\dot{q}^{2}-\frac{1}{2}\omega^{2}q^{2}.
+\end{eqnarray}
+
+\end_inset
+
+We can multiply a Lagrangian by 
+\begin_inset Formula $-1$
+\end_inset
+
+ because first notice that we the same equations of motion (
+\begin_inset Formula $\frac{d}{dt}\frac{\partial L}{\partial\dot{q}}=\frac{\partial L}{\partial q}$
+\end_inset
+
+) because the minus signs on both sides.
+ More fundamentally, we get the equations of motions by checking when 
+\begin_inset Formula $\delta S=0$
+\end_inset
+
+.
+ This procedure does not care whether the function we are solving for gives
+ as a local minimum or maximum (we usually minimize the action but when
+ we multiply by -1 we get the local maximum).
+ The statement of 
+\begin_inset Quotes eld
+\end_inset
+
+the principle of minimum action
+\begin_inset Quotes erd
+\end_inset
+
+ actually means just extremizing the action.
+\end_layout
+
+\begin_layout Paragraph
+Part (1)
+\end_layout
+
+\begin_layout Standard
+The Euler Lagrange equations tell us that
+\begin_inset Formula 
+\begin{equation}
+\frac{d}{dt_{new}}\frac{\partial L}{\partial\dot{q}}=\frac{\partial L}{\partial q}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+Note that we used 
+\begin_inset Formula $t_{new}$
+\end_inset
+
+ instead of 
+\begin_inset Formula $t_{old}$
+\end_inset
+
+ because when we extremize the action, we do so in the new time coordinates:
+ We orginally have that 
+\begin_inset Formula 
+\begin{equation}
+\delta S=\delta\int_{t_{1}}^{t_{2}}L\left(q,\dot{q},t_{old}\right)dt_{old},
+\end{equation}
+
+\end_inset
+
+which we initially transformed into the 
+\begin_inset Formula $t_{new}$
+\end_inset
+
+ coordinates, which gave us
+\begin_inset Formula 
+\begin{equation}
+\delta S=\delta\int_{-t_{1}}^{-t_{2}}L\left(q,\dot{q},t_{new}\right)dt_{new},
+\end{equation}
+
+\end_inset
+
+(this introduced a constant proportional to 
+\begin_inset Formula $i$
+\end_inset
+
+ which doesn't affect the extremization, we also multiplied the Lagrangian
+ with 
+\begin_inset Formula $-1$
+\end_inset
+
+, which, as we shown in the previous paragraph, does NOT affect the physics;
+ also note that the boundaries do not change, this is part of the Wick rotation
+ theory) then we did the extremization procedure in the new coordinates
+ to obtain the Euler-Lagrange equations which, thus, will be given in the
+ new coordinates.
+ 
+\end_layout
+
+\begin_layout Standard
+We obtain that
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{d}{dt}\dot{q} & = & \omega^{2}q\\
+\implies\ddot{q} & = & \omega^{2}q.
+\end{eqnarray}
+
+\end_inset
+
+This can be easily solved with 
+\begin_inset Formula 
+\begin{equation}
+q\left(t\right)=C_{1}e^{\omega t}+C_{2}e^{-\omega t}.
+\end{equation}
+
+\end_inset
+
+We next impose periodic boundary conditions using Mathematica*
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Simplify[ExpToTrig[ DSolve[{D[q[t], {t, 2}] == 
+\backslash
+[Omega]^2*q[t], q[0] == q0, q[T] == q1}, q[t], t]]]
+\end_layout
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+q\left(t\right)=\frac{q^{''}\sinh\omega t-q^{'}\sinh\left[\left(t-T\right)\omega\right]}{\sinh\omega t}.
+\end{equation}
+
+\end_inset
+
+Is this condition periodic? We have that
+\begin_inset Formula 
+\begin{equation}
+q\left(t+T\right)=\frac{q^{''}\sinh\omega\left(t+T\right)-q^{'}\sinh\left[\omega t\right]}{\sinh\omega\left(t+T\right)}.
+\end{equation}
+
+\end_inset
+
+This is not the same as 
+\begin_inset Formula $q\left(t\right)$
+\end_inset
+
+ so I guess we impose periodicity.
+\end_layout
+
+\begin_layout Paragraph
+Part (2)
+\end_layout
+
+\begin_layout Standard
+Write 
+\begin_inset Formula $q\left(t\right)$
+\end_inset
+
+ as a Fourier series:
+\begin_inset Formula 
+\begin{eqnarray}
+q\left(t\right) & = & q_{class}\left(t\right)+\sum_{k}q_{k}\sin\frac{\pi kt}{T}\\
+ & = & q_{class}\left(t\right)+\delta q\left(t\right).
+\end{eqnarray}
+
+\end_inset
+
+The motivation behind this is that we expect that the system will follow
+ the classical trajectory.
+\end_layout
+
+\begin_layout Standard
+Then, we have that
+\begin_inset Formula 
+\begin{eqnarray}
+S\left[q+\delta q\right] & = & \int_{0}^{T}dt\left\{ \left(\dot{q}_{class}^{2}\left(t\right)+\omega^{2}q_{class}^{2}\right)+\left(\dot{\delta q}^{2}\left(t\right)+\omega^{2}\delta q^{2}\right)+2\left(\dot{\delta q}\dot{q}_{class}\left(t\right)+\omega^{2}\delta qq_{class}\right)\right\} \\
+ & = & S\left[q_{class}\right]+S\left[\delta q\right]+2\int_{0}^{T}dt\left(\dot{\delta q}\dot{q}_{class}\left(t\right)+\omega^{2}\delta qq_{class}\right)\\
+ & = & S\left[q_{class}\right]+S\left[\delta q\right]-2\int_{0}^{T}dt\delta q\ddot{q}_{class}\left(t\right)+\left.2\dot{\delta q}\dot{q}_{class}\left(t\right)\right|_{0}^{T}+\int_{0}^{T}dt\omega^{2}\delta qq_{class}.
+\end{eqnarray}
+
+\end_inset
+
+But the boundaries are fixed: 
+\begin_inset Formula $q\left(0\right)=q^{'}$
+\end_inset
+
+ and 
+\begin_inset Formula $q\left(T\right)=q^{''}$
+\end_inset
+
+ and 
+\begin_inset Formula $q_{class}$
+\end_inset
+
+ satisfies the boundary conditions (i.e.
+ 
+\begin_inset Formula $q_{class}\left(0\right)=q^{'}$
+\end_inset
+
+ and 
+\begin_inset Formula $q_{class}\left(T\right)=q^{''}$
+\end_inset
+
+).
+ Hence,
+\begin_inset Formula 
+\begin{eqnarray}
+q\left(0\right) & = & q^{'}=q_{class}\left(0\right)+\delta q\left(0\right)=q^{'}+\delta q\left(0\right)\\
+ & = & q^{'}.
+\end{eqnarray}
+
+\end_inset
+
+Hence, we must have that 
+\begin_inset Formula $\delta q\left(0\right)=0$
+\end_inset
+
+.
+ By a similar argument we can show that 
+\begin_inset Formula $\delta q\left(T\right)=0$
+\end_inset
+
+.
+ Hence, 
+\begin_inset Formula $\dot{\delta q}\left(0\right)=\dot{\delta q}\left(T\right)=0$
+\end_inset
+
+.
+ We can now write that
+\begin_inset Formula 
+\begin{eqnarray}
+S\left[q+\delta q\right] & = & S\left[q_{class}\right]+S\left[\delta q\right]-2\int_{0}^{T}dt\delta q\ddot{q}_{class}\left(t\right)+\left.2\dot{\delta q}\dot{q}_{class}\left(t\right)\right|_{0}^{T}+\int_{0}^{T}dt\omega^{2}\delta qq_{class}\\
+ & = & S\left[q_{class}\right]+S\left[\delta q\right]-2\int_{0}^{T}dt\delta q\ddot{q}_{class}\left(t\right)+\int_{0}^{T}dt\omega^{2}\delta qq_{class}\\
+ & = & S\left[q_{class}\right]+S\left[\delta q\right]-2\delta q\int_{0}^{T}dt\left(\ddot{q}_{class}\left(t\right)+\omega^{2}q_{class}\left(t\right)\right)\\
+ & = & S\left[q_{class}\right]+S\left[\delta q\right],
+\end{eqnarray}
+
+\end_inset
+
+because 
+\begin_inset Formula $q_{class}$
+\end_inset
+
+ satisfies the classical Equations of motion: 
+\begin_inset Formula $\ddot{q}=\omega^{2}q.$
+\end_inset
+
+ We have that
+\begin_inset Formula 
+\begin{eqnarray}
+S\left[q_{class}\right] & = & \int_{0}^{T}dt\left(\dot{q}_{class}^{2}\left(t\right)+\omega^{2}q_{class}^{2}\right)\\
+ & = & \omega\frac{\left(q^{'2}+q^{''2}\right)\cosh\left(\omega T\right)-2q^{'}q^{''}}{\sinh\left(\omega T\right)},
+\end{eqnarray}
+
+\end_inset
+
+where we have used Mathematica*
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+exprToIntegrate = Csch[T 
+\backslash
+[Omega]] (q1 Sinh[t 
+\backslash
+[Omega]] - q0 Sinh[(t - T) 
+\backslash
+[Omega]]); FullSimplify[ Integrate[ D[exprToIntegrate, t]^2 + 
+\backslash
+[Omega]^2*exprToIntegrate^2, {t, 0, T}]]
+\end_layout
+
+\end_inset
+
+.
+ In addition,
+\begin_inset Formula 
+\begin{eqnarray}
+\dot{\delta q} & = & \sum_{k}q_{k}\left(\frac{\pi k}{T}\right)\cos\frac{\pi kt}{T}\\
+\implies\left(\dot{\delta q}\right)^{2} & = & \sum_{kl}q_{k}q_{l}\left(\frac{\pi k}{T}\right)\left(\frac{\pi l}{T}\right)\cos\frac{\pi kt}{T}\cos\frac{\pi lt}{T}.
+\end{eqnarray}
+
+\end_inset
+
+In addition, we have that
+\begin_inset Formula 
+\begin{equation}
+q^{2}=\sum_{kl}q_{k}q_{l}\sin\frac{\pi kt}{T}\sin\frac{\pi lt}{T}.
+\end{equation}
+
+\end_inset
+
+We will also use that 
+\begin_inset Formula 
+\begin{eqnarray}
+\int_{0}^{T}\cos\frac{\pi kt}{T}\cos\frac{\pi lt}{T}dt & = & \frac{T}{\pi}\int_{0}^{\pi}\cos kx\cos lxdx\\
+ & = & \frac{T}{\pi}\frac{k\cos\left(l\pi\right)\sin\left(k\pi\right)-l\cos\left(k\pi\right)\sin\left(l\pi\right)}{k^{2}-l^{2}}\\
+ & = & 0
+\end{eqnarray}
+
+\end_inset
+
+for 
+\begin_inset Formula $k\neq l$
+\end_inset
+
+ and where we have used Mathematica in the second line*
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+FullSimplify[Integrate[Cos[k*x]*Cos[l*x], {x, 0, Pi}]]
+\end_layout
+
+\end_inset
+
+.
+ When 
+\begin_inset Formula $k=l$
+\end_inset
+
+, we have that
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{T}{\pi}\int_{0}^{\pi}\cos kx\cos lxdx & = & \frac{T}{\pi}\frac{2k\pi+\sin\left(2k\pi\right)}{4k}\\
+ & = & \frac{T}{\pi}\frac{2k\pi+\sin\left(2k\pi\right)}{4k}\\
+ & = & \frac{2kT}{4k}=\frac{T}{2},
+\end{eqnarray}
+
+\end_inset
+
+where we have Mathematica in the first line*
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+FullSimplify[Integrate[Cos[k*x]*Cos[k*x], {x, 0, Pi}]]
+\end_layout
+
+\end_inset
+
+.
+ Hence, we have that
+\begin_inset Formula 
+\begin{equation}
+\int_{0}^{T}\cos\frac{\pi kt}{T}\cos\frac{\pi lt}{T}dt=\frac{T}{2}\delta_{kl}.
+\end{equation}
+
+\end_inset
+
+In a similar fashion, we can show that
+\begin_inset Formula 
+\begin{equation}
+\int_{0}^{T}\sin\frac{\pi kt}{T}\sin\frac{\pi lt}{T}dt=\frac{T}{2}\delta_{kl}.
+\end{equation}
+
+\end_inset
+
+Hence, we have that 
+\begin_inset Formula 
+\begin{eqnarray}
+S\left[\delta q\right] & = & \int_{0}^{T}dt\left(\dot{\delta q}^{2}\left(t\right)+\omega^{2}\delta q^{2}\right)\\
+ & = & \sum_{kl}\int_{0}^{T}dtq_{k}q_{l}\left(\left(\frac{\pi k}{T}\right)\left(\frac{\pi l}{T}\right)\cos\frac{\pi kt}{T}\cos\frac{\pi lt}{T}+\omega^{2}\sin\frac{\pi kt}{T}\sin\frac{\pi lt}{T}\right)\\
+ & = & \sum_{kl}\frac{Tq_{k}q_{l}}{2}\left(\left(\frac{\pi k}{T}\right)\left(\frac{\pi l}{T}\right)\delta_{kl}+\omega^{2}\delta_{kl}\right)\\
+ & = & \sum_{k}\frac{Tq_{k}^{2}}{2}\left(\left(\frac{\pi k}{T}\right)^{2}+\omega^{2}\right).
+\end{eqnarray}
+
+\end_inset
+
+So
+\begin_inset Formula 
+\begin{eqnarray}
+\braket{q^{''}|e^{-HT}|q^{'}} & = & \int\mathcal{D}q\exp\left(-\frac{1}{2}\int_{0}^{T}dt\left(\dot{q}^{2}+\omega^{2}q^{2}\right)\right)\\
+ & = & \int\mathcal{D}q\exp\left(-\frac{1}{2}\omega\frac{\left(q^{'2}+q^{''2}\right)\cosh\left(\omega T\right)-2q^{'}q^{''}}{\sinh\left(\omega T\right)}\right)\exp\left(-\frac{1}{2}\sum_{k}\frac{Tq_{k}^{2}}{2}\left(\left(\frac{\pi k}{T}\right)^{2}+\omega^{2}\right)\right)\\
+ & = & \int\mathcal{D}q\exp\left(-\omega\frac{\left(q^{'2}+q^{''2}\right)\cosh\left(\omega T\right)-2q^{'}q^{''}}{2\sinh\left(\omega T\right)}\right)\exp\left(-\sum_{k}\frac{Tq_{k}^{2}}{4}\left(\left(\frac{\pi k}{T}\right)^{2}+\omega^{2}\right)\right)
+\end{eqnarray}
+
+\end_inset
+
+What is 
+\begin_inset Formula $\mathcal{D}q$
+\end_inset
+
+ equal to? We have that 
+\begin_inset Formula 
+\begin{eqnarray}
+\mathcal{D}q\left(t\right) & = & \mathcal{D}\left[q_{class}\left(t\right)+\sum_{k}q_{k}\sin\frac{\pi kt}{T}\right]\\
+ & = & \mathcal{D}\left[\sum_{k}q_{k}\sin\frac{\pi kt}{T}\right]
+\end{eqnarray}
+
+\end_inset
+
+because 
+\begin_inset Formula $q_{class}$
+\end_inset
+
+ if fixed.
+ Hence,
+\begin_inset Formula 
+\begin{equation}
+\braket{q^{''}|e^{-HT}|q^{'}}=\exp\left(-\omega\frac{\left(q^{'2}+q^{''2}\right)\cosh\left(\omega T\right)-2q^{'}q^{''}}{2\sinh\left(\omega T\right)}\right)\int\mathcal{D}q\exp\left(-\sum_{k}\frac{Tq_{k}^{2}}{4}\left(\left(\frac{\pi k}{T}\right)^{2}+\omega^{2}\right)\right)
+\end{equation}
+
+\end_inset
+
+To switch to the 
+\begin_inset Formula $q_{k}$
+\end_inset
+
+ variables, we need to calculate the Jacobian: we have that 
+\begin_inset Formula $q\left(t_{i}\right)=\sum_{k}\left[q_{k}\sin\frac{\pi kt}{T}\right]$
+\end_inset
+
+.
+ The Jacobian is equal to
+\begin_inset Formula 
+\begin{eqnarray}
+J & = & \left(\begin{array}{cccc}
+\partial_{q_{1}}\left(q\left(t_{1}\right)\right) & \partial_{q_{2}}\left(q\left(t_{1}\right)\right) & ... & \partial_{q_{N}}\left(q\left(t_{1}\right)\right)\\
+\partial_{q_{1}}\left(q\left(t_{2}\right)\right) & \partial_{q_{2}}\left(q\left(t_{2}\right)\right) & ... & \partial_{q_{N}}\left(q\left(t_{2}\right)\right)\\
+\vdots & \vdots & \vdots & \vdots\\
+\partial_{q_{1}}\left(q\left(t_{N}\right)\right) & \partial_{q_{2}}\left(q\left(t_{N}\right)\right) & ... & \partial_{q_{N}}\left(q\left(t_{N}\right)\right)
+\end{array}\right)\\
+ & = & \left(\begin{array}{cccc}
+\sin\left(\frac{\pi t_{1}}{T}\right) & \sin\left(\frac{2\pi t_{1}}{T}\right) & ... & \sin\left(\frac{N\pi t_{1}}{T}\right)\\
+\sin\left(\frac{\pi t_{2}}{T}\right) & \sin\left(\frac{2\pi t_{2}}{T}\right) & ... & \sin\left(\frac{N\pi t_{2}}{T}\right)\\
+\vdots & \vdots & \vdots & \vdots\\
+\sin\left(\frac{\pi t_{N}}{T}\right) & \sin\left(\frac{2\pi t_{N}}{T}\right) & ... & \sin\left(\frac{N\pi t_{N}}{T}\right)
+\end{array}\right).
+\end{eqnarray}
+
+\end_inset
+
+This is very difficult to calculate but we do not have to as the above is
+ 
+\begin_inset Formula $T$
+\end_inset
+
+ independent (but depends on 
+\begin_inset Formula $N$
+\end_inset
+
+).
+ Indeed, we have that 
+\begin_inset Formula $t_{i}=iT/\left(N+1\right)$
+\end_inset
+
+ as 
+\begin_inset Formula $i=0,1,...,N+1$
+\end_inset
+
+ with 
+\begin_inset Formula $q\left(0\right)=q^{'}$
+\end_inset
+
+ and 
+\begin_inset Formula $q\left(T\right)=q^{''}$
+\end_inset
+
+.
+ Hence, we have that 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{D}q=f\left(N\right)C\prod_{i=1}^{N}dq_{k},
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $f\left(N\right)$
+\end_inset
+
+ is a normalization factor that only depends on 
+\begin_inset Formula $N$
+\end_inset
+
+, and from 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:constantDqp2PlusVH"
+
+\end_inset
+
+ (we have a Hamiltonian of the form 
+\begin_inset Formula $P^{2}/2m+V\left(q\right)$
+\end_inset
+
+, so we can use 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:constantDqp2PlusVH"
+
+\end_inset
+
+) 
+\begin_inset Formula 
+\begin{equation}
+C=\left(\sqrt{\frac{m\left(N+1\right)}{2\pi iT_{old}}}\right)^{N+1}.
+\end{equation}
+
+\end_inset
+
+In our exercise, we have that 
+\begin_inset Formula $m=1$
+\end_inset
+
+ and we did the Wick rotation so that 
+\begin_inset Formula $t_{new}=-it_{old}$
+\end_inset
+
+.
+ Hence, we have that 
+\begin_inset Formula 
+\begin{eqnarray}
+C & = & \left(\sqrt{\frac{\left(N+1\right)}{2\pi T_{new}}}\right)^{N+1}\\
+ & = & \left(\frac{N+1}{2\pi T_{new}}\right)^{\frac{N+1}{2}}.
+\end{eqnarray}
+
+\end_inset
+
+So, we have, by denoting 
+\begin_inset Formula 
+\begin{equation}
+e_{class}=\exp\left(-\omega\frac{\left(q^{'2}+q^{''2}\right)\cosh\left(\omega T\right)-2q^{'}q^{''}}{2\sinh\left(\omega T\right)}\right),\label{eq:defEClassPset4205F}
+\end{equation}
+
+\end_inset
+
+that
+\begin_inset Formula 
+\begin{eqnarray}
+\braket{q^{''}|e^{-HT}|q^{'}} & = & \exp\left(-\omega\frac{\left(q^{'2}+q^{''2}\right)\cosh\left(\omega T\right)-2q^{'}q^{''}}{2\sinh\left(\omega T\right)}\right)\int\mathcal{D}q\exp\left(-\sum_{k}\frac{Tq_{k}^{2}}{4}\left(\left(\frac{\pi k}{T}\right)^{2}+\omega^{2}\right)\right)\\
+ & = & e_{class}\times C\times f\left(N\right)\int\left(\prod_{i=1}^{N}dq_{k}\right)\exp\left(-\sum_{k}\frac{Tq_{k}^{2}}{4}\left(\left(\frac{\pi k}{T}\right)^{2}+\omega^{2}\right)\right)\\
+ & = & e_{class}\times\left(\frac{N+1}{2\pi T}\right)^{\frac{N+1}{2}}\times f\left(N\right)\int\left\{ \prod_{i=1}^{N}dq_{k}\exp\left(-\frac{Tq_{k}^{2}}{4}\left(\left(\frac{\pi k}{T}\right)^{2}+\omega^{2}\right)\right)\right\} \\
+ & = & e_{class}\times\left(\frac{1}{2\pi T}\right)^{\frac{N+1}{2}}\times f\left(N\right)\int\left\{ \prod_{i=1}^{N}dq_{k}\exp\left(-\frac{Tq_{k}^{2}}{4}\left(\left(\frac{\pi k}{T}\right)^{2}+\omega^{2}\right)\right)\right\} ,
+\end{eqnarray}
+
+\end_inset
+
+where in the last line, we have absorbed 
+\begin_inset Formula $\left(N+1\right)^{\left(N+1\right)/2}$
+\end_inset
+
+ into the definition of 
+\begin_inset Formula $f\left(N\right)$
+\end_inset
+
+.
+ Now, we have that
+\begin_inset Formula 
+\begin{eqnarray}
+\int dq_{k}\exp\left(-\frac{Tq_{k}^{2}}{4}\left(\left(\frac{\pi k}{T}\right)^{2}+\omega^{2}\right)\right) & = & \frac{2}{\sqrt{\frac{k^{2}\pi}{T}+\frac{T\omega^{2}}{\pi}}}\\
+ & = & \frac{2\sqrt{\pi T}}{\sqrt{k^{2}\pi^{2}+T^{2}\omega^{2}}},
+\end{eqnarray}
+
+\end_inset
+
+where we have used Mathematica in the first line*
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+FullSimplify[ Integrate[ Exp[-T*x^2 (
+\backslash
+[Omega]^2 + (
+\backslash
+[Pi]*k/T)^2)/4], {x, -Infinity, Infinity}]]
+\end_layout
+
+\end_inset
+
+.
+ Hence,
+\begin_inset Formula 
+\begin{eqnarray}
+\braket{q^{''}|e^{-HT}|q^{'}} & = & e_{class}\times\left(\frac{1}{2\pi T}\right)^{\frac{N+1}{2}}\times f\left(N\right)\left(\prod_{k=1}^{N}\frac{2\sqrt{\pi T}}{\sqrt{k^{2}\pi^{2}+T^{2}\omega^{2}}}\right)\\
+ & = & e_{class}\times\sqrt{\frac{1}{2\pi T}}\times f\left(N\right)\left(\prod_{k=1}^{N}\frac{\sqrt{2}}{\sqrt{k^{2}\pi^{2}+T^{2}\omega^{2}}}\right)\\
+ & = & e_{class}\times\sqrt{\frac{1}{2\pi T}}\times f\left(N\right)\left(\prod_{k=1}^{N}\sqrt{\frac{2}{k^{2}\pi^{2}+T^{2}\omega^{2}}}\right)\\
+ & = & e_{class}\times\sqrt{\frac{1}{2\pi T}}\times f\left(N\right)\left(\prod_{k=1}^{N}\sqrt{\frac{1}{k^{2}\pi^{2}+T^{2}\omega^{2}}}\right),
+\end{eqnarray}
+
+\end_inset
+
+where in the last equality, we have absorbed 
+\begin_inset Formula $\sqrt{2}^{N}$
+\end_inset
+
+ into 
+\begin_inset Formula $f\left(N\right)$
+\end_inset
+
+.
+ Continuing, we have that
+\begin_inset Formula 
+\begin{eqnarray}
+\braket{q^{''}|e^{-HT}|q^{'}} & = & e_{class}\times\sqrt{\frac{1}{2\pi T}}\times f\left(N\right)\left(\prod_{k=1}^{N}\left(k^{2}\pi^{2}+T^{2}\omega^{2}\right)\right)^{-1/2}\\
+ & = & e_{class}\times\sqrt{\frac{1}{2\pi T}}\times f\left(N\right)\left(\prod_{k=1}^{N}k^{2}\pi^{2}\left(1+\frac{T^{2}\omega^{2}}{k^{2}\pi^{2}}\right)\right)^{-1/2}\\
+ & = & e_{class}\times\sqrt{\frac{1}{2\pi T}}\times f\left(N\right)\sqrt{\omega T}\left(\omega T\prod_{k=1}^{N}k^{2}\pi^{2}\left(1+\frac{T^{2}\omega^{2}}{k^{2}\pi^{2}}\right)\right)^{-1/2}\\
+ & = & e_{class}\times\sqrt{\omega}\times f\left(N\right)\left(\omega T\prod_{k=1}^{N}\left(1+\frac{T^{2}\omega^{2}}{k^{2}\pi^{2}}\right)\right)^{-1/2},
+\end{eqnarray}
+
+\end_inset
+
+where in the last line we incorporated 
+\begin_inset Formula $\left(\prod_{k=1}^{N}\sqrt{k^{2}\pi^{2}}^{-1}\right)/2\pi$
+\end_inset
+
+ into 
+\begin_inset Formula $f\left(N\right)$
+\end_inset
+
+.
+ We then use 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:weirdSinhLimit"
+
+\end_inset
+
+ to write that
+\begin_inset Formula 
+\begin{equation}
+\lim_{N\rightarrow\infty}\omega T\prod_{k=1}^{N}\left(1+\frac{T^{2}\omega^{2}}{k^{2}\pi^{2}}\right)=\sinh\omega T.
+\end{equation}
+
+\end_inset
+
+Thus, we obtain
+\begin_inset Formula 
+\begin{equation}
+\braket{q^{''}|e^{-HT}|q^{'}}=e_{class}\times f\left(N\right)\times\sqrt{\frac{\omega}{\sinh\omega T}}.\label{eq:resultpart2Pset4Ph205F}
+\end{equation}
+
+\end_inset
+
+Apparently, the normalization can be fixed by imposing that 
+\begin_inset Formula $\braket{q^{''}|q^{'}}=\delta^{3}\left(q^{''}-q^{'}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Part (3)
+\end_layout
+
+\begin_layout Standard
+We will pull off a trick that was introduced in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:onlyGroundStateSurvives"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+Denote the eigenstates of 
+\begin_inset Formula $H$
+\end_inset
+
+ by 
+\begin_inset Formula $\left|E_{n}\right\rangle $
+\end_inset
+
+, then assuming a discrete spectrum, we have that
+\begin_inset Formula 
+\begin{eqnarray}
+\braket{q^{''}|e^{-HT}|q^{'}} & = & \sum_{nl}\braket{q^{''}|n}\braket{l|q^{'}}\braket{E_{n}|e^{-HT}|E_{l}}\\
+ & = & \sum_{nl}\braket{q^{''}|n}\braket{l|q^{'}}\braket{E_{n}|e^{-E_{l}T}|E_{l}}.
+\end{eqnarray}
+
+\end_inset
+
+As 
+\begin_inset Formula $T\rightarrow\infty$
+\end_inset
+
+, only the ground state remains as all other states have higher energies
+ and so are more strongly damped.
+ Hence,
+\begin_inset Formula 
+\begin{eqnarray}
+\lim_{T\rightarrow\infty}\braket{q^{''}|e^{-HT}|q^{'}} & = & \lim_{T\rightarrow\infty}\sum_{n}\braket{q^{''}|n}\braket{0|q^{'}}\braket{E_{n}|0}e^{-E_{0}T}\\
+ & = & \lim_{T\rightarrow\infty}\sum_{n}\braket{q^{''}|n}\braket{0|q^{'}}\delta_{n0}e^{-E_{0}T}\\
+ & = & \lim_{T\rightarrow\infty}\braket{q^{''}|0}\braket{0|q^{'}}e^{-E_{0}T}\\
+ & = & \lim_{T\rightarrow\infty}\psi_{0}\left(q^{''}\right)\psi_{0}^{*}\left(q^{'}\right)e^{-E_{0}T}\\
+ & \propto & \lim_{T\rightarrow\infty}e_{class}\times\sqrt{\frac{\omega}{\sinh\omega T}},
+\end{eqnarray}
+
+\end_inset
+
+where we used 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:resultpart2Pset4Ph205F"
+
+\end_inset
+
+ in the last equality, and where (from 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:defEClassPset4205F"
+
+\end_inset
+
+) 
+\begin_inset Formula 
+\begin{eqnarray}
+e_{class} & = & \exp\left(-\omega\frac{\left(q^{'2}+q^{''2}\right)\cosh\left(\omega T\right)-2q^{'}q^{''}}{2\sinh\left(\omega T\right)}\right)\\
+ & = & \exp\left(-\omega\frac{\left(q^{'2}+q^{''2}\right)\cosh\left(\omega T\right)}{2\sinh\left(\omega T\right)}+\omega\frac{q^{'}q^{''}}{\sinh\left(\omega T\right)}\right),
+\end{eqnarray}
+
+\end_inset
+
+so 
+\begin_inset Formula 
+\begin{eqnarray}
+\lim_{T\rightarrow\infty}e_{class} & = & \lim_{T\rightarrow\infty}\exp\left(-\frac{\omega\left(q^{'2}+q^{''2}\right)}{2}+\omega\frac{q^{'}q^{''}}{\sinh\left(\omega T\right)}\right)
+\end{eqnarray}
+
+\end_inset
+
+and
+\begin_inset Formula 
+\begin{eqnarray}
+\lim_{T\rightarrow\infty}\braket{q^{''}|e^{-HT}|q^{'}} & \propto & \exp\left(-\frac{\omega\left(q^{'2}+q^{''2}\right)}{2}\right)\lim_{T\rightarrow\infty}\sqrt{\omega}\frac{\exp\left(\omega q^{'}q^{''}/\sinh\omega T\right)}{\sqrt{\sinh\omega T}}\\
+ & = & \lim_{T\rightarrow\infty}\sqrt{\omega}\exp\left(-\frac{\omega\left(q^{'2}+q^{''2}\right)}{2}\right),
+\end{eqnarray}
+
+\end_inset
+
+as 
+\begin_inset Formula $\sin\omega T\rightarrow\infty$
+\end_inset
+
+ as 
+\begin_inset Formula $T\rightarrow\infty$
+\end_inset
+
+ and so
+\begin_inset Formula 
+\begin{eqnarray}
+\lim_{T\rightarrow\infty}\frac{\exp\left(\omega q^{'}q^{''}/\sinh\omega T\right)}{\sqrt{\sinh\omega T}} & = & \lim_{T\rightarrow\infty}\frac{1}{\sqrt{\sinh\omega T}}\\
+ & \propto & \lim_{T\rightarrow\infty}\frac{1}{\sqrt{e^{\omega T}}}=\lim_{T\rightarrow\infty}e^{-\omega T/2}.
+\end{eqnarray}
+
+\end_inset
+
+Thus,
+\begin_inset Formula 
+\begin{eqnarray}
+\lim_{T\rightarrow\infty}\braket{q^{''}|e^{-HT}|q^{'}} & \propto & \lim_{T\rightarrow\infty}\exp\left(-\frac{\omega\left(q^{'2}+q^{''2}\right)}{2}\right)e^{-\omega T/2}\\
+ & \propto & \lim_{T\rightarrow\infty}\psi_{0}\left(q^{''}\right)\psi_{0}^{*}\left(q^{'}\right)e^{-E_{0}T}.
+\end{eqnarray}
+
+\end_inset
+
+Thus, we identify the ground state energy to be
+\begin_inset Formula 
+\begin{equation}
+\boxed{E_{0}=\frac{\omega}{2}}
+\end{equation}
+
+\end_inset
+
+and the ground state wavefunction to be real and proportional to 
+\begin_inset Formula 
+\begin{equation}
+\boxed{\psi_{0}\left(q\right)\propto e^{-\omega q^{2}/2}.}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
-The Path Integral for free field theory
+The Path Integral for the free field theory
 \end_layout
 
 \begin_layout Standard
@@ -6761,6 +7822,13 @@ Moreover,
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Phi3Theory"
+
+\end_inset
+
+
 \begin_inset Quotes eld
 \end_inset
 
@@ -7200,17 +8268,17 @@ where
 \begin_inset Formula $ct$
 \end_inset
 
- stands for counter terms
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-counter terms
+ stands for counter terms.
 \end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Divergence-Terminology"
 
 \end_inset
 
-.
+Divergence Terminology
 \end_layout
 
 \begin_layout Example
@@ -7310,12 +8378,21 @@ Loop correction to propagator (Euclidean version)
 It can be shown that the result is given by
 \begin_inset Formula 
 \begin{equation}
-g^{2}\frac{i}{2}\int\frac{d^{n}l}{\left(l^{2}-m^{2}+i\epsilon\right)\left(\left(k+l\right)^{2}-m^{2}-i\epsilon\right)}
+g^{2}\frac{i}{2}\int\frac{d^{n}l}{\left(l^{2}-m^{2}+i\epsilon\right)\left(\left(k+l\right)^{2}-m^{2}-i\epsilon\right)},
 \end{equation}
 
 \end_inset
 
-This integral goes like
+as 
+\begin_inset Formula $1/\left(l^{2}-m^{2}+i\epsilon\right)$
+\end_inset
+
+ is the form of the propagator (
+\begin_inset Formula $\feyn{\vertexlabel^{a}!{fA}l\vertexlabel^{b}}$
+\end_inset
+
+).
+ This integral goes like
 \begin_inset Formula 
 \begin{equation}
 \sim\int\frac{d^{n}l}{l^{4}}
@@ -7333,15 +8410,17 @@ which is divergent for
 \end_layout
 
 \begin_layout Definition
-The superficial degree of divergence (denoted by 
-\begin_inset Formula $D$
+\begin_inset CommandInset label
+LatexCommand label
+name "defn:superficialDegreeOfCOnvergence"
+
 \end_inset
 
-, 
-\begin_inset Formula $div\left(D\right)$
-\end_inset
-
-)
+[
+\emph on
+superficial degree of divergence
+\emph default
+]
 \begin_inset Index idx
 status collapsed
 
@@ -7351,7 +8430,15 @@ superficial degree of divergence
 
 \end_inset
 
- is the difference of the degree of the numerator and the denominator in
+ The superficial degree of divergence -denoted by 
+\begin_inset Formula 
+\begin{equation}
+div\left(D\right)
+\end{equation}
+
+\end_inset
+
+- is the difference of the degree of the numerator and the denominator in
  the integrand corresponding to 
 \begin_inset Formula $D$
 \end_inset
@@ -7365,7 +8452,567 @@ superficial degree of divergence
 \end_inset
 
  has superficial degree of divergence given by 
-\begin_inset Formula $\left(n-1\right)-4$
+\begin_inset Formula $n-4$
+\end_inset
+
+.
+ Another example: By definition, the degree of 
+\begin_inset Formula $l$
+\end_inset
+
+ or 
+\begin_inset Formula $dl$
+\end_inset
+
+ is 1.
+\end_layout
+
+\begin_layout Definition
+A Feynman diagram is called 
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+superficially divergent
+\end_layout
+
+\end_inset
+
+superficially divergent if 
+\begin_inset Formula $div\left(D\right)\geq0$
+\end_inset
+
+ and superficially convergent if 
+\begin_inset Formula $div\left(D\right)<0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Another definition:
+\end_layout
+
+\begin_layout Definition
+A Feynman diagram 
+\begin_inset Formula $D$
+\end_inset
+
+ is called logarithmically, linearly, quadratically, ...
+ divergent if
+\begin_inset Formula 
+\begin{equation}
+div\left(D\right)=0,1,2,...
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Claim
+We will later see that
+\begin_inset Formula 
+\begin{equation}
+div\left(D\right)=nL-2I,
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\begin{eqnarray}
+L & \equiv & \mbox{number of loops},\\
+I & \equiv & \mbox{Internal lines in a Feynman diagram.}
+\end{eqnarray}
+
+\end_inset
+
+(as a propagator like 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Preview
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\feyn{\vertexlabel^{a}!{fA}p\vertexlabel^{b}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ will have a 
+\begin_inset Formula $1/p^{2}$
+\end_inset
+
+ like dependence, hence the 
+\begin_inset Formula $-2$
+\end_inset
+
+ contribution to 
+\begin_inset Formula $div\left(D\right)$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Note that we will see that the number of external lines (
+\begin_inset Formula $E$
+\end_inset
+
+) help us characterize Feynman and the theory and plays an important role.
+ For instance, for 
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\ensuremath{\Diagram{f\vertexlabel_{x}c\vertexlabel_{y}f}
+}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, assume that the circle contains some very complicated internal dynamics,
+ but since there are two external legs, we have 
+\begin_inset Formula $\mathcal{L}_{int}\sim\phi^{2=E}$
+\end_inset
+
+ (???).
+ Also for example, 
+\begin_inset Formula $\Diagram{fd &  & fu\\
+ & \vertexlabel_{x}\\
+fu &  & fd
+}
+$
+\end_inset
+
+ would correspond to a 
+\begin_inset Formula $\phi^{4}$
+\end_inset
+
+ theory.
+\end_layout
+
+\begin_layout Subsubsection
+Example of 
+\begin_inset Formula $\phi^{3}$
+\end_inset
+
+ theory
+\end_layout
+
+\begin_layout Standard
+(
+\begin_inset Formula $\phi^{3}$
+\end_inset
+
+ theory - see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Phi3Theory"
+
+\end_inset
+
+) We have that
+\begin_inset Formula 
+\begin{eqnarray}
+L & = & \frac{V+2-R}{2},\\
+I & = & \frac{3V-E}{2}.
+\end{eqnarray}
+
+\end_inset
+
+Hence,
+\begin_inset Formula 
+\begin{equation}
+div\left(D\right)=\left(n-6\right)L+6-2E.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+As 
+\begin_inset Formula $n>6$
+\end_inset
+
+, the divergence worsens as the number of vertices grows (as then we are
+ likely to have a greater number of loops).
+ (so at very high dimensions, we cannot have interactions of type 
+\begin_inset Formula $\phi^{3}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+For 
+\begin_inset Formula $n=6$
+\end_inset
+
+, all Feynman graphs with 
+\begin_inset Formula $E=2,3$
+\end_inset
+
+ are equally bad (as we have 
+\begin_inset Formula $div\left(D\right)=6-2E$
+\end_inset
+
+), while for 
+\begin_inset Formula $E\geq4$
+\end_inset
+
+, the graphs are superficially convergent.
+ 
+\begin_inset Formula $n=6$
+\end_inset
+
+ is called the critical dimension as below 
+\begin_inset Formula $n=6$
+\end_inset
+
+, we would have finitely many superficially divergent graphs.
+\end_layout
+
+\begin_layout Itemize
+For 
+\begin_inset Formula $n=5$
+\end_inset
+
+, there are only finitely many superficially divergent graphs.
+ 
+\end_layout
+
+\begin_layout Itemize
+For 
+\begin_inset Formula $n=4$
+\end_inset
+
+, the only superficially divergent graph with 
+\begin_inset Formula $E\geq2$
+\end_inset
+
+ is 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\Diagram{f\vertexlabel_{x}c\vertexlabel_{y}f}
+$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+For 
+\begin_inset Formula $n\leq3$
+\end_inset
+
+, all graphs with 
+\begin_inset Formula $E\geq2$
+\end_inset
+
+ are superficially convergent.
+\end_layout
+
+\begin_layout Remark
+A superficially divergent diagram 
+\begin_inset Formula $D$
+\end_inset
+
+ is 
+\series bold
+not
+\series default
+ necessarily divergent.
+ We will see examples of this.
+ For instance, 
+\begin_inset Formula $\ensuremath{\Diagram{fA\vertexlabel_{x}c\vertexlabel_{y}fA}
+}$
+\end_inset
+
+ in 
+\begin_inset Formula $n=5$
+\end_inset
+
+ is 
+\begin_inset Formula $\sim l$
+\end_inset
+
+ (as 
+\begin_inset Formula $d^{n}l/l^{4}$
+\end_inset
+
+).
+ But if we have parity invariance, then we only expect parity invariant
+ terms like 
+\begin_inset Formula $p^{2}$
+\end_inset
+
+ so we expect that there is a term that cancels the divergent 
+\begin_inset Formula $\sim l$
+\end_inset
+
+ term.
+\end_layout
+
+\begin_layout Standard
+Another remark,
+\end_layout
+
+\begin_layout Remark
+Superficial convergence is 
+\series bold
+not
+\series default
+ sufficient for convergence (for example, we might have a complicated diagram,
+ and we count the number of propagator, etc ...
+ and we calculate 
+\begin_inset Formula $D<0$
+\end_inset
+
+, but there might be subdiagrams that diverge)
+\end_layout
+
+\begin_layout Subsection
+Weinberg Theorem
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Weinberg Theorem
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $D$
+\end_inset
+
+ be a diagram such that the integral of the corresponding function over
+ any subset of the set of loops of 
+\begin_inset Formula $D$
+\end_inset
+
+ is superficially convergent.
+ Then the integral corresponding to 
+\begin_inset Formula $D$
+\end_inset
+
+ is convergent.
+\end_layout
+
+\begin_layout Standard
+I.e.
+ analyze subdiagrams of 
+\begin_inset Formula $D$
+\end_inset
+
+ and have them take the 
+\begin_inset Formula $div\left(D\right)$
+\end_inset
+
+ test; if the subdiagrams pass the test then we have that 
+\begin_inset Formula $D$
+\end_inset
+
+ is superficially convergent.
+\end_layout
+
+\begin_layout Example
+In the 
+\begin_inset Formula $\phi^{3}$
+\end_inset
+
+ theory (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Phi3Theory"
+
+\end_inset
+
+), all integrals are convergent for 
+\begin_inset Formula $n\leq3$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $n=4$
+\end_inset
+
+, 
+\begin_inset Formula $\ensuremath{\Diagram{f\vertexlabel_{x}c\vertexlabel_{y}f}
+}$
+\end_inset
+
+ is superficially divergent.
+ Another possible graph is 
+\begin_inset Graphics
+	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/feynman diagrams/loopInsideALoop.svg
+
+\end_inset
+
+ which contains 
+\begin_inset Formula $\ensuremath{\Diagram{f\vertexlabel_{x}c\vertexlabel_{y}f}
+}$
+\end_inset
+
+ so it could be divergent.
+ The former 2 graphs were 
+\begin_inset Formula $E=2$
+\end_inset
+
+ examples.
+ For 
+\begin_inset Formula $E=1$
+\end_inset
+
+, we can have something like 
+\begin_inset Formula $\ensuremath{\Diagram{f\vertexlabel_{x}c\vertexlabel_{y}}
+}$
+\end_inset
+
+ which is quadratically divergent, we can also have something like, 
+\begin_inset Graphics
+	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/feynman diagrams/lineInside loop and E is 1.svg
+
+\end_inset
+
+ which is logarithmically divergent.
+\end_layout
+
+\begin_layout Subsection
+Counter terms
+\end_layout
+
+\begin_layout Standard
+To resolve the divergence, add 
+\begin_inset Quotes eld
+\end_inset
+
+counter terms
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+counter terms
+\end_layout
+
+\end_inset
+
+: The coefficients of terms in the Lagrangian can be anything:
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}_{ct}=-\frac{1}{2}\left(\colyellow{Z_{\phi}}-1\right)\left(\partial_{\mu}\phi\right)\left(\partial^{\mu}\phi\right)-\frac{1}{2}\left(\colyellow{Z_{m}}-1\right)m^{2}\phi^{2}+\colyellow Y\phi,
+\end{equation}
+
+\end_inset
+
+where the 
+\begin_inset Formula $Zs$
+\end_inset
+
+ (not to be confused with the partition function) and 
+\begin_inset Formula $Y$
+\end_inset
+
+s are called the counter terms, and can be anything.
+ HOWEVER, we are not allowed to add new terms in the Lagrangian like 
+\begin_inset Formula $Z_{4}\phi^{4}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The idea is to add 
+\begin_inset Formula $-\infty$
+\end_inset
+
+ from the beginning to cancel the 
+\begin_inset Formula $\infty$
+\end_inset
+
+ we get later on.
+ 
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+renomarlization
+\end_layout
+
+\end_inset
+
+This is renomarlization.
+ We can let the 
+\begin_inset Formula $Z$
+\end_inset
+
+s be infinite! This is a feature and not a bug of QFT! It is something deep
+ and measurable.
+ The changed terms have a physical meaning.
+\end_layout
+
+\begin_layout Standard
+What we are doing is like adding Feynman diagrams to cancel diverging Feynman
+ diagrams.
+ For instance, the 
+\begin_inset Formula $Y\phi$
+\end_inset
+
+ might cancel something like 
+\begin_inset Formula $\ensuremath{\Diagram{f\vertexlabel_{x}c\vertexlabel_{y}}
+}$
 \end_inset
 
 .
@@ -7373,6 +9020,14 @@ superficial degree of divergence
 
 \begin_layout Chapter
 Misc
+\end_layout
+
+\begin_layout Section
+Fudging in QFT
+\end_layout
+
+\begin_layout Standard
+TODO: FILL
 \end_layout
 
 \begin_layout Section
@@ -7457,6 +9112,31 @@ We have that
 \begin{equation}
 e^{ikx}=e^{i\vec{k}.\vec{x}-i\omega t}
 \end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $div\left(D\right)$
+\end_inset
+
+: see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "defn:superficialDegreeOfCOnvergence"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Divergence terminology: 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Divergence-Terminology"
 
 \end_inset
 
@@ -7735,8 +9415,43 @@ reference "restoringHBAR"
 
 \end_layout
 
-\begin_layout Chapter
-Misc
+\begin_layout Section
+Random math formulas
+\end_layout
+
+\begin_layout Enumerate
+We have that
+\begin_inset Formula 
+\begin{equation}
+\int_{0}^{T}\cos\frac{\pi kt}{T}\cos\frac{\pi lt}{T}dt=\int_{0}^{T}\sin\frac{\pi kt}{T}\sin\frac{\pi lt}{T}dt=\frac{T}{2}\delta_{kl}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+We have that (
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://dlmf.nist.gov/4.36.E1
+\end_layout
+
+\end_inset
+
+)
+\begin_inset Formula 
+\begin{equation}
+\sinh z=z\prod_{n=1}^{\infty}\left(1+\frac{z^{2}}{n^{2}\pi^{2}}\right)\label{eq:weirdSinhLimit}
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
