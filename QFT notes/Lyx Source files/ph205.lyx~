@@ -157,7 +157,7 @@ figs-within-sections
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\colmagenta}[1]{\textcolor{magenta}{#1}}
+\newcommand{\colmagenta}[1]{\textcolor{magenta}{#1}}
 {\textcolor{magenta}{#1}}
 \end_inset
 
@@ -166,7 +166,7 @@ figs-within-sections
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\colyellow}[1]{\textcolor{yellow}{#1}}
+\newcommand{\colyellow}[1]{\textcolor{yellow}{#1}}
 {\textcolor{yellow}{#1}}
 \end_inset
 
@@ -1340,7 +1340,7 @@ ds^{2} & = & g_{\mu\nu}dx^{\mu}dx^{\nu}\\
 \begin_inset Formula $dx$
 \end_inset
 
- is a differntial/difference so the translation 
+ is a differential/difference so the translation 
 \begin_inset Formula $a$
 \end_inset
 
@@ -6819,7 +6819,7 @@ which we initially transformed into the
  coordinates, which gave us
 \begin_inset Formula 
 \begin{equation}
-\delta S=\delta\int_{-it_{1}}^{-it_{2}}L\left(q,\dot{q},t_{new}\right)dt_{new},
+\delta S=\delta\int_{-t_{1}}^{-t_{2}}L\left(q,\dot{q},t_{new}\right)dt_{new},
 \end{equation}
 
 \end_inset
@@ -6833,9 +6833,11 @@ which we initially transformed into the
 \begin_inset Formula $-1$
 \end_inset
 
-, which, as we shown in the previous paragraph, does NOT affect the physics)
- then we did the extremization procedure in the new coordinates to obtain
- the Euler-Lagrange equations which, thus, will be given in the new coordinates.
+, which, as we shown in the previous paragraph, does NOT affect the physics;
+ also note that the boundaries do not change, this is part of the Wick rotation
+ theory) then we did the extremization procedure in the new coordinates
+ to obtain the Euler-Lagrange equations which, thus, will be given in the
+ new coordinates.
  
 \end_layout
 
@@ -8512,7 +8514,7 @@ div\left(D\right)=0,1,2,...
 We will later see that
 \begin_inset Formula 
 \begin{equation}
-div\left(D\right)=nL-2I,
+div\left(D\right)=nL-2I,\label{eq:divDExpr}
 \end{equation}
 
 \end_inset
@@ -8539,27 +8541,7 @@ I & \equiv & \mbox{Internal lines in a Feynman diagram.}
 \noun off
 \color none
 
-\begin_inset Preview
-
-\begin_layout Standard
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
 \begin_inset Formula $\feyn{\vertexlabel^{a}!{fA}p\vertexlabel^{b}}$
-\end_inset
-
-
-\end_layout
-
 \end_inset
 
  will have a 
@@ -8622,6 +8604,12 @@ $
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Example-of-phi3-theory"
+
+\end_inset
+
 Example of 
 \begin_inset Formula $\phi^{3}$
 \end_inset
@@ -9016,6 +9004,678 @@ What we are doing is like adding Feynman diagrams to cancel diverging Feynman
 .
 \end_layout
 
+\begin_layout Section
+Dimensional analysis
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Dimensional analysis
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We should obtain the classical limit once we take 
+\begin_inset Formula $\hbar\rightarrow0$
+\end_inset
+
+.
+ We set 
+\begin_inset Formula $c=1$
+\end_inset
+
+ and 
+\begin_inset Formula $\hbar=1$
+\end_inset
+
+.
+ How do we retrieve them? There is a unique way of doing so in a unique
+ way.
+\end_layout
+
+\begin_layout Standard
+Also note that the path integral is dominated by the saddle point approximation
+ (because the path integral is of the form 
+\begin_inset Formula $\int\mathcal{D}\phi\exp\left(iS\left[\phi\right]/\hbar\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\hbar$
+\end_inset
+
+ is small ??).
+\end_layout
+
+\begin_layout Standard
+Setting 
+\begin_inset Formula $c=1$
+\end_inset
+
+ means that 
+\begin_inset Quotes eld
+\end_inset
+
+time
+\begin_inset Quotes erd
+\end_inset
+
+=
+\begin_inset Quotes erd
+\end_inset
+
+length
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Setting 
+\begin_inset Formula $\hbar=1$
+\end_inset
+
+ means that 
+\begin_inset Quotes eld
+\end_inset
+
+length
+\begin_inset Quotes erd
+\end_inset
+
+=1/
+\begin_inset Quotes erd
+\end_inset
+
+energy
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E=mc^{2}$
+\end_inset
+
+ so when 
+\begin_inset Formula $c=1$
+\end_inset
+
+, energy has the units as mass.
+ All of 
+\begin_inset Quotes eld
+\end_inset
+
+this allows us to convert a time 
+\begin_inset Formula $T$
+\end_inset
+
+ to a length 
+\begin_inset Formula $L$
+\end_inset
+
+ via 
+\begin_inset Formula $T=c^{-1}L$
+\end_inset
+
+, and a length 
+\begin_inset Formula $L$
+\end_inset
+
+ to an inverse mass 
+\begin_inset Formula $M^{-1}$
+\end_inset
+
+ via 
+\begin_inset Formula $L=\hbar cM^{-1}$
+\end_inset
+
+ 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+because 
+\begin_inset Formula $L=Tc$
+\end_inset
+
+ and indeed 
+\begin_inset Formula $T$
+\end_inset
+
+ has dimensions of 
+\begin_inset Formula $\hbar M^{-1}/c^{2}$
+\end_inset
+
+ and we set 
+\begin_inset Formula $c=1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+.Thus any quantity 
+\begin_inset Formula $A$
+\end_inset
+
+ can be thought of as having units of mass to some power (positive, negative,
+ or zero) that we will call [A].
+\begin_inset Quotes erd
+\end_inset
+
+ Hence, in units of mass to some power, we have that
+\begin_inset Formula 
+\begin{eqnarray}
+\left[m\right] & = & 1\\
+\left[x^{\mu}\right] & = & -1\\
+\left[\partial^{\mu}\right] & = & 1
+\end{eqnarray}
+
+\end_inset
+
+(as you think of momentum as 
+\begin_inset Formula $\hbar\partial^{\mu}$
+\end_inset
+
+ and we set 
+\begin_inset Formula $\hbar=1$
+\end_inset
+
+).
+ Also,
+\begin_inset Formula 
+\begin{equation}
+\left[d^{n}x\right]=-n.
+\end{equation}
+
+\end_inset
+
+The action is given by 
+\begin_inset Formula $S=\int d^{n}x\mathcal{L}$
+\end_inset
+
+.
+ Hence,
+\begin_inset Formula 
+\begin{eqnarray}
+\left[S\right] & = & 0\\
+\left[\mathcal{L}\right] & = & 0
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+All of this is important because, given a problem, it will allow us to roughly
+ obtain the answer in dimensions of mass or eV.
+ Numerical factors do not usually accumulate (an example of where they do
+ accumulate is the problem of muon decay).
+\end_layout
+
+\begin_layout Example
+Consider (in 
+\begin_inset Formula $n$
+\end_inset
+
+ space-time dimensions)
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}=-\frac{1}{2}\left(\partial_{\mu}\phi\right)\left(\partial^{\mu}\phi\right)-\frac{1}{2}m^{2}\phi^{2}-\frac{1}{k!}g\phi^{k},
+\end{equation}
+
+\end_inset
+
+so
+\begin_inset Formula 
+\begin{equation}
+\left[\phi\right]=\frac{n-2}{2}.
+\end{equation}
+
+\end_inset
+
+This can be seen from 
+\begin_inset Formula $m^{2}\phi^{2}$
+\end_inset
+
+ which should have dimension 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ We know that 
+\begin_inset Formula $m$
+\end_inset
+
+ has dimension 
+\begin_inset Formula $2$
+\end_inset
+
+ so 
+\begin_inset Formula $\phi^{2}$
+\end_inset
+
+ has dimension 
+\begin_inset Formula $n-2$
+\end_inset
+
+.
+ Next, consider the dimension of 
+\begin_inset Formula $g$
+\end_inset
+
+.
+ We have that dimension of 
+\begin_inset Formula $g\phi^{k}$
+\end_inset
+
+ is 
+\begin_inset Formula $n$
+\end_inset
+
+ and the dimension of 
+\begin_inset Formula $\phi^{k}$
+\end_inset
+
+ is 
+\begin_inset Formula $k\left(n-2\right)/2$
+\end_inset
+
+.
+ Hence,
+\begin_inset Formula 
+\begin{equation}
+\left[g\right]=n-\frac{k\left(n-2\right)}{2}.
+\end{equation}
+
+\end_inset
+
+So for 
+\begin_inset Formula $k=3$
+\end_inset
+
+ (
+\begin_inset Formula $\phi^{3}$
+\end_inset
+
+ theory), we have that 
+\begin_inset Formula $\left[g\right]=\left(6-n\right)/2$
+\end_inset
+
+.
+ Hence, 
+\begin_inset Formula $n=6$
+\end_inset
+
+ is the critical dimension of the 
+\begin_inset Formula $\phi^{3}$
+\end_inset
+
+ theory.
+ We determined this critical dimension with the use of Feynman diagrams
+ (see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Example-of-phi3-theory"
+
+\end_inset
+
+).
+ However, our analysis here is much simpler.
+\end_layout
+
+\begin_layout Standard
+In general, 
+\begin_inset Formula $gE^{-\left[g\right]}$
+\end_inset
+
+ is dimensionless.
+ When does 
+\begin_inset Formula $gE^{-\left[g\right]}\rightarrow0$
+\end_inset
+
+? This occurs at high energies (i.e.
+ 
+\begin_inset Formula $E\rightarrow\infty$
+\end_inset
+
+) if 
+\begin_inset Formula $\left[g\right]>0$
+\end_inset
+
+ and at low energies for 
+\begin_inset Formula $\left[g\right]<0$
+\end_inset
+
+.
+ In these two regimes, we have non-renormalizability.
+\end_layout
+
+\begin_layout Definition
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+renormalizable
+\end_layout
+
+\end_inset
+
+A theory is (non-)renormalizable if it needs (in)finitely many counter terms.
+\end_layout
+
+\begin_layout Remark
+We saw that (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:divDExpr"
+
+\end_inset
+
+)
+\begin_inset Formula 
+\begin{equation}
+div\left(Diagram\right)=nL-2I.
+\end{equation}
+
+\end_inset
+
+Here we are talking about something different.
+ Imagine we have that 
+\begin_inset Formula $\mathcal{L}_{int}\sim g_{E}\phi^{E}$
+\end_inset
+
+.
+ Now count the units of each diagram, 
+\begin_inset Formula $\left[\mbox{diagram}\right]=\left[g_{E}\right]$
+\end_inset
+
+, where 
+\begin_inset Formula $E$
+\end_inset
+
+ is the number of external sources -and- 
+\begin_inset Formula $\left[\mbox{diagram}\right]=nL-2I+V\left(g\right)$
+\end_inset
+
+.
+ More generally,
+\begin_inset Formula 
+\begin{equation}
+\left[diagram\right]=nL-2I+\sum_{k=3}^{\infty}V_{k}\left[g_{k}\right],
+\end{equation}
+
+\end_inset
+
+(each 
+\begin_inset Formula $L$
+\end_inset
+
+ is an integral over 
+\begin_inset Formula $\int d^{n}k$
+\end_inset
+
+) where 
+\begin_inset Formula $V_{k}$
+\end_inset
+
+ is the number of 
+\begin_inset Formula $k-valent$
+\end_inset
+
+ vertices (
+\begin_inset Formula $g_{k}$
+\end_inset
+
+ refers to 
+\begin_inset Formula $\phi^{k}$
+\end_inset
+
+ interaction).
+ We have that
+\begin_inset Formula 
+\begin{equation}
+div\left(diagram\right)=\left[g_{E}\right]-\sum_{k=3}^{\infty}V_{k}\left[g_{k}\right].
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+A theory with any 
+\begin_inset Formula $\left[g_{k}\right]<0$
+\end_inset
+
+ is already non-renormalizable.
+ 
+\end_layout
+
+\begin_layout Remark
+We know that 
+\begin_inset Formula $\left[g_{k}\right]<0$
+\end_inset
+
+ if 
+\begin_inset Formula $k>2n/\left(n-2\right)$
+\end_inset
+
+.
+ So this is the maximum 
+\begin_inset Formula $k$
+\end_inset
+
+-term we can have in the Lagrangian before we run into problems.
+ 
+\end_layout
+
+\begin_layout Proposition
+A theory is non-renormalizable if any coefficient of any term in the Lagrangian
+ has negative mass dimension.
+ (there are some exceptions but they are exotic systems).
+\end_layout
+
+\begin_layout Section
+The LS2 reduction formula
+\end_layout
+
+\begin_layout Standard
+Now focus on Feynman diagrams that converge: Focus on correlation functions
+\begin_inset Formula 
+\begin{equation}
+\braket{0|T\phi\left(x_{1}\right)...\phi\left(x_{n}\right)\phi\left(x_{1^{'}}\right)...\phi\left(x_{n^{'}}\right)|0}.
+\end{equation}
+
+\end_inset
+
+This measures correlations, but in actual experiments what is measured is
+ scattering amplitudes: Consider a collision experiment with a bunch of
+ particles: 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/model of scatttering ph205.svg
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Model for scattering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+.
+ LS2 tells us that there is a link between this scattering model and 
+\begin_inset Formula $\braket{0|T\phi\left(x_{1}\right)...\phi\left(x_{n}\right)\phi\left(x_{1^{'}}\right)...\phi\left(x_{n^{'}}\right)|0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Consider:
+\begin_inset Formula 
+\begin{equation}
+a\left(\vec{k}\right)\left|0\right\rangle =0,
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\left|0\right\rangle $
+\end_inset
+
+ is the vacuum state.
+ We also assumed that 
+\begin_inset Formula $\braket{0|0}=1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Define the one-particle state: 
+\begin_inset Formula 
+\begin{equation}
+\left|k\right\rangle =a^{\dagger}\left(\vec{k}\right)\left|0\right\rangle .
+\end{equation}
+
+\end_inset
+
+Our choice of normalization will be that
+\begin_inset Formula 
+\begin{equation}
+\braket{k|k^{'}}=\left(2\pi\right)^{3}2\omega\delta^{\left(3\right)}\left(\vec{k}-\vec{k}^{'}\right).
+\end{equation}
+
+\end_inset
+
+We will take the same relations (shown above) that we derived for the free
+ field and promote to it to a definition in the case of interacting Hamiltonians
+! Recall that
+\begin_inset Formula 
+\begin{equation}
+a^{\dagger}\left(\vec{k}\right)=-i\int d^{3}xe^{ikx}\overleftrightarrow{\delta_{0}}\phi\left(x\right),
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\overleftrightarrow{\delta_{0}}$
+\end_inset
+
+ is the 
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+2-sided derivative
+\end_layout
+
+\end_inset
+
+2-sided derivative and is defined by
+\begin_inset Formula 
+\begin{equation}
+f\overleftrightarrow{\delta_{\mu}}g\equiv f\left(\partial_{\mu}g\right)-\left(\partial_{\mu}f\right)g.
+\end{equation}
+
+\end_inset
+
+Behind the scenes, we have that
+\begin_inset Formula 
+\begin{eqnarray}
+\mbox{fields} & \leftrightarrow & \mbox{particles}\\
+\phi\left(x\right) & \leftrightarrow & \mbox{particle with }\vec{k}\mbox{ vector}
+\end{eqnarray}
+
+\end_inset
+
+(for 
+\begin_inset Formula $\phi$
+\end_inset
+
+ with a more complicated structure than a scalar, its interpretation will
+ not be as straightforward).
+\end_layout
+
+\begin_layout Standard
+Consider the following new operator:
+\begin_inset Formula 
+\begin{equation}
+a_{1}^{\dagger}\equiv\int d^{3}kf_{1}\left(\vec{k}\right)a^{\dagger}\left(\vec{k}\right),
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\begin{equation}
+f_{1}\left(\vec{k}\right)\propto\exp\left[-\frac{\left(\vec{k}-\vec{k}_{1}\right)^{2}}{4\sigma^{2}}\right].
+\end{equation}
+
+\end_inset
+
+Hence, when 
+\begin_inset Formula $\sigma\rightarrow0$
+\end_inset
+
+, we have that
+\begin_inset Formula 
+\begin{equation}
+f_{1}\left(\vec{k}\right)\rightarrow\delta^{\left(3\right)}\left(\vec{k}-\vec{k}_{1}\right).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Chapter
 Misc
 \end_layout
@@ -9135,6 +9795,30 @@ Divergence terminology:
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sub:Divergence-Terminology"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+We have that
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula 
+\begin{equation}
+f\overleftrightarrow{\delta_{\mu}}g\equiv f\left(\partial_{\mu}g\right)-\left(\partial_{\mu}f\right)g.
+\end{equation}
 
 \end_inset
 
