@@ -13,9 +13,10 @@
 \options unicode = true, noglobalbang
 \use_default_options true
 \begin_modules
-theorems-ams
 eqs-within-sections
 figs-within-sections
+theorems-ams-bytype
+theorems-ams-extended-bytype
 \end_modules
 \maintain_unincluded_children false
 \language english
@@ -94,7 +95,7 @@ figs-within-sections
 
 \size tiny
 \begin_inset FormulaMacro
-\newcommand{\braket}[1]{\Braket{#1}}
+\renewcommand{\braket}[1]{\Braket{#1}}
 {\left\langle #1\right\rangle }
 \end_inset
 
@@ -103,7 +104,7 @@ figs-within-sections
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\colwhite}[1]{\textcolor{white}{#1}}
+\renewcommand{\colwhite}[1]{\textcolor{white}{#1}}
 {\textcolor{white}{#1}}
 \end_inset
 
@@ -112,7 +113,7 @@ figs-within-sections
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\colblack}[1]{\textcolor{black}{#1}}
+\renewcommand{\colblack}[1]{\textcolor{black}{#1}}
 {\textcolor{black}{#1}}
 \end_inset
 
@@ -121,7 +122,7 @@ figs-within-sections
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\colred}[1]{\textcolor{red}{#1}}
+\renewcommand{\colred}[1]{\textcolor{red}{#1}}
 {\textcolor{red}{#1}}
 \end_inset
 
@@ -9556,6 +9557,46 @@ Model for scattering
 .
 \end_layout
 
+\begin_layout Example
+We will show a connection between the following setup: 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\Diagram{fd &  & fu\\
+ & \vertexlabel_{s}p\\
+fu &  & fd
+}
+$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ and 
+\begin_inset Formula $\braket{0|T\phi\left(x_{1}\right)\phi\left(x_{2}\right)\phi\left(x_{1^{'}}\right)\phi\left(x_{2^{'}}\right)|0}$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 Consider:
 \begin_inset Formula 
@@ -9569,7 +9610,11 @@ where
 \begin_inset Formula $\left|0\right\rangle $
 \end_inset
 
- is the vacuum state.
+ is the 
+\emph on
+vacuum state
+\emph default
+.
  We also assumed that 
 \begin_inset Formula $\braket{0|0}=1$
 \end_inset
@@ -9579,7 +9624,11 @@ where
 \end_layout
 
 \begin_layout Standard
-Define the one-particle state: 
+Define the 
+\emph on
+one-particle state
+\emph default
+: 
 \begin_inset Formula 
 \begin{equation}
 \left|k\right\rangle =a^{\dagger}\left(\vec{k}\right)\left|0\right\rangle .
@@ -9600,7 +9649,7 @@ We will take the same relations (shown above) that we derived for the free
 ! Recall that
 \begin_inset Formula 
 \begin{equation}
-a^{\dagger}\left(\vec{k}\right)=-i\int d^{3}xe^{ikx}\overleftrightarrow{\delta_{0}}\phi\left(x\right),
+a^{\dagger}\left(\vec{k}\right)=-i\int d^{3}xe^{ikx}\overleftrightarrow{\delta_{0}}\phi\left(x\right),\label{eq:4115eq205}
 \end{equation}
 
 \end_inset
@@ -9645,10 +9694,14 @@ Behind the scenes, we have that
 \end_layout
 
 \begin_layout Standard
-Consider the following new operator:
+Consider the following new operator, which is a modification of 
+\begin_inset Formula $a^{\dagger}\left(\vec{k}_{1}\right)$
+\end_inset
+
+:
 \begin_inset Formula 
 \begin{equation}
-a_{1}^{\dagger}\equiv\int d^{3}kf_{1}\left(\vec{k}\right)a^{\dagger}\left(\vec{k}\right),
+\boxed{a_{1}^{\dagger}\equiv\int d^{3}kf_{1}\left(\vec{k}\right)a^{\dagger}\left(\vec{k}\right)},\label{eq:boxed4119ph205}
 \end{equation}
 
 \end_inset
@@ -9661,7 +9714,7 @@ f_{1}\left(\vec{k}\right)\propto\exp\left[-\frac{\left(\vec{k}-\vec{k}_{1}\right
 
 \end_inset
 
-Hence, when 
+Choose the normalization such that when 
 \begin_inset Formula $\sigma\rightarrow0$
 \end_inset
 
@@ -9673,7 +9726,410 @@ f_{1}\left(\vec{k}\right)\rightarrow\delta^{\left(3\right)}\left(\vec{k}-\vec{k}
 
 \end_inset
 
+(when this happens, we have that 
+\begin_inset Formula $a_{1}^{\dagger}=a^{\dagger}\left(\vec{k}_{1}\right)$
+\end_inset
 
+).
+ We have that 
+\begin_inset Formula $a_{1}^{\dagger}$
+\end_inset
+
+ creates a particle localized in momentum space near 
+\begin_inset Formula $\vec{k_{1}}$
+\end_inset
+
+.
+ (And in position space near the origin).
+ 
+\end_layout
+
+\begin_layout Standard
+We have that
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a^{\dagger}\left(\vec{k}_{1}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $a_{1}^{\dagger}$
+\end_inset
+
+ are time-independent in free theory.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a^{\dagger}\left(\vec{k}_{1}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $a_{1}^{\dagger}$
+\end_inset
+
+ are time-dependent in interacting theory.
+\end_layout
+
+\begin_layout Standard
+Consider the following 
+\emph on
+initial state
+\emph default
+ which consists of many incoming particles:
+\begin_inset Formula 
+\begin{equation}
+\left|i\right\rangle \equiv\lim_{t\rightarrow-\infty}a_{1}^{\dagger}\left(t\right)a_{2}^{\dagger}\left(t\right)\left|0\right\rangle 
+\end{equation}
+
+\end_inset
+
+Likewise we can define the 
+\emph on
+final state
+\emph default
+
+\begin_inset Formula 
+\begin{equation}
+\left|f\right\rangle \equiv\lim_{t\rightarrow\infty}a_{1^{'}}^{\dagger}\left(t\right)a_{2^{'}}^{\dagger}\left(t\right)\left|0\right\rangle 
+\end{equation}
+
+\end_inset
+
+for 
+\begin_inset Formula $\vec{k}_{1}\neq\vec{k}_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{k}_{1}^{'}\neq\vec{k}_{2}^{'}$
+\end_inset
+
+ that describe two localized widely separated particles in the past/far
+ future.
+ 
+\end_layout
+
+\begin_layout Remark
+The interaction happens to be tuned off at time 
+\begin_inset Formula $\pm\infty$
+\end_inset
+
+ because of taking the limit (if the interaction is localized in one region
+ or dies off with distance, then eventually the particles will no longer
+ interact).
+ We will later revisit this assumption.
+\end_layout
+
+\begin_layout Standard
+Moreover, choose the following normalization
+\begin_inset Formula 
+\begin{equation}
+\boxed{\braket{i|i}=1=\braket{f|f}}.
+\end{equation}
+
+\end_inset
+
+Finally, scattering amplitudes are calculated via
+\begin_inset Formula 
+\begin{equation}
+\braket{f|i}=\braket{0|a_{2^{'}}\left(\infty\right)a_{1^{'}}\left(\infty\right)a_{1}^{\dagger}\left(-\infty\right)a_{2}^{\dagger}\left(-\infty\right)|0}
+\end{equation}
+
+\end_inset
+
+(non-trivial formula because we have all of the 
+\begin_inset Formula $a^{\dagger}$
+\end_inset
+
+ on one side and the 
+\begin_inset Formula $a$
+\end_inset
+
+s on the other side; LSZ will be about commuting the 
+\begin_inset Formula $a$
+\end_inset
+
+s and 
+\begin_inset Formula $a^{\dagger}$
+\end_inset
+
+s to calculate the amplitude) We have that
+\begin_inset Formula 
+\begin{equation}
+\braket{f|i}=\braket{0|Ta_{2^{'}}\left(\infty\right)a_{1^{'}}\left(\infty\right)a_{1}^{\dagger}\left(-\infty\right)a_{2}^{\dagger}\left(-\infty\right)|0}
+\end{equation}
+
+\end_inset
+
+(
+\begin_inset Formula $T$
+\end_inset
+
+ does not do much because the states were already time-ordered; but it will
+ be needed later on).
+ The key ingredient is the following: Using 
+\begin_inset Formula 
+\begin{equation}
+\boxed{a_{1}^{\dagger}\left(-\infty\right)=a_{1}^{\dagger}\left(\infty\right)+i\int d^{3}kf_{1}\left(\vec{k}\right)\int d^{4}xe^{ikx}\left(-\partial^{2}+m^{2}\right)\phi\left(x\right)}\label{eq:equationa1MInf205}
+\end{equation}
+
+\end_inset
+
+(trying to extract fourier coefficients; slightly more sophisticated form
+ of a Fourier transform; not too surprising as 
+\begin_inset Formula $\phi$
+\end_inset
+
+ depends linearly on 
+\begin_inset Formula $a$
+\end_inset
+
+).
+ We have that 
+\begin_inset Formula $\left(-\partial^{2}+m^{2}\right)\phi\left(x\right)=0$
+\end_inset
+
+ in free field and we get that 
+\begin_inset Formula $a_{1}$
+\end_inset
+
+ is time-independent.
+ Moreover, its Hermitian conjugate expresses analogous time-dependence:
+ 
+\series bold
+
+\begin_inset Formula 
+\begin{equation}
+a_{1}\left(-\infty\right)=a_{1}\left(\infty\right)-i\int d^{3}kf_{1}\left(\vec{k}\right)\int d^{4}xe^{-ikx}\left(-\partial^{2}+m^{2}\right)\phi\left(x\right)
+\end{equation}
+
+\end_inset
+
+
+\series default
+and so
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula 
+\begin{equation}
+\boxed{a_{1}\left(+\infty\right)=a_{1}\left(-\infty\right)+i\int d^{3}kf_{1}\left(\vec{k}\right)\int d^{4}xe^{-ikx}\left(-\partial^{2}+m^{2}\right)\phi\left(x\right)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(of 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:equationa1MInf205"
+
+\end_inset
+
+) We have that
+\begin_inset Formula 
+\begin{eqnarray}
+a_{1}^{\dagger}\left(\infty\right)-a_{1}^{\dagger}\left(-\infty\right) & = & \int_{-\infty}^{\infty}dt\partial_{0}a_{1}^{\dagger}\left(t\right)\\
+ & = & -i\int d^{3k}f_{1}\left(\vec{k}\right)\int d^{4}x\partial_{0}\left(e^{ikx}\overleftrightarrow{\partial_{0}}\phi\left(x\right)\right),
+\end{eqnarray}
+
+\end_inset
+
+where in the second line we used 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:4115eq205"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:boxed4119ph205"
+
+\end_inset
+
+.
+ Continuing we have that
+\begin_inset Formula 
+\begin{eqnarray}
+a_{1}^{\dagger}\left(\infty\right)-a_{1}^{\dagger}\left(-\infty\right) & = & -i\int d^{3}kf_{1}\left(\vec{k}\right)\int d^{4}xe^{ikx}\left(\partial_{0}^{2}+\omega^{2}\right)\phi\left(x\right)\\
+ & = & -i\int d^{3}kf_{1}\left(\vec{k}\right)\int d^{4}xe^{ikx}\left(\partial_{0}^{2}+\underbrace{\vec{k}^{2}+m^{2}}_{\omega^{2}}\right)\phi\left(x\right)\\
+(k^{2}\mbox{ acting on }e^{ikx}\mbox{ is like taking }\nabla^{2}) & = & -i\int d^{3}kf_{1}\left(\vec{k}\right)\int d^{4}xe^{ikx}\left(\partial_{0}^{2}-\overleftarrow{\nabla}^{2}+m^{2}\right)\phi\left(x\right)\\
+\mbox{(integration by parts)} & = & -i\int d^{3}kf_{1}\left(\vec{k}\right)\int d^{4}xe^{ikx}\left(\partial_{0}^{2}-\vec{\nabla}^{2}+m^{2}\right)\phi\left(x\right)\\
+ & = & -i\int d^{3}kf_{1}\left(\vec{k}\right)\int d^{4}xe^{ikx}\left(-\partial^{2}+m^{2}\right)\phi\left(x\right)
+\end{eqnarray}
+
+\end_inset
+
+(
+\begin_inset Formula $f_{1}$
+\end_inset
+
+ takes care of boundary conditions when we integrate by parts) Now take
+ 
+\begin_inset Formula $f_{1}$
+\end_inset
+
+ to be a delta function.
+ So 
+\begin_inset Formula 
+\begin{equation}
+a_{1}^{\dagger}\left(\infty\right)-a_{1}^{\dagger}\left(-\infty\right)=-i\int d^{4}xe^{ik_{1}x}\left(-\partial^{2}+m^{2}\right)\phi\left(x\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+In general, 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $a^{\dagger}$
+\end_inset
+
+ have a non-trivial dependence on time and it is very difficult to extract
+ that time-dependence.
+ We then get the LSZ reduction formula by plugging back into 
+\begin_inset Formula $\braket{f|i}$
+\end_inset
+
+ (and letting the time ordering put 
+\begin_inset Formula $a^{\dagger}$
+\end_inset
+
+ next to 
+\begin_inset Formula $a$
+\end_inset
+
+): (for general 
+\begin_inset Formula $n$
+\end_inset
+
+ incoming particles and 
+\begin_inset Formula $n^{'}$
+\end_inset
+
+ outgoing particles and taking 
+\begin_inset Formula $f\rightarrow\delta^{3}\left(\vec{k}-\vec{k}_{1}\right)$
+\end_inset
+
+ - for now we do not want to deal with general wave packets - we are considering
+ particles with definite momentum)
+\begin_inset Formula 
+\begin{equation}
+\braket{f|i}=i^{n+n^{'}}\int d^{n}x_{1}e^{ik_{1}x_{1}}\left(-\partial_{1}^{2}+m^{2}\right)...d^{4}x_{1}^{'}e^{-ik_{1}^{'}x_{1}^{'}}\left(-\partial_{1^{'}}^{2}+m^{2}\right)...\times\braket{0|T\phi\left(x_{1}\right)...\phi\left(x_{1}^{'}\right)...|0}
+\end{equation}
+
+\end_inset
+
+(note that all of these arguments are valid provided that 
+\begin_inset Formula $a_{1}^{\dagger}\left(\pm\infty\right)$
+\end_inset
+
+, as in free theory, create only single-particle states, i.e.
+ 
+\begin_inset Formula 
+\begin{eqnarray}
+\braket{0|\phi\left(x\right)|0} & = & 0\\
+\braket{k|\phi\left(x\right)|0} & = & e^{-ikx}.
+\end{eqnarray}
+
+\end_inset
+
+We will later come back to these conditions.
+ So to calculate 
+\begin_inset Formula $\braket{f|i}$
+\end_inset
+
+ from time-ordered correlation functions, one first applies klein-gordon
+ equation on it 
+\begin_inset Quotes eld
+\end_inset
+
+amputating the correlation function
+\begin_inset Quotes erd
+\end_inset
+
+, then multiplies by complex exponential factor and finally apply the integrals
+\end_layout
+
+\begin_layout Example
+For 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\Diagram{fd &  & fu\\
+ & \vertexlabel_{s}p\\
+fu &  & fd
+}
+$
+\end_inset
+
+, we have that
+\begin_inset Formula 
+\begin{eqnarray}
+\braket{f|i} & = & i^{4}\int d^{4}x_{1}d^{4}x_{2}d^{4}x_{1}^{'}d^{4}x_{2}^{'}\exp\left(i\left[k_{1}x_{2}+k_{2}x_{2}-k_{1}^{'}x_{1}-k_{2}^{'}x_{2}^{'}\right]\right)\times\\
+ &  & \left(-\partial_{1^{'}}^{2}+m^{2}\right)\left(-\partial_{2^{'}}^{2}+m^{2}\right)\braket{0|T\phi\left(x_{1}\right)\phi\left(x_{2}\right)\phi\left(x_{1}^{'}\right)\phi\left(x_{2}^{'}\right)|0}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+LSZ does two things: it transforms correlation functions (which we calculate
+ with Feynman diagrams) into scattering amplitudes and it does it in Fourier
+ space! This will allow us to interpert Feynman diagrams in terms of scatterings.
 \end_layout
 
 \begin_layout Chapter
