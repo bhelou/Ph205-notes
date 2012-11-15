@@ -95,7 +95,7 @@ theorems-ams-extended-bytype
 
 \size tiny
 \begin_inset FormulaMacro
-\renewcommand{\braket}[1]{\Braket{#1}}
+\newcommand{\braket}[1]{\Braket{#1}}
 {\left\langle #1\right\rangle }
 \end_inset
 
@@ -104,7 +104,7 @@ theorems-ams-extended-bytype
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\colwhite}[1]{\textcolor{white}{#1}}
+\newcommand{\colwhite}[1]{\textcolor{white}{#1}}
 {\textcolor{white}{#1}}
 \end_inset
 
@@ -113,7 +113,7 @@ theorems-ams-extended-bytype
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\colblack}[1]{\textcolor{black}{#1}}
+\newcommand{\colblack}[1]{\textcolor{black}{#1}}
 {\textcolor{black}{#1}}
 \end_inset
 
@@ -122,7 +122,7 @@ theorems-ams-extended-bytype
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\colred}[1]{\textcolor{red}{#1}}
+\newcommand{\colred}[1]{\textcolor{red}{#1}}
 {\textcolor{red}{#1}}
 \end_inset
 
@@ -8238,9 +8238,22 @@ Z\left(J\right)=\exp\left(iW\left(J\right)\right).
 \end_inset
 
 Hence, we can say that
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula $W\left(J\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
-iW\left(J\right)=\sum_{I}C_{I},
+iW\left(J\right)=\sum_{I}C_{I},\label{eq:WJconnectedDiagrams}
 \end{equation}
 
 \end_inset
@@ -9783,7 +9796,21 @@ initial state
 
 \end_inset
 
-Likewise we can define the 
+Note that we want initial states with definite momentum but we are considering
+ a general state (
+\begin_inset Formula $a_{1}^{\dagger}$
+\end_inset
+
+ instead of 
+\begin_inset Formula $a^{\dagger}\left(\vec{k}_{1}\right)$
+\end_inset
+
+ because it will make taking the limit 
+\begin_inset Formula $\sigma\rightarrow0$
+\end_inset
+
+ more easy and explicit).
+ Likewise we can define the 
 \emph on
 final state
 \emph default
@@ -9977,8 +10004,19 @@ a_{1}^{\dagger}\left(\infty\right)-a_{1}^{\dagger}\left(-\infty\right) & = & -i\
 \begin_inset Formula $f_{1}$
 \end_inset
 
- takes care of boundary conditions when we integrate by parts) Now take
- 
+ takes care of boundary conditions when we integrate by parts; the 
+\begin_inset Formula $\overleftarrow{\nabla}^{2}$
+\end_inset
+
+ means the 
+\begin_inset Formula $\nabla^{2}$
+\end_inset
+
+ is acting on 
+\begin_inset Formula $e^{ikx}$
+\end_inset
+
+) Now take 
 \begin_inset Formula $f_{1}$
 \end_inset
 
@@ -10045,7 +10083,7 @@ In general,
  particles with definite momentum)
 \begin_inset Formula 
 \begin{equation}
-\braket{f|i}=i^{n+n^{'}}\int d^{n}x_{1}e^{ik_{1}x_{1}}\left(-\partial_{1}^{2}+m^{2}\right)...d^{4}x_{1}^{'}e^{-ik_{1}^{'}x_{1}^{'}}\left(-\partial_{1^{'}}^{2}+m^{2}\right)...\times\braket{0|T\phi\left(x_{1}\right)...\phi\left(x_{1}^{'}\right)...|0}
+\boxed{\braket{f|i}=i^{n+n^{'}}\int d^{n}x_{1}e^{ik_{1}x_{1}}\left(-\partial_{1}^{2}+m^{2}\right)...d^{4}x_{1}^{'}e^{-ik_{1}^{'}x_{1}^{'}}\left(-\partial_{1^{'}}^{2}+m^{2}\right)...\times\braket{0|T\phi\left(x_{1}\right)...\phi\left(x_{1}^{'}\right)...|0}}
 \end{equation}
 
 \end_inset
@@ -10130,6 +10168,475 @@ $
 LSZ does two things: it transforms correlation functions (which we calculate
  with Feynman diagrams) into scattering amplitudes and it does it in Fourier
  space! This will allow us to interpert Feynman diagrams in terms of scatterings.
+\end_layout
+
+\begin_layout Section
+Exact propagator
+\end_layout
+
+\begin_layout Standard
+Recall that (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:WJconnectedDiagrams"
+
+\end_inset
+
+) 
+\begin_inset Formula $Z\left(J\right)=\exp iW\left(J\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $W\left(J\right)$
+\end_inset
+
+ is over connected diagrams.
+ Define 
+\begin_inset Formula 
+\begin{equation}
+\delta_{j}\equiv\frac{1}{i}\frac{\partial}{\partial J\left(x_{j}\right)}
+\end{equation}
+
+\end_inset
+
+and the exact propagator
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+exact propagator
+\end_layout
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{i}\bm{\Delta}\left(x_{1}-x_{2}\right)\equiv\braket{0|T\phi\left(x_{1}\right)\phi\left(x_{2}\right)|0}.
+\end{equation}
+
+\end_inset
+
+With our new notation, we have that
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{1}{i}\bm{\Delta}\left(x_{1}-x_{2}\right) & = & \left.\delta_{1}\delta_{2}Z\left(J\right)\right|_{J=0}\\
+ & = & \left.\delta_{1}\delta_{2}iW\left(J\right)\right|_{J=0}+\left.\delta_{1}iW\left(J\right)\right|_{J=0}\left.\delta_{2}iW\left(J\right)\right|_{J=0}\\
+ & = & \left.\delta_{1}\delta_{2}iW\left(J\right)\right|_{J=0},
+\end{eqnarray}
+
+\end_inset
+
+(where we used that 
+\begin_inset Formula $Z\left(0\right)=0$
+\end_inset
+
+) provided that 
+\begin_inset Formula 
+\begin{equation}
+\left.\delta_{i}W\left(J\right)\right|_{J=0}=\braket{0|\phi\left(x_{i}\right)|0}=0
+\end{equation}
+
+\end_inset
+
+Thus
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{1}{i}\bm{\Delta}\left(x_{1}-x_{2}\right) & = & \mbox{sum of diagrams with two sources with those sources removed and }\\
+ &  & \mbox{the endpoints labeled by }x_{1}\mbox{ and }x_{2}.
+\end{eqnarray}
+
+\end_inset
+
+Simple example: 
+\begin_inset Formula $x_{1}\feyn{ff}x_{2}$
+\end_inset
+
+ or 
+\begin_inset Formula $x_{1}\ensuremath{\Diagram{f\vertexlabel_{g}c\vertexlabel_{g}f}
+}x_{2}$
+\end_inset
+
+.
+ At tree level,
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{i}\bm{\Delta}\left(x_{1}-x_{2}\right)=\frac{1}{i}\Delta\left(x_{1}-x_{2}\right)+O\left(g^{2}\right).
+\end{equation}
+
+\end_inset
+
+We will use this new formalism to calculate scattering amplitudes.
+ Say we have something like 
+\begin_inset Formula $\Diagram{1^{'}fd &  & fu2^{'}\\
+ & \vertexlabel_{s}p\\
+1fu &  & fd2
+}
+$
+\end_inset
+
+ then
+\begin_inset Formula 
+\begin{equation}
+\braket{0|T\phi\left(x_{1}\right)\phi\left(x_{2}\right)\phi\left(x_{1}^{'}\right)\phi\left(x_{2}^{'}\right)|0}=\left.\delta_{1}\delta_{2}\delta_{1^{'}}\delta_{2^{'}}Z\left(J\right)\right|_{J=0}
+\end{equation}
+
+\end_inset
+
+We have that
+\begin_inset Formula 
+\begin{eqnarray}
+\left.\delta_{1}\delta_{2}\delta_{1^{'}}\delta_{2^{'}}Z\left(J\right)\right|_{J=0} & = & \left.\delta_{1}\delta_{2}\delta_{1^{'}}\delta_{2^{'}}iW+\left(\delta_{1}\delta_{2^{'}}iW\right)\left(\delta_{1^{'}}\delta_{2}iW\right)+\left(\delta_{1}\delta_{1^{'}}iW\right)\left(\delta_{2}\delta_{2^{'}}iW\right)\right|_{J=0}\\
+ & + & \left.\left(\delta_{1}\delta_{2^{'}}iW\right)\left(\delta_{1^{'}}\delta_{2^{'}}iW\right)\right|_{J=0}.
+\end{eqnarray}
+
+\end_inset
+
+This can be represented with the following figure: 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/WJ diagrams.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:WJtemp"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Introduce
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+F\left(x_{ij}\right)\equiv\left(-\partial_{i}^{2}+m^{2}\right)\left(-\partial_{j}^{2}+m^{2}\right)\bm{\Delta}\left(x_{ij}\right),
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $x_{ij}\equiv x_{i}-x_{j}$
+\end_inset
+
+.
+ Denote the Fourier transform of 
+\begin_inset Formula $F$
+\end_inset
+
+ by 
+\begin_inset Formula $\tilde{F}$
+\end_inset
+
+.
+ We have according to the LSZ formula that the scattering amplitude associated
+ with the second diagram in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:WJtemp"
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+\xi\equiv\int d^{4}x_{1}d^{4}x_{2}d^{4}x_{1^{'}}d^{4}x_{2^{'}}e^{i\left(k_{1}x_{1}+k_{2}x_{2}-k_{1}^{'}x_{1}^{'}-k_{2}^{'}x_{2}^{'}\right)}F\left(x_{11^{'}}\right)F\left(x_{22^{'}}\right)
+\end{equation}
+
+\end_inset
+
+(
+\begin_inset Formula $F$
+\end_inset
+
+ does the amputation then we take Fourier transform).
+ Denote
+\begin_inset Formula 
+\begin{equation}
+\overline{k_{ij^{'}}}\equiv\frac{k_{i}+k_{j}}{2}.
+\end{equation}
+
+\end_inset
+
+Continuing, we have that
+\begin_inset Formula 
+\begin{equation}
+\boxed{\xi=\left(2\pi\right)^{4}\delta^{4}\left(k_{1}-k_{1}^{'}\right)\left(2\pi\right)^{4}\delta\left(k_{2}-k_{2}^{'}\right)\tilde{F}\left(\overline{k_{11^{'}}}\right)\tilde{F}\left(\overline{k_{22^{'}}}\right)}
+\end{equation}
+
+\end_inset
+
+This is the general structure.
+ Thus due to the delta functions
+\begin_inset Formula 
+\begin{eqnarray}
+k_{1}^{'} & = & k_{2^{'}}
+\end{eqnarray}
+
+\end_inset
+
+means no scattering (like with first diagram in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:WJtemp"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+All of this was to motivate that momentum flows in the diagrams (i.e.
+ momentum is conserved).
+\end_layout
+
+\begin_layout Standard
+This discussion suggests that we should consider only fully connected Feynman
+ diagram (They come from 
+\begin_inset Formula $\delta$
+\end_inset
+
+'s acting on a single factor of 
+\begin_inset Formula $W$
+\end_inset
+
+), so it is convenient to work with 
+\begin_inset Formula $W$
+\end_inset
+
+ because it consists of only connected diagrams.
+ 
+\end_layout
+
+\begin_layout Definition
+\begin_inset Quotes eld
+\end_inset
+
+Connected correlation function
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Connected correlation function
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+\braket{0|T\phi\left(x_{2}\right)...\phi\left(x_{E}\right)|0}_{c}\equiv\left.\delta_{1}...\delta_{E}iW\left(J\right)\right|_{J=0},
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $E$
+\end_inset
+
+ is number of external legs and the subscript 
+\begin_inset Formula $c$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Going back to our example of 
+\begin_inset Formula $\Diagram{1^{'}fd &  & fu2^{'}\\
+ & \vertexlabel_{s}p\\
+1fu &  & fd2
+}
+$
+\end_inset
+
+, the leading order (in 
+\begin_inset Formula $g$
+\end_inset
+
+) contribution comes from Feynman diagrams with 
+\begin_inset Formula $E=4$
+\end_inset
+
+ and 
+\begin_inset Formula $V=2$
+\end_inset
+
+.
+ The four 
+\begin_inset Formula $\delta$
+\end_inset
+
+s remove the four sources (
+\begin_inset Formula $J$
+\end_inset
+
+) and replace them with 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+, ...
+ Note that there are 
+\begin_inset Formula $4!=24$
+\end_inset
+
+ ways.
+ The 24 ways are organized in three groups of 8 (as 
+\begin_inset Formula $24=8\times3$
+\end_inset
+
+): 
+\begin_inset Formula $\Diagram{1fd &  & fu1^{'}\\
+ & \vertexlabel_{y}f & \vertexlabel_{z}\\
+2fu &  & fd2^{'}
+}
+$
+\end_inset
+
+ or 
+\begin_inset Formula $\Diagram{1^{'}fd &  & fu2^{'}\\
+ & \vertexlabel_{y}f & \vertexlabel_{z}\\
+1fu &  & fd2
+}
+$
+\end_inset
+
+ or 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/diagram temp 4.svg
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+.
+ Notice that each group has 3 obvious reflections (so we have a symmetry
+ factor of 8)
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Quotes eld
+\end_inset
+
+tree diagrams
+\begin_inset Quotes erd
+\end_inset
+
+ (i.e.
+ diagrams with no closed loops so they look like a tree) all have a symmetry
+ factor equal to 1: 
+\begin_inset Formula $S=1$
+\end_inset
+
+.
+ Note that this statement only holds once the sources have been stripped
+ off and the end points labeled.
+\end_layout
+
+\begin_layout Standard
+Putting everything together, we can now write that
+\begin_inset Formula 
+\begin{eqnarray}
+\left\langle 0|T\phi\left(x_{1}\right)\phi\left(x_{2}\right)\phi\left(x_{1}^{'}\right)\phi\left(x_{2}^{'}\right)|0\right\rangle _{c} & = & \left(ig\right)^{2}\left(\frac{1}{i}\right)\int d^{4}yd^{4}z\Delta\left(y-z\right)\\
+ &  & \times\{\Delta\left(x_{1}-y\right)\Delta\left(x_{2}-y\right)\Delta\left(x_{1}^{'}-z\right)\Delta\left(x_{2}^{'}-z\right)\\
+ &  & +\Delta\left(x_{1}-y\right)\Delta\left(x_{1}^{'}-y\right)\Delta\left(x_{2}-z\right)\Delta\left(x_{2}^{'}-z\right)\\
+ &  & +\Delta\left(x_{1}-y\right)\Delta\left(x_{2}^{'}-y\right)\Delta\left(x_{2}-z\right)\Delta\left(x_{1}^{'}-z\right)\}+O\left(g^{2}\right)
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $y,z$
+\end_inset
+
+ are the endpoints of the segements, e.g.
+ 
+\begin_inset Formula $\Diagram{1^{'}fd &  & fu2^{'}\\
+ & \vertexlabel_{y}f & \vertexlabel_{z}\\
+1fu &  & fd2
+}
+$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Chapter
@@ -10221,6 +10728,18 @@ reference "eq:timeOrdering"
 \end_layout
 
 \begin_layout Enumerate
+Exact propagator:
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{i}\bm{\Delta}\left(x_{1}-x_{2}\right)\equiv\braket{0|T\phi\left(x_{1}\right)\phi\left(x_{2}\right)|0}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
 We have that
 \begin_inset Formula 
 \begin{equation}
@@ -10240,6 +10759,30 @@ e^{ikx}=e^{i\vec{k}.\vec{x}-i\omega t}
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "defn:superficialDegreeOfCOnvergence"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+We have that 
+\begin_inset Formula 
+\begin{equation}
+\delta_{j}\equiv\frac{1}{i}\frac{\partial}{\partial J\left(x_{j}\right)}
+\end{equation}
 
 \end_inset
 
