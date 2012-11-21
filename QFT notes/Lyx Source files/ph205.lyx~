@@ -9501,7 +9501,7 @@ A theory is non-renormalizable if any coefficient of any term in the Lagrangian
 \end_layout
 
 \begin_layout Section
-The LS2 reduction formula
+The LSZ reduction formula
 \end_layout
 
 \begin_layout Standard
@@ -10545,7 +10545,7 @@ s remove the four sources (
 $
 \end_inset
 
- or 
+ (called s) or 
 \begin_inset Formula $\Diagram{1^{'}fd &  & fu2^{'}\\
  & \vertexlabel_{y}f & \vertexlabel_{z}\\
 1fu &  & fd2
@@ -10553,15 +10553,11 @@ $
 $
 \end_inset
 
- or 
+ (called t) or 
 \begin_inset Float figure
 wide false
 sideways false
 status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -10573,15 +10569,11 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-
+Called u
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -10589,7 +10581,12 @@ status collapsed
 
 .
  Notice that each group has 3 obvious reflections (so we have a symmetry
- factor of 8)
+ factor of 8).
+ The sum of these three diagrams is equal to 
+\begin_inset Formula $\braket{0|T\phi\left(x_{1}\right)\phi\left(x_{2}\right)\phi\left(x_{1}^{'}\right)\phi\left(x_{2}^{'}\right)|0}=\left.\delta_{1}\delta_{2}\delta_{1^{'}}\delta_{2^{'}}iW\right|_{J=0}.$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Theorem
@@ -10615,8 +10612,8 @@ tree diagrams
 Putting everything together, we can now write that
 \begin_inset Formula 
 \begin{eqnarray}
-\left\langle 0|T\phi\left(x_{1}\right)\phi\left(x_{2}\right)\phi\left(x_{1}^{'}\right)\phi\left(x_{2}^{'}\right)|0\right\rangle _{c} & = & \left(ig\right)^{2}\left(\frac{1}{i}\right)\int d^{4}yd^{4}z\Delta\left(y-z\right)\\
- &  & \times\{\Delta\left(x_{1}-y\right)\Delta\left(x_{2}-y\right)\Delta\left(x_{1}^{'}-z\right)\Delta\left(x_{2}^{'}-z\right)\\
+\left\langle 0|T\phi\left(x_{1}\right)\phi\left(x_{2}\right)\phi\left(x_{1}^{'}\right)\phi\left(x_{2}^{'}\right)|0\right\rangle _{c} & = & \left.\delta_{1}\delta_{2}\delta_{1^{'}}\delta_{2^{'}}iW\right|_{J=0}=\left(ig\right)^{2}\left(\frac{1}{i}\right)^{5}\int d^{4}yd^{4}z\Delta\left(y-z\right)\times\\
+ &  & \{\Delta\left(x_{1}-y\right)\Delta\left(x_{2}-y\right)\Delta\left(x_{1}^{'}-z\right)\Delta\left(x_{2}^{'}-z\right)\\
  &  & +\Delta\left(x_{1}-y\right)\Delta\left(x_{1}^{'}-y\right)\Delta\left(x_{2}-z\right)\Delta\left(x_{2}^{'}-z\right)\\
  &  & +\Delta\left(x_{1}-y\right)\Delta\left(x_{2}^{'}-y\right)\Delta\left(x_{2}-z\right)\Delta\left(x_{1}^{'}-z\right)\}+O\left(g^{2}\right)
 \end{eqnarray}
@@ -10627,7 +10624,7 @@ where
 \begin_inset Formula $y,z$
 \end_inset
 
- are the endpoints of the segements, e.g.
+ are the endpoints of the segments, e.g.
  
 \begin_inset Formula $\Diagram{1^{'}fd &  & fu2^{'}\\
  & \vertexlabel_{y}f & \vertexlabel_{z}\\
@@ -10637,6 +10634,462 @@ $
 \end_inset
 
 .
+ Substituting this expression into the LSZ reduction formula and using that
+\begin_inset Formula 
+\begin{equation}
+\left(-\partial_{i}^{2}+m^{2}\right)\Delta\left(x_{i}-y\right)=\delta^{4}\left(x_{i}-y\right).
+\end{equation}
+
+\end_inset
+
+We get 
+\begin_inset Formula 
+\begin{eqnarray}
+\braket{f|i} & = & \left(ig\right)^{2}\left(\frac{1}{i}\right)\int d^{4}yd^{4}z\Delta\left(y-z\right)\times[\underbrace{e^{i\left(k_{1}y+k_{2}y-k_{1}^{'}z-k_{2}^{'}z\right)}}_{\mbox{first diagram}}+\underbrace{e^{i\left(k_{1}y+k_{2}z-k_{1}^{'}y-k_{2}^{'}z\right)}}_{\mbox{second diagram}}\\
+ &  & +e^{i\left(k_{1}y+k_{2}z-k_{1}^{'}z-k_{2}^{'}y\right)}]+O\left(g^{4}\right)
+\end{eqnarray}
+
+\end_inset
+
+The last step is to get rid of all space-time coordinates: Write
+\begin_inset Formula 
+\begin{eqnarray}
+\Delta\left(y-z\right) & = & \int\frac{d^{4}k}{\left(2\pi\right)^{4}}\frac{e^{ik\left(y-z\right)}}{k^{2}+m^{2}-i\epsilon},
+\end{eqnarray}
+
+\end_inset
+
+so
+\begin_inset Formula 
+\begin{eqnarray}
+\braket{f|i} & = & ig^{2}\int\frac{d^{4}k}{\left(2\pi\right)^{4}}\frac{1}{k^{2}+m^{2}-i\epsilon}[\left(2\pi\right)^{4}\delta^{4}\left(k_{1}+k_{2}+k\right)\left(2\pi\right)^{4}\delta^{4}\left(k_{1}^{'}+k_{2}^{'}+k\right)+\\
+ &  & \left(2\pi\right)^{4}\delta^{4}\left(k_{1}-k_{1}^{'}+k\right)\left(2\pi\right)^{4}\delta^{4}\left(k_{2}^{'}-k_{2}+k\right)+\left(2\pi\right)^{4}\delta^{4}\left(k_{1}-k_{2}^{'}+k\right)\left(2\pi\right)^{4}\delta^{4}\left(k_{1}^{'}-k_{2}+k\right)]
+\end{eqnarray}
+
+\end_inset
+
+It is convenient to label how momentum flows in the diagrams: 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/uDiagram.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+s diagram momentum flow; particles 1 and 2 interact in such a way that the
+ interaction conserve momentum and energy.
+ This diagrams shows the interpretation of Feynman diagrams and how to give
+ them meaning.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ Continuing:
+\begin_inset Formula 
+\begin{eqnarray}
+\braket{f|i} & = & ig^{2}\left(2\pi\right)^{4}\delta^{4}\left(k_{1}+k_{1}-k_{1}^{'}-k_{2}^{'}\right)\times\left[\frac{1}{\left(k_{1}+k_{2}\right)^{2}+m^{2}-i\epsilon}+\frac{1}{\left(k_{1}-k_{1}^{'}\right)^{2}+m^{2}-i\epsilon}+\frac{1}{\left(k_{1}-k_{2}^{'}\right)^{2}+m^{2}-i\epsilon}\right]+O\left(g^{4}\right)
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $\delta^{4}\left(k_{1}+k_{1}-k_{1}^{'}-k_{2}^{'}\right)$
+\end_inset
+
+ expresses 4-momentum conservation.
+ This is the final answer for the scattering amplitude.
+ It started life as a very complicated integral.
+\end_layout
+
+\begin_layout Standard
+Define 
+\begin_inset Quotes eld
+\end_inset
+
+scattering matrix element
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+scattering matrix element
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula $\mathcal{T}$
+\end_inset
+
+; it is almost synonymous with scattering amplitude:
+\begin_inset Formula 
+\begin{equation}
+\braket{f|i}\equiv\left(2\pi\right)^{4}\delta^{4}\left(k_{in}-k_{out}\right)i\mathcal{T}.
+\end{equation}
+
+\end_inset
+
+(in our calculation 
+\begin_inset Formula $\delta^{4}\left(k_{in}-k_{out}\right)=\delta^{4}\left(k_{1}+k_{1}-k_{1}^{'}-k_{2}^{'}\right)$
+\end_inset
+
+) and use the notation of Lorentz scalars (
+\begin_inset Quotes eld
+\end_inset
+
+Mandelstam variables
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Mandelstam variables
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+):
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+s\equiv & -\left(k_{1}+k_{2}\right)^{2}=-\left(k_{1}^{'}+k_{2}^{'}\right)^{2}\\
+t\equiv & -\left(k_{1}-k_{1}^{'}\right)^{2}=-\left(k_{2}-k_{2}^{'}\right)^{2}\\
+u\equiv & -\left(k_{1}-k_{2}^{'}\right)^{2}=-\left(k_{1}-k_{1}^{'}\right)^{2},
+\end{cases}
+\end{equation}
+
+\end_inset
+
+as applied to the s,t and u diagrams.
+ From the definition of 
+\begin_inset Formula $k_{1}$
+\end_inset
+
+ we have that
+\begin_inset Formula 
+\begin{equation}
+k_{1}^{2}=g_{\mu\nu}k_{1}^{\mu}k_{1}^{\nu}=-m^{2}.
+\end{equation}
+
+\end_inset
+
+Notice that (to show this calculate: 
+\begin_inset Formula $\left(s+t+u\right)/2+\left(s+t+u\right)/2$
+\end_inset
+
+, where the first term uses the first column values of 
+\begin_inset Formula $s,t,u$
+\end_inset
+
+ and the second term uses the second column values of 
+\begin_inset Formula $s,t,u$
+\end_inset
+
+)
+\begin_inset Formula 
+\begin{equation}
+s+t+u=m_{1}^{2}+m_{2}^{2}+m_{1^{'}}^{2}+m_{2^{'}}^{2}.
+\end{equation}
+
+\end_inset
+
+We see that 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{T}=g^{2}\left[\tilde{\Delta}\left(-s\right)+\tilde{\Delta}\left(-t\right)+\tilde{\Delta}\left(-u\right)\right]+O\left(g^{2}\right),
+\end{equation}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{equation}
+\tilde{\Delta}\left(-s\right)=\frac{1}{-s^{2}+m^{2}-i\epsilon},
+\end{equation}
+
+\end_inset
+
+etc ...
+ 
+\end_layout
+
+\begin_layout Subsection
+Summary of how to calculate scattering amplitude
+\end_layout
+
+\begin_layout Standard
+For a general scattering 
+\begin_inset Formula $\Diagram{1^{'}fdA &  & fuA2^{'}\\
+ & \vertexlabel_{s}p\\
+1fuA &  & fdA2
+}
+$
+\end_inset
+
+ with many legs 
+\begin_inset Formula $1,2,..,n$
+\end_inset
+
+ and out legs 
+\begin_inset Formula $1^{'},2^{'},...,n^{'}$
+\end_inset
+
+, follow this procedure for calculating scattering amplitudes:
+\end_layout
+
+\begin_layout Enumerate
+Draw external lines (=particles)
+\end_layout
+
+\begin_layout Enumerate
+Attach external lines to (cubic in the case of 
+\begin_inset Formula $\phi^{3}$
+\end_inset
+
+ theory) vertices.
+\end_layout
+
+\begin_layout Enumerate
+Add additional vertices, internal lines.
+ Doing this will result in scanning through all topologically inequivalent
+ Feynman diagrams.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Quotes eld
+\end_inset
+
+Decorate
+\begin_inset Quotes erd
+\end_inset
+
+ all external and internal lines with values of momenta 
+\begin_inset Formula $k_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $k_{i}^{'}$
+\end_inset
+
+, ...
+\end_layout
+
+\begin_layout Enumerate
+Implement momentum conservation 
+\begin_inset Quotes eld
+\end_inset
+
+flowing
+\begin_inset Quotes erd
+\end_inset
+
+ through the diagram.
+\end_layout
+
+\begin_layout Enumerate
+Evaluate: 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+External lines = 1
+\end_layout
+
+\begin_layout Enumerate
+Internal lines = 
+\begin_inset Formula $-i/\left(k^{2}+m^{2}-i\epsilon\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+(for cubic vertices) Vertex = 
+\begin_inset Formula $iZ_{g}g$
+\end_inset
+
+ (where we have anticipated the inclusion of a counter term: 
+\begin_inset Formula $Z_{g}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Enumerate
+We get loop momentum integrals: 
+\begin_inset Formula 
+\begin{equation}
+\int\frac{d^{4}l_{i}}{\left(2\pi\right)^{4}}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/example loop amplitude.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Divide by symmetry factor
+\end_layout
+
+\begin_layout Enumerate
+Introduce counter terms, e.g.
+ 
+\begin_inset Formula $\feyn{f!{fA}pf}=-i\left(k^{2}\left(Z_{\phi}-1\right)+m^{2}\left(Z_{m}-1\right)\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+We have now saturated the abstract ingredients of the course.
+ We will now implement these abstract rules and see why they are so useful.
+ 
+\end_layout
+
+\begin_layout Section
+The Lehman-Kallen form of the exact propagator
+\end_layout
+
+\begin_layout Standard
+Recall that 
+\begin_inset Formula 
+\begin{equation}
+\bm{\Delta}\left(x-y\right)\equiv i\braket{0|T\phi\left(x\right)\phi\left(y\right)|0}
+\end{equation}
+
+\end_inset
+
+and we made the following normalization choices: 
+\begin_inset Formula 
+\begin{eqnarray}
+\braket{0|\phi\left(x\right)|0} & = & 0\\
+\braket{k|\phi\left(x\right)|0} & = & e^{-ikx}\\
+\braket{k|k^{'}} & = & \left(2\pi\right)^{d-1}2\omega\delta^{d-1}\left(\vec{k}-\vec{k}^{'}\right),
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $\omega=\sqrt{\vec{k}^{2}+m^{2}}$
+\end_inset
+
+.
+ Also introduce the following notation:
+\begin_inset Formula 
+\begin{equation}
+d\tilde{k}\equiv\frac{d^{d-1}k}{\left(2\pi\right)^{d-1}2\omega}
+\end{equation}
+
+\end_inset
+
+(notice that the integral is only over the spatial components of 
+\begin_inset Formula $k$
+\end_inset
+
+, hence the 
+\begin_inset Formula $d^{d-1}k$
+\end_inset
+
+ measure) so that
+\begin_inset Formula 
+\begin{equation}
+\int d\tilde{k}\left|k\right\rangle \left\langle k\right|=I_{\mbox{one-particle}}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $I_{\mbox{one-particle}}$
+\end_inset
+
+ is the identity for one-particle states.
 \end_layout
 
 \begin_layout Chapter
