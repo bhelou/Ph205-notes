@@ -11090,6 +11090,1960 @@ where
 \end_inset
 
  is the identity for one-particle states.
+ 
+\end_layout
+
+\begin_layout Standard
+Define 
+\begin_inset Quotes eld
+\end_inset
+
+exact momentum-space propagator
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+“exact momentum-space propagator”
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\tilde{\bm{\Delta}}\left(k^{2}\right)$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\begin{equation}
+\bm{\Delta}\left(x-y\right)\equiv\int\frac{d^{d}k}{\left(2\pi\right)^{d}}e^{ik\left(x-y\right)}\tilde{\bm{\Delta}}\left(k^{2}\right),
+\end{equation}
+
+\end_inset
+
+e.g.
+ in the free theory 
+\begin_inset Formula 
+\begin{equation}
+\tilde{\Delta}\left(k^{2}\right)=\frac{1}{k^{2}+m^{2}-i\epsilon}.
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/tempDiagExactPropagator.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Lehmann-Källén form of the exact propagator
+\end_layout
+
+\begin_layout Standard
+This will be a very technical lecture.
+ Rather than introducing new concepts and address philosophical issues,
+ we will use all the mathematical machinery and formalism we have developed
+ so far to do rigorous calculations.
+ More specifically, these calculations will be aimed at computing the Lehmann-Kä
+llén form of the exact propagator.
+ The expression for the full propagator (as a two-point correlation function
+ of an interacting field 
+\begin_inset Formula $\varphi(x)$
+\end_inset
+
+) in terms of a time-ordered expectation value with respect to the 
+\emph on
+non-interacting
+\emph default
+ ground state 
+\begin_inset Formula $|0\rangle$
+\end_inset
+
+ is given by 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:full_propagator"
+
+\end_inset
+
+.
+ The Fourier expansion of 
+\begin_inset Formula $\mathbf{\mathbf{\mathbf{\boldsymbol{\Delta}}}}(x-y)$
+\end_inset
+
+ in 
+\begin_inset Formula $n$
+\end_inset
+
+ space-time dimensions is given by 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:full_propagator_fourier_decomposition"
+
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{equation}
+\mathbf{\mathbf{\mathbf{\boldsymbol{\Delta}}}}(x-y)=i\langle0|T\varphi(x)\varphi(y)|0\rangle\label{eq:full_propagator}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\mathbf{\mathbf{\boldsymbol{\Delta}}}(x-y)=\int\frac{d^{n}k}{(2\pi)^{n}}e^{ik(x-y)}\tilde{\mathbf{\boldsymbol{\Delta}}}(k^{2})\label{eq:full_propagator_fourier_decomposition}
+\end{equation}
+
+\end_inset
+
+For simplicity assuming the case 
+\begin_inset Formula $x^{0}>y^{0}$
+\end_inset
+
+, we get 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:time_ordering_simplified"
+
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{equation}
+\langle0|T\varphi(x)\varphi(y)|0\rangle=\langle0|\varphi(x)\varphi(y)|0\rangle\label{eq:time_ordering_simplified}
+\end{equation}
+
+\end_inset
+
+In order to expand 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:time_ordering_simplified"
+
+\end_inset
+
+ we wish to insert the identity over the entire spectrum of states between
+ the field operators 
+\begin_inset Formula $\varphi(x)$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi(y)$
+\end_inset
+
+.
+ But first we need to define the complete set of eigenstates of the system.
+ We can classify the energy eigenstates of the full interacting system as:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $|0\rangle$
+\end_inset
+
+: the vacuum with 
+\begin_inset Formula $\mathbf{k}=\omega=0$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $|k\rangle$
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+This state 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $|k\rangle$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ is created a time 
+\begin_inset Formula $-\infty$
+\end_inset
+
+ as discussed in the LSZ formula.
+ Therefore, it is not correct to think of them as vectors in a Hilbert space.
+ A convenient mnemonic is to think of all bra vectors to be defined only
+ at 
+\begin_inset Formula $+\infty$
+\end_inset
+
+ and all ket vectors to be defined only at 
+\begin_inset Formula $-\infty$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+: one particle states with 
+\begin_inset Formula $\mathbf{k}$
+\end_inset
+
+ where 
+\begin_inset Formula $\omega=\sqrt{\mathbf{k}^{2}+m^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $|k,n\rangle$
+\end_inset
+
+: multi-particle states with (center of mass) 
+\begin_inset Formula $\mathbf{k}$
+\end_inset
+
+ where 
+\begin_inset Formula $\omega=\sqrt{\mathbf{k}^{2}+M^{2}}$
+\end_inset
+
+ and 
+\begin_inset Formula $M\ge2m$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The inequality (in the last bullet point) exists because there can be relative
+ motion between the particles that can give an 
+\emph on
+effective rest mass
+\emph default
+ that may not necessarily be equal to the sum of the individual masses in
+ the composite system.
+ The label 
+\begin_inset Formula $n$
+\end_inset
+
+ is the number of free parameters such as: 
+\begin_inset Formula $\{M,\mathbf{k}_{rel},\dots\}$
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+We are also assuming that there are no bound states in the system.
+ In the spring we will upgrade this theory to Lehmann-Källén form 2.0 to
+ account for this subtlety
+\end_layout
+
+\end_inset
+
+.
+ Another cartoon form for this can be seen in the plot shown in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:multi-particle_spectrum"
+
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+This is obviously the projection of a four dimensional plot on to two dimensions
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename ../lehmann-kallen_spectrum.eps
+	width 4.5in
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The spectrum multi-particle states
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:multi-particle_spectrum"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The shaded region in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:multi-particle_spectrum"
+
+\end_inset
+
+ corresponds to regions of the dispersion where the the two particles a
+ moving independent of each other.
+ As a result, the system can exist at any point in the shaded region.
+\end_layout
+
+\begin_layout Standard
+Now, returning to the two-point correlation function in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:time_ordering_simplified"
+
+\end_inset
+
+, we can insert the identity over the entire spectrum of states 
+\begin_inset Formula $1_{all}=|\dots\rangle\langle\dots|$
+\end_inset
+
+ between the field operators 
+\begin_inset Formula $\varphi(x)$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi(y)$
+\end_inset
+
+ to get 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:full_propagator_identity_expansion"
+
+\end_inset
+
+.
+ 
+\series bold
+Note
+\series default
+: 
+\begin_inset Formula $\tilde{dk}$
+\end_inset
+
+ only contains the spatial components of 
+\begin_inset Formula $k^{\mu}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{equation}
+\langle0|\varphi(x)\varphi(y)|0\rangle=\langle0|\varphi(x)|0\rangle\langle0|\varphi(y)|0\rangle+\int\tilde{dk}\langle0|\varphi(x)|k\rangle\langle k|\varphi(y)|0\rangle+\sum_{n}\int\tilde{dk}\langle0|\varphi(x)|k,n\rangle\langle k,n|\varphi(y)|0\rangle\label{eq:full_propagator_identity_expansion}
+\end{equation}
+
+\end_inset
+
+In this analysis 
+\begin_inset Formula $\sum_{n}$
+\end_inset
+
+ must be thought of as a generalized sum which can be replaced by an integral
+ if 
+\begin_inset Formula $n$
+\end_inset
+
+ turns out to be continuous.
+ It is easy to see that the first term of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:full_propagator_identity_expansion"
+
+\end_inset
+
+ vanishes as 
+\begin_inset Formula $\langle0|\varphi(x)|0\rangle=\langle0|\varphi(y)|0\rangle=0$
+\end_inset
+
+.
+ According to our earlier normalization requirement we can write 
+\begin_inset Formula $\langle k|\varphi(y)|0\rangle=e^{-iky}$
+\end_inset
+
+.
+ The other known 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\langle k,n|\varphi(y)|0\rangle$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ can similarly be simplified as 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:field_evolution"
+
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{equation}
+\langle k,n|\varphi(y)|0\rangle=e^{-iky}\langle k,n|\varphi(0)|0\rangle\label{eq:field_evolution}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $k^{0}\equiv\omega=\sqrt{\mathbf{k}^{2}+M^{2}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi(x)=e^{-iP_{\mu}x^{\mu}}\varphi(0)e^{iP_{\mu}x^{\mu}}$
+\end_inset
+
+; the latter is simply a Lorentz symmetric translation.
+ Now, plugging all these simplifications back in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:full_propagator_identity_expansion"
+
+\end_inset
+
+ we get 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:identity_expansion_simplification"
+
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{equation}
+\langle0|\varphi(x)\varphi(y)|0\rangle=\int\tilde{dk}\: e^{ik(x-y)}+\sum_{n}\int\tilde{dk}\: e^{ik(x-y)}|\langle0|\varphi(0)|k,n\rangle|^{2}\label{eq:identity_expansion_simplification}
+\end{equation}
+
+\end_inset
+
+The first term of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:identity_expansion_simplification"
+
+\end_inset
+
+ represents the contribution from the single particle states.
+ But we have an additional contribution from a non-vanishing part 
+\begin_inset Formula $|\langle0|\varphi(0)|k,n\rangle|^{2}$
+\end_inset
+
+.
+ It can be noted that this additional contribution is independent of space-time;
+ it only depends on the system Hamiltonian (or Lagrangian) and its eigenstates.
+ As a result, we can dump all our ignorance of the system into this mysterious
+ quantity 
+\begin_inset Formula $|\langle0|\varphi(0)|k,n\rangle|^{2}$
+\end_inset
+
+ which only depends on the overall momentum in the center of mass frame.
+ Accordingly, we define the so-called 
+\begin_inset Quotes eld
+\end_inset
+
+spectral density
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula $\rho(s)$
+\end_inset
+
+ as 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:spectral_density_definition"
+
+\end_inset
+
+.
+ 
+\series bold
+Note
+\series default
+: 
+\begin_inset Formula $s$
+\end_inset
+
+ is the same Mandelstam variable we saw last time.
+ 
+\begin_inset Formula 
+\begin{equation}
+\rho(s)=\sum_{n}|\langle0|\varphi(0)|k,n\rangle|^{2}\delta(s-M^{2})\label{eq:spectral_density_definition}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The plot of this function can be seen in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:spectral_density_plot"
+
+\end_inset
+
+.
+ Additionally, by Lorentz invariance, we know that 
+\begin_inset Formula $\rho(s)$
+\end_inset
+
+ must be a function of 
+\begin_inset Formula $k^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename ../spectral_density_plot.eps
+	width 4.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Plot the spectral density function
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:spectral_density_plot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using the definition of 
+\begin_inset Formula $\rho(s)$
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:spectral_density_definition"
+
+\end_inset
+
+ and plugging it into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:identity_expansion_simplification"
+
+\end_inset
+
+ we get 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:propagator_in_terms_of_spectral_density"
+
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{equation}
+\langle0|\varphi(x)\varphi(y)|0\rangle=\int\tilde{dk}\: e^{ik(x-y)}+\int_{4m^{2}}^{\infty}ds\int\tilde{dk}\: e^{ik(x-y)}\rho(s)\label{eq:propagator_in_terms_of_spectral_density}
+\end{equation}
+
+\end_inset
+
+In the first term 
+\begin_inset Formula $k^{0}=\sqrt{\mathbf{k}^{2}+m^{2}}$
+\end_inset
+
+ whereas in the second term 
+\begin_inset Formula $k^{0}=\sqrt{\mathbf{k}^{2}+s}$
+\end_inset
+
+.
+ 
+\series bold
+Note
+\series default
+: it is important to keep in mind the shorthand notation 
+\begin_inset Formula $k(x-y)=k_{\mu}(x^{\mu}-y^{\mu})$
+\end_inset
+
+ could potentially be misleading.
+ Although they look similar in both terms of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:propagator_in_terms_of_spectral_density"
+
+\end_inset
+
+, there is a subtle difference in the 
+\begin_inset Formula $k^{0}$
+\end_inset
+
+ components.
+\end_layout
+
+\begin_layout Standard
+Now, relaxing the assumption that 
+\begin_inset Formula $x^{0}>y^{0}$
+\end_inset
+
+ we can write the full time-ordered correlation function as 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:full_time_ordered_propagator"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\langle0|T\varphi(x)\varphi(y)|0\rangle=i\theta(x^{0}-y^{0})\langle0|\varphi(x)\varphi(y)|0\rangle+i\theta(y^{0}-x^{0})\langle0|\varphi(y)\varphi(x)|0\rangle\label{eq:full_time_ordered_propagator}
+\end{equation}
+
+\end_inset
+
+We can alternatively write the time-ordered correlation function in an integral
+ form (as shown in HW 5) as seen in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:propagator_integral_form"
+
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{equation}
+\langle0|T\varphi(x)\varphi(y)|0\rangle=\int\frac{d^{n}k}{(2\pi)^{n}}\frac{e^{ik(x-y)}}{k^{2}+m^{2}-i\varepsilon}=i\theta(x^{0}-y^{0})\int\tilde{dk}\: e^{ik(x-y)}+i\theta(y^{0}-x^{0})\int\tilde{dk}\: e^{-ik(x-y)}\label{eq:propagator_integral_form}
+\end{equation}
+
+\end_inset
+
+Using 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:propagator_in_terms_of_spectral_density"
+
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:full_time_ordered_propagator"
+
+\end_inset
+
+ and using the same (contour integral over 
+\begin_inset Formula $k^{0}$
+\end_inset
+
+) manipulation as in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:propagator_integral_form"
+
+\end_inset
+
+ we can write the full time-ordered correlation function in terms of the
+ spectral density as 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lehmann-källén_integral_form"
+
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{equation}
+\langle0|T\varphi(x)\varphi(y)|0\rangle=\int\frac{d^{n}k}{(2\pi)^{n}}e^{ik(x-y)}\left[\frac{1}{k^{2}+m^{2}-i\varepsilon}+\int_{4m^{2}}^{\infty}ds\,\frac{\rho(s)}{k^{2}+s-i\varepsilon}\right]\label{eq:lehmann-källén_integral_form}
+\end{equation}
+
+\end_inset
+
+A direct comparison of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lehmann-källén_integral_form"
+
+\end_inset
+
+ with 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:full_propagator_fourier_decomposition"
+
+\end_inset
+
+ gives 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lehmann_källén_fourier"
+
+\end_inset
+
+.
+ 
+\series bold
+Note
+\series default
+: In obtaining 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lehmann_källén_fourier"
+
+\end_inset
+
+ we did a Fourier transform which involves an integral over 
+\emph on
+all space-time
+\emph default
+.
+ Earlier we only used to do integrals over spatial variables because we
+ knew the exact dispersion relation of a single particle state.
+ But in the multi-particle system we are not limited to a fixed line as
+ shown for the single particle case in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:multi-particle_spectrum"
+
+\end_inset
+
+.
+ The system can be anywhere in the shaded region.
+ 
+\begin_inset Formula 
+\begin{equation}
+\tilde{\mathbf{\boldsymbol{\Delta}}}(k^{2})=\frac{1}{k^{2}+m^{2}-i\varepsilon}+\int_{4m^{2}}^{\infty}ds\,\frac{\rho(s)}{k^{2}+s-i\varepsilon}\label{eq:lehmann_källén_fourier}
+\end{equation}
+
+\end_inset
+
+The above formula is not very helpful for practical computational purposes.
+ All it does is relate one unknown quantity 
+\begin_inset Formula $\tilde{\mathbf{\boldsymbol{\Delta}}}(k^{2})$
+\end_inset
+
+ to another 
+\begin_inset Formula $\rho(s)$
+\end_inset
+
+.
+ One useful thing that comes out of this formula, however, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+has to do with the fact that 
+\begin_inset Formula $\tilde{\mathbf{\boldsymbol{\Delta}}}(k^{2})$
+\end_inset
+
+ has an isolated pole at 
+\begin_inset Formula $k^{2}=-m^{2}$
+\end_inset
+
+ with residue 1 just like 
+\begin_inset Formula $\tilde{\textrm{\Delta}}(k^{2})$
+\end_inset
+
+ in the free theory.
+ The introduction of interactions has simply added some extra contribution
+ to the full propagator; but it has not affected the piece which came from
+ the free theory.
+\end_layout
+
+\begin_layout Section
+Loop corrections to the propagator
+\end_layout
+
+\begin_layout Standard
+The non-interacting propagator was given by 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:free_propagator"
+
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{equation}
+\tilde{\textrm{\Delta}}(k^{2})=\frac{1}{k^{2}+m^{2}-i\varepsilon}\label{eq:free_propagator}
+\end{equation}
+
+\end_inset
+
+Then we can write the interacting propagator as 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:interacting_propagator"
+
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{equation}
+\tilde{\mathbf{\boldsymbol{\Delta}}}(k^{2})=\textrm{sum over all connected diagrams with }E=2\label{eq:interacting_propagator}
+\end{equation}
+
+\end_inset
+
+Up to second-order we can write the multi-particle contributions to the
+ interacting propagator 
+\begin_inset Formula $\tilde{\mathbf{\boldsymbol{\Delta}}}(k^{2})$
+\end_inset
+
+, following the same structure as 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lehmann_källén_fourier"
+
+\end_inset
+
+, as seen in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:interacting_propagator_second_order"
+
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{equation}
+\tilde{\mathbf{\boldsymbol{\Delta}}}(k^{2})=\frac{1}{i}\tilde{\textrm{\Delta}}(k^{2})+\frac{1}{i}\tilde{\textrm{\Delta}}(k^{2})\left[i\Pi(k^{2})\right]\frac{1}{i}\tilde{\textrm{\Delta}}(k^{2})+O(g^{4})\label{eq:interacting_propagator_second_order}
+\end{equation}
+
+\end_inset
+
+where 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\Pi(k^{2})$
+\end_inset
+
+ is obviously 
+\begin_inset Formula $O(g^{2})$
+\end_inset
+
+.
+ The 
+\begin_inset Formula $\Pi(k^{2})$
+\end_inset
+
+ appearing above is defined as 
+\begin_inset Quotes eld
+\end_inset
+
+self-energy.
+\begin_inset Quotes erd
+\end_inset
+
+ The only diagram for which self-energy is 
+\begin_inset Formula $O(g^{2})$
+\end_inset
+
+ is shown in the first term of Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:second-order_corrections"
+
+\end_inset
+
+.
+ This process can be physically interpreted as a single particle splitting
+ into two 
+\family default
+\series default
+\shape default
+\size default
+\emph on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+virtual particles
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ with the constraint that their total momentum must equal the momentum of
+ the incoming single particle.
+ The reason they are called virtual particles is because they do not necessarily
+ satisfy the mass shell condition.
+ As seen in the figure, there is a 
+\family default
+\series default
+\shape default
+\size default
+\emph on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+loop 
+\begin_inset Formula $n$
+\end_inset
+
+-momentum
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\begin_inset Formula $l$
+\end_inset
+
+ which is a completely free parameter; this free parameter can potentially
+ drive the particles off-shell.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename ../second-order_corrections.eps
+	width 4.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The 
+\begin_inset Formula $O(g^{2})$
+\end_inset
+
+ corrections to the propagator
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:second-order_corrections"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+The second term in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:second-order_corrections"
+
+\end_inset
+
+ is something we have not kept track of; namely these are the counter-terms.
+ They are inserted by hand and represented by the cross.
+ According to the Feynman rules discussed earlier, we amputate the external
+ legs; thus the amplitude for this self-energy (including the counter-terms
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+If we plug 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:free_propagator"
+
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:self-energy_definition"
+
+\end_inset
+
+ and compute the integral without including the counter-terms, we will find
+ that 
+\begin_inset Formula $\Pi(k^{2})$
+\end_inset
+
+ will diverge
+\end_layout
+
+\end_inset
+
+) can be written as 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:self-energy_definition"
+
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{equation}
+i\Pi(k^{2})=\frac{1}{2}(ig)^{2}\left(\frac{1}{i}\right)^{2}\int\frac{d^{n}l}{(2\pi)^{n}}\tilde{\textrm{\Delta}}\left((k+l)^{2}\right)\tilde{\textrm{\Delta}}(l^{2})-i\left[(Z_{\varphi}-1)k^{2}+(Z_{m}-1)m^{2}\right]+O(g^{4})\label{eq:self-energy_definition}
+\end{equation}
+
+\end_inset
+
+The first part of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:self-energy_definition"
+
+\end_inset
+
+ can be interpreted as follows: the two branches of the loop with momenta
+ 
+\begin_inset Formula $k+l$
+\end_inset
+
+ and 
+\begin_inset Formula $l$
+\end_inset
+
+ contribute 
+\begin_inset Formula $(1/i)\tilde{\textrm{\Delta}}\left((k+l)^{2}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $(1/i)\tilde{\textrm{\Delta}}(l^{2})$
+\end_inset
+
+, the two factors of 
+\begin_inset Formula $ig$
+\end_inset
+
+ come from the two vertices, and the factor of half is inserted because
+ the diagram has a symmetry factor of 2.
+ Finally, since the loop momentum 
+\begin_inset Formula $l$
+\end_inset
+
+ is undetermined, we integrate over it.
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+In fact, we can define 
+\begin_inset Formula $\Pi(k^{2})$
+\end_inset
+
+ more precisely via the geometric series 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lehmann-källén_geometric_series"
+
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{i}\tilde{\mathbf{\boldsymbol{\Delta}}}(k^{2})=\frac{-i}{k^{2}+m^{2}-i\varepsilon-\Pi(k^{2})}\label{eq:lehmann-källén_geometric_series}
+\end{equation}
+
+\end_inset
+
+This geometric series can be pictorially represented as Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:geometric_series"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename ../self_energy_geometric_series.eps
+	width 4.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The geometric series for the exact propagator
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:geometric_series"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Mathematically this can be written as 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:explicit_geometric_series"
+
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{equation}
+\tilde{\mathbf{\boldsymbol{\Delta}}}(k^{2})=\frac{1}{i}\tilde{\textrm{\Delta}}(k^{2})+\frac{1}{i}\tilde{\textrm{\Delta}}(k^{2})\left[i\Pi(k^{2})\right]\frac{1}{i}\tilde{\textrm{\Delta}}(k^{2})+\frac{1}{i}\tilde{\textrm{\Delta}}(k^{2})\left[i\Pi(k^{2})\right]\frac{1}{i}\tilde{\textrm{\Delta}}(k^{2})\left[i\Pi(k^{2})\right]\frac{1}{i}\tilde{\textrm{\Delta}}(k^{2})\label{eq:explicit_geometric_series}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+This geometric series contains: all diagrams that contribute to 
+\begin_inset Formula $\tilde{\bm{\Delta}}\left(k^{2}\right)$
+\end_inset
+
+ if 
+\begin_inset Formula $\Pi\left(k^{2}\right)$
+\end_inset
+
+ is a sum over all 
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+one-particle irreducible
+\end_layout
+
+\end_inset
+
+one-particle irreducible (1PI) diagrams, i.e.
+ diagrams that still remain connected after cutting any one line.
+ E.g.: 
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/example 1PI.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:expansion-Pi-205-Lehman"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that 
+\begin_inset Formula $\tilde{\bm{\Delta}}\left(k^{2}\right)$
+\end_inset
+
+ has an isolated pole at 
+\begin_inset Formula $k^{2}=-m^{2}$
+\end_inset
+
+ with residue 
+\begin_inset Formula $1$
+\end_inset
+
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\leftrightarrow$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+\Pi\left(-m^{2}\right)=0\\
+\Pi^{'}\left(-m^{2}\right)=0,
+\end{cases}
+\end{equation}
+
+\end_inset
+
+which are the conditions we need to fix 
+\begin_inset Formula $Z_{\phi}$
+\end_inset
+
+ and 
+\begin_inset Formula $Z_{m}$
+\end_inset
+
+.
+ Thus,
+\begin_inset Formula 
+\begin{equation}
+\tilde{\bm{\Delta}}\left(k^{2}\right)=\frac{1}{1-\Pi\left(k^{2}\right)/\left(k^{2}+m^{2}\right)}\frac{1}{k^{2}+m^{2}-i\epsilon}.
+\end{equation}
+
+\end_inset
+
+This suggests that we should treat 
+\begin_inset Formula $\Pi$
+\end_inset
+
+ perturbatively.
+ In 
+\begin_inset Formula $\phi^{3}$
+\end_inset
+
+ theory in six dimensions (which is the critical dimension; beyond 6 dimensions
+ the theory is not renormalizable): 
+\begin_inset Formula $k^{2}/m^{2}\gg\alpha$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\frac{\Pi\left(k^{2}\right)}{k^{2}+m^{2}}\approx\frac{\alpha}{12}\left[\ln\left(\frac{k^{2}}{m^{2}}\right)+const\right]+O\left(\alpha^{2}\right),\label{eq:expressionToTest415}
+\end{equation}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{equation}
+\colblue{\alpha}\equiv\frac{g^{2}}{\left(4\pi\right)^{3}}.
+\end{equation}
+
+\end_inset
+
+We have to be careful when using this expression: the expression diverges
+ for large 
+\begin_inset Formula $k$
+\end_inset
+
+ (so large momentum or small distances), at which point it might be 
+\begin_inset Formula $\approx1$
+\end_inset
+
+.
+ Let us now prove the expression:
+\end_layout
+
+\begin_layout Subsection
+Calculation of 
+\begin_inset Formula $\Pi\left(k^{2}\right)$
+\end_inset
+
+ in 
+\begin_inset Formula $\phi^{3}$
+\end_inset
+
+ theory.
+ 
+\end_layout
+
+\begin_layout Standard
+Using the first 2 terms of 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:expansion-Pi-205-Lehman"
+
+\end_inset
+
+, we have that
+\begin_inset Formula 
+\begin{equation}
+i\Pi\left(k^{2}\right)=\underbrace{\frac{1}{2}\left(ig\right)^{2}\left(\frac{1}{i}\right)}_{g^{2}/2}\int\frac{d^{n}l}{\left(2\pi\right)^{n}}\tilde{\Delta}\left(\left(l+k\right)^{2}\right)\tilde{\Delta}\left(l^{2}\right)+...
+\end{equation}
+
+\end_inset
+
+Let 
+\begin_inset Formula 
+\begin{equation}
+\colblue{I\left(k^{2}\right)}\equiv\int\frac{d^{n}l}{\left(2\pi\right)^{n}}\tilde{\Delta}\left(\left(l+k\right)^{2}\right)\tilde{\Delta}\left(l^{2}\right).
+\end{equation}
+
+\end_inset
+
+We expect this to depend on 
+\begin_inset Formula $k^{2}$
+\end_inset
+
+ because it is the only invariant scalar (??)
+\end_layout
+
+\begin_layout Standard
+First trick invented by Feynman (
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Feynman formula
+\end_layout
+
+\end_inset
+
+Feynman formula): it addresses the problem of the integrand.
+ At first, what we will do looks like it complicates the integrand:
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{A_{1}...A_{n}}=\int dF_{n}\left(x_{1}A_{1}+...+x_{n}A_{n}\right)^{-n},
+\end{equation}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{equation}
+\int dF_{n}=\left(n-1\right)!\int_{0}^{1}...\int_{0}^{1}dx_{1}...dx_{n}\delta\left(x_{1}+...+x_{n}\right).
+\end{equation}
+
+\end_inset
+
+It is advisable to check mass dimensions in each new expression that is
+ written; this is a good sanity check.
+ Indeed, if we had 
+\begin_inset Formula $\left(x_{1}A_{1}+...+x_{n}A_{n}\right)^{-\gamma}$
+\end_inset
+
+, where 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ is a constant to figure out, dimensionless analysis tell us it has to be
+ 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Implementing this trick:
+\begin_inset Formula 
+\begin{eqnarray}
+\tilde{\Delta}\left(\left(k+l\right)^{2}\right)\tilde{\Delta}\left(k^{2}\right) & = & \frac{1}{\left(l^{2}+m\right)\left(\left(l+k\right)^{2}+m^{2}\right)}.
+\end{eqnarray}
+
+\end_inset
+
+There are two terms in the denominator, so 
+\begin_inset Formula 
+\begin{eqnarray}
+\tilde{\Delta}\left(\left(k+l\right)^{2}\right)\tilde{\Delta}\left(k^{2}\right) & = & \int_{0}^{1}dx\left[x\left(\left(l+k\right)^{2}+m^{2}\right)+\left(1-x\right)\left(l^{2}+m^{2}\right)\right]^{-2}\\
+ & = & \int_{0}^{1}dx\left[l^{2}+2xlk+xk^{2}+m^{2}\right]^{-2}\\
+ & = & \int_{0}^{1}dx\left[\left(l+xk\right)^{2}+\underbrace{x\left(1-x\right)k^{2}+m^{2}}_{\equiv D}\right]^{-2}\\
+ & = & \int_{0}^{1}dx\left[q^{2}+D\right]^{-2},
+\end{eqnarray}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{eqnarray}
+q & \equiv & l+xk\\
+D & \equiv & x\left(1-x\right)k^{2}+m^{2}.
+\end{eqnarray}
+
+\end_inset
+
+Later we will take 
+\begin_inset Formula $m^{2}\rightarrow m^{2}-i\epsilon$
+\end_inset
+
+.
+ Notice that both 
+\begin_inset Formula $q^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $D$
+\end_inset
+
+ have mass dimension 2.
+ Moreover, note that 
+\begin_inset Formula $q^{2}=g_{\mu\nu}q^{\mu}q^{\nu}$
+\end_inset
+
+ is not spherically symmetric because of the metric's effect on time.
+ Thus we are guaranteed to find a pole in 
+\begin_inset Formula $\left[q^{2}+D\right]^{-2}$
+\end_inset
+
+ and so we need 
+\begin_inset Formula $m^{2}\rightarrow m^{2}-i\epsilon$
+\end_inset
+
+.
+ It would also be nice to have time on same footing as space.
+ Let us do a 
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Wick rotation
+\end_layout
+
+\end_inset
+
+Wick rotation (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Wick-rotation-205"
+
+\end_inset
+
+):
+\begin_inset Formula 
+\begin{equation}
+q\rightarrow\tilde{q}=\left(q_{1},...,q_{d-1},-iq_{0}\right)
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula $q$
+\end_inset
+
+ has a Lorentzian signature while 
+\begin_inset Formula $\tilde{q}$
+\end_inset
+
+ has a Euclidean signature and we have that 
+\begin_inset Formula $q^{2}=\tilde{q}^{2}$
+\end_inset
+
+.
+ Thus
+\begin_inset Formula 
+\begin{equation}
+d^{d}q=id^{d}\tilde{q}
+\end{equation}
+
+\end_inset
+
+and
+\begin_inset Formula 
+\begin{equation}
+\int d^{d}qf\left(q^{2}-i\epsilon\right)=i\int d^{d}\tilde{q}f\left(\tilde{q}^{2}\right)
+\end{equation}
+
+\end_inset
+
+(there might be a sign error somewhere) if 
+\begin_inset Formula $f\left(\tilde{q}^{2}\right)\rightarrow0$
+\end_inset
+
+ faster than 
+\begin_inset Formula $\tilde{q}^{-d}$
+\end_inset
+
+ as 
+\begin_inset Formula $\tilde{q}\rightarrow\infty$
+\end_inset
+
+.
+ Thus
+\begin_inset Formula 
+\begin{equation}
+I\left(k^{2}\right)=\int_{0}^{1}dx\int\frac{d^{d}\tilde{q}}{\left(2\pi\right)^{d}}\frac{1}{\left(\tilde{q}^{2}+D\right)^{2}}
+\end{equation}
+
+\end_inset
+
+this seems divergent for dimensions greater than 4.
+ Note that
+\begin_inset Formula 
+\begin{equation}
+I^{''}\left(k^{2}\right)=\int_{0}^{1}dx6x\left(1-x\right)^{2}\int\frac{d^{d}q}{\left(2\pi\right)^{d}}\frac{1}{\left(\tilde{q}^{2}+D\right)^{4}}
+\end{equation}
+
+\end_inset
+
+converges for 
+\begin_inset Formula $d<8$
+\end_inset
+
+.
+ So we can say that 
+\begin_inset Formula $I\left(k^{2}\right)=c_{1}+c_{2}k^{2}+...$
+\end_inset
+
+, where the rest is something that diverges.
+ In general, 
+\begin_inset Formula $I^{\left(n\right)}\left(k^{2}\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $d<4+2n$
+\end_inset
+
+.
+ We now come to the most important trick:
+\end_layout
+
+\begin_layout Subsubsection
+Regularization schemes
+\end_layout
+
+\begin_layout Itemize
+One way is the 
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Pauli-Villars regularization scheme
+\end_layout
+
+\end_inset
+
+Pauli-Villars regularization scheme: everytime we see 
+\begin_inset Formula $\tilde{\Delta}\left(k^{2}\right)$
+\end_inset
+
+, replace it with the value of the propagator:
+\begin_inset Formula 
+\begin{equation}
+\tilde{\Delta}\left(p^{2}\right)\rightarrow\frac{1}{p^{2}+m^{2}-i\epsilon}\frac{\Lambda^{2}}{p^{2}+\Lambda^{2}-i\epsilon}.
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ is called the 
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+ultraviolet (UV) cutoff
+\end_layout
+
+\end_inset
+
+ultraviolet (UV) cutoff.
+ If we take 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ to be very large, 
+\begin_inset Formula $\frac{\Lambda^{2}}{p^{2}+\Lambda^{2}-i\epsilon}$
+\end_inset
+
+ goes to 1.
+ But we have to be careful, do we, first, take 
+\begin_inset Formula $p$
+\end_inset
+
+ to infinity or 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ to infinity? Using this regularization scheme, 
+\begin_inset Formula $\Pi\left(k^{2}\right)$
+\end_inset
+
+ becomes finite for 
+\begin_inset Formula $d<8$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The second is called dimensional regularization: this changes the measure
+ but does not modify the integrand; Compute 
+\begin_inset Formula $\Pi\left(k^{2}\right)$
+\end_inset
+
+ as a function of 
+\begin_inset Formula $d$
+\end_inset
+
+, and then analytically continue the result to arbitrary value of 
+\begin_inset Formula $d$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/wick rotation.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Wick-rotation-205"
+
+\end_inset
+
+Wick rotation
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Wick rotation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -11543,6 +13497,34 @@ Restoring factors of
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "restoringHBAR"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Important formulas
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{eqnarray}
+Z\left(J\right) & = & \exp\left[i\int d^{4}x\mathcal{L}_{int}\left(\frac{1}{i}\frac{\partial}{\partial J\left(x\right)}\right)\right]\times\int\mathcal{D}\phi e^{i\int d^{4}x\left[\mathcal{L}_{0}+J\phi\right]}\\
+ & \sim & \exp\left[i\int d^{4}x\mathcal{L}_{int}\left(\frac{1}{i}\frac{\partial}{\partial J\left(x\right)}\right)\right]\times Z_{0}\left(J\right),
+\end{eqnarray}
 
 \end_inset
 
