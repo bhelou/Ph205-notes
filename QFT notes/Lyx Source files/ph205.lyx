@@ -12887,11 +12887,76 @@ converges for
 \end_inset
 
 .
- We now come to the most important trick:
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/wick rotation.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Wick-rotation-205"
+
+\end_inset
+
+Wick rotation
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Wick rotation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
 Regularization schemes
+\end_layout
+
+\begin_layout Standard
+We now come to the most important trick:
 \end_layout
 
 \begin_layout Itemize
@@ -12971,13 +13036,558 @@ The second is called dimensional regularization: this changes the measure
 \end_inset
 
 , and then analytically continue the result to arbitrary value of 
-\begin_inset Formula $d$
+\begin_inset Formula $d=6-\epsilon$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\left[g\right]=\epsilon/2$
+\end_inset
+
+.
+ Let us now compute the integral:
+\begin_inset Formula 
+\begin{equation}
+I\left(k^{2}\right)\sim\int\frac{d^{d}\tilde{l}}{\left(2\pi\right)^{d}}=\int\frac{l^{d-1}dld\Omega_{d}}{\left(2\pi\right)^{d}}.
+\end{equation}
+
+\end_inset
+
+We have that 
+\begin_inset Formula 
+\begin{equation}
+\Omega_{d}=\int d\Omega_{d}=\frac{2\pi^{d/2}}{\Gamma\left(d/2\right)},
+\end{equation}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{eqnarray}
+\Gamma\left(n\right) & = & \left(n-1\right)!\\
+\Gamma\left(n+1/2\right) & = & \frac{\left(2n\right)!}{n!2^{n}}\sqrt{\pi},
+\end{eqnarray}
+
+\end_inset
+
+In general,
+\begin_inset Formula 
+\begin{equation}
+\int\frac{d^{d}\tilde{q}}{\left(2\pi\right)^{d}}\frac{\left(\tilde{q}^{2}\right)^{a}}{\left(\tilde{q}^{2}+D\right)^{b}}=\frac{\Gamma\left(b-a-d/2\right)\Gamma\left(a+d/2\right)}{\left(4\pi\right)^{d/2}\Gamma\left(b\right)\Gamma\left(1/d\right)}D^{-\left(b-a-d/2\right)}
+\end{equation}
+
+\end_inset
+
+(note that 
+\begin_inset Formula $D^{-\left(b-a-d/2\right)}$
+\end_inset
+
+ can be expected as it must have the same mass dimension as the integral).
+ So, for example, we obtain that
+\begin_inset Formula 
+\begin{equation}
+I^{''}\left(k^{2}\right)=\int\frac{d^{d}\tilde{q}}{\left(2\pi\right)^{d}}\frac{1}{\left(\tilde{q}+D\right)^{4}}\sim\int_{0}^{1}x^{2}\left(1-x\right)^{2}\int\frac{d^{d}\tilde{q}}{\left(2\pi\right)^{d}}\frac{1}{\left(\tilde{q}^{2}+D\right)^{4}}\sim\int_{0}^{1}dxx^{2}\left(1-x^{2}\right)D^{d/2-4}.
+\end{equation}
+
+\end_inset
+
+Another example would be for 
+\begin_inset Formula $d=6-\epsilon$
+\end_inset
+
+, 
+\begin_inset Formula $a=0$
+\end_inset
+
+ and 
+\begin_inset Formula $b=2$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+I\left(k^{2}\right)=\frac{\Gamma\left(\epsilon/2-1\right)}{\left(4\pi\right)^{3}}\int_{0}^{1}dxD\left(4\pi/D\right)^{\epsilon/2}
+\end{equation}
+
+\end_inset
+
+because 
+\begin_inset Formula $b-a-d/2=2-0-\left(6-\epsilon\right)/2=-1+\epsilon^{2}/2$
+\end_inset
+
+ and 
+\begin_inset Formula $-\left(b-a-d/2\right)=1-\epsilon/2$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $\Gamma\left(-1\right)$
+\end_inset
+
+ is divergent, so we need 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+.
+ Expanding in terms of 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+, we obtain:
+\begin_inset Formula 
+\begin{equation}
+I\left(k^{2}\right)\sim\int_{0}^{1}dx\left[-\frac{D}{32\pi^{3}\epsilon}+\frac{1}{64\pi^{3}}\left[D\left(\gamma-1-\ln4\pi\right)+D\ln D\right]+O\left(\epsilon^{2}\right)\right]
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We had that 
+\begin_inset Formula 
+\begin{eqnarray}
+i\Pi\left(k^{2}\right) & = & I\left(k^{2}\right)-i\left[\left(Z_{q}-1\right)k^{2}+\left(Z_{m}-1\right)m^{2}\right]+O\left(g^{2}\right)\\
+ & \equiv & \frac{\alpha}{2}\int_{0}^{1}dxD\ln D+C_{1}k^{2}+C_{2}m^{2},
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $D=x\left(1-x\right)k^{2}+m^{2}$
+\end_inset
+
+.
+ The constraints to fix 
+\begin_inset Formula $C_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{2}$
+\end_inset
+
+ are
+\begin_inset Formula 
+\begin{eqnarray}
+\Pi\left(-m^{2}\right) & = & 0\\
+\Pi^{'}\left(-m^{2}\right) & = & 0.
+\end{eqnarray}
+
+\end_inset
+
+One of them gives us 
+\begin_inset Formula $C_{1}=C_{2}$
+\end_inset
+
+.
+ We had, 
+\begin_inset Formula 
+\begin{equation}
+i\Pi\left(k^{2}\right)=\frac{\alpha}{2}\int_{0}^{1}dxD\ln\frac{1}{D\left(-m^{2}\right)}+C\left(k^{2}+m^{2}\right)+O\left(g^{2}\right)
+\end{equation}
+
+\end_inset
+
+The final result is 
+\begin_inset Formula 
+\begin{equation}
+\Pi\left(k^{2}\right)=\frac{\alpha}{12}\left[\left(3-\pi\sqrt{3}\right)\left(k^{2}+m^{2}\right)+2k^{2}\left(1+\frac{4m^{2}}{k^{2}}\right)^{1/2}\tanh^{-1}\left(\frac{1}{\sqrt{1+\frac{4m^{2}}{k^{2}}}}\right)+O\left(g^{2}\right)\right]
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+????
+\end_layout
+
+\begin_layout Subsection
+Loop correction to the Vortex
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/loop corrections to the vortex.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ For the last vortex in the figure above, we have something like
+\begin_inset Formula 
+\begin{equation}
+\int\frac{d^{d}l}{\left(2\pi\right)^{d}}\underbrace{\tilde{\Delta}\left(l^{2}\right)\tilde{\Delta}\left(\left(l+k_{1}\right)^{2}\right)...\tilde{\Delta}\left(\left(l+k_{n-1}\right)^{2}\right)}_{n\mbox{ propagators}}
+\end{equation}
+
+\end_inset
+
+This converges for 
+\begin_inset Formula $d<2n$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Standard
+....
+ stopped paying attention ....
+\end_layout
+
+\begin_layout Subsection
+Summary
+\end_layout
+
+\begin_layout Standard
+We fixed 
+\begin_inset Formula $Z_{\phi}$
+\end_inset
+
+ and 
+\begin_inset Formula $Z_{m}$
+\end_inset
+
+ by imposing the on-shell conditions:
+\begin_inset Formula 
+\begin{eqnarray}
+\Pi\left(-m^{2}\right) & = & 0\\
+\Pi^{'}\left(-m^{2}\right) & = & 0
+\end{eqnarray}
+
+\end_inset
+
+and 
+\begin_inset Formula $Z_{g}$
+\end_inset
+
+ was determined from 
+\begin_inset Formula 
+\begin{equation}
+{\bf V}_{3}\left(0,0,0\right)=g,
+\end{equation}
+
+\end_inset
+
+where we set 
+\begin_inset Formula $k_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $k_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $k_{3}$
+\end_inset
+
+ to 0.
+\end_layout
+
+\begin_layout Standard
+Recall that in 
+\begin_inset Formula $d=6$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\mbox{div}\left(D\right)=\left(d-6\right)L+6-2E.
+\end{equation}
+
+\end_inset
+
+All graphs with 
+\begin_inset Formula $E=2,3$
+\end_inset
+
+ are equally bad (have 
+\begin_inset Formula $\mbox{div}\left(D\right)=6-2E$
+\end_inset
+
+, while for 
+\begin_inset Formula $E\geq4$
+\end_inset
+
+, they are superficially convergent); these are 
+\begin_inset Quotes eld
+\end_inset
+
+dangerous Feynman diagrams that have to be tamed
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+We can consider
+\begin_inset Formula 
+\begin{eqnarray}
+{\bf V}_{4}\left(s,t,u\right) & = & \Diagram{fdA &  & fuA\\
+ & \vertexlabel_{s}p\\
+fuA &  & fdA
+}
+\end{eqnarray}
+
+\end_inset
+
+so
+\begin_inset Formula 
+\begin{eqnarray*}
+{\bf V}_{4}\left(s,t,u\right) & = & \frac{1}{2}g^{2}\alpha\int dF_{4}\left[\frac{1}{D_{4}\left(s,t\right)}+\frac{1}{D_{4}\left(t,u\right)}+\frac{1}{D_{4}\left(u,s\right)}\right]\\
+\end{eqnarray*}
+
+\end_inset
+
+with
+\begin_inset Formula 
+\begin{equation}
+D_{4}\left(s,t\right)=-x_{1}x_{2}S-x_{3}x_{4}t+\left[1-\left(x_{1}+x_{2}\right)\left(x_{3}+x_{4}\right)\right]m^{2}.
+\end{equation}
+
+\end_inset
+
+This integral converges because 
+\begin_inset Formula $E\geq4$
+\end_inset
+
+.
+ We can consider higher number of 
+\begin_inset Formula $E$
+\end_inset
+
+s but this is not too interesting as they are just integrals that can be
+ done with Mathematica.
+ We will instead work on interpretation of counter terms.
+\end_layout
+
+\begin_layout Section
+Counter terms
+\end_layout
+
+\begin_layout Standard
+In the previous section, we had 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}=-\frac{1}{2}\colblue{Z_{\phi}}\left(\partial_{\mu}\phi\right)\left(\partial^{\mu}\phi\right)-\frac{1}{2}\colblue{Z_{m}}m^{2}\phi^{2}+\frac{1}{6}\colblue{Z_{g}}g\tilde{\mu}^{\epsilon/2}\phi^{3}+\colblue Y\phi
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $Y$
+\end_inset
+
+ is the 
+\begin_inset Quotes eld
+\end_inset
+
+tadpole term
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+tadpole term
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ is the deviation from 
+\begin_inset Formula $d=6$
+\end_inset
+
+.
+ We stop including counter terms at 
+\begin_inset Formula $\phi^{3}$
+\end_inset
+
+ because we only expect diagrams to diverge (for 
+\begin_inset Formula $d=6$
+\end_inset
+
+) if they have 
+\begin_inset Formula $E<4$
+\end_inset
+
+ where the counter terms can be expressed in terms of the following power
+ series:
+\begin_inset Formula 
+\begin{eqnarray}
+Z_{\phi} & = & 1+\sum_{n=1}^{\infty}\frac{a_{n}\left(\alpha\right)}{\epsilon^{n}}\\
+Z_{m} & = & 1+\sum_{n=1}^{\infty}\frac{b_{n}\left(\alpha\right)}{\epsilon^{n}}\\
+Z_{g} & = & 1+\sum_{n=1}^{\infty}\frac{c_{n}\left(\alpha\right)}{\epsilon^{n}},
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $\alpha=g^{2}/\left(4\pi\right)^{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $\epsilon=6-d$
+\end_inset
+
+.
+ Moreover, we calculated that
+\begin_inset Formula 
+\begin{eqnarray}
+a_{1}\left(\alpha\right) & = & -\frac{1}{6}\alpha+O\left(\alpha^{2}\right)\\
+b_{1}\left(\alpha\right) & = & -\alpha+O\left(\alpha^{2}\right)\\
+c_{1}\left(\alpha\right) & = & -\alpha+O\left(\alpha^{2}\right).
+\end{eqnarray}
+
+\end_inset
+
+We got these terms by the computation of Feynman diagrams, but we had to
+ put in a lot of work! And we could have expected the 
+\begin_inset Formula $\alpha^{1}$
+\end_inset
+
+ dependence (because for example if there are 2 vertices then we have a
+ 
+\begin_inset Formula $g^{2}$
+\end_inset
+
+ of the integral).
+ So what we really did is just obtain the numerical factors (which we expect
+ to be of order 1??? so we if we do not care about small numerical factors
+ and we are only considering absolute value of 
+\begin_inset Formula $a_{1},b_{1},c_{1}$
+\end_inset
+
+ then no computation is even needed).Also turns out that this procedure of
+ determining counter terms is not completely unique ??
+\end_layout
+
+\begin_layout Subsection
+Scattering amplitudes
+\end_layout
+
+\begin_layout Standard
+Consider simplest possible experiment of two input and output particles:
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\Diagram{1^{'}fdA &  & fuA2^{'}\\
+ & \vertexlabel_{s}p\\
+1fuA &  & fdA2
+}
+$
+\end_inset
+
+.
+ Moreover, we found that the scattering matrix element 
+\begin_inset Formula $\mathcal{T}$
+\end_inset
+
+ (
+\begin_inset Formula $\braket{f|i}=\left(2\pi\right)^{4}\delta^{4}\left(k_{in}-k_{out}\right)i\mathcal{T}$
+\end_inset
+
+ is
+\begin_inset Formula 
+\begin{equation}
+\mathcal{T}=\mathcal{T}_{0}\left[1-\frac{11}{12}\alpha\left(\ln\frac{s}{m^{2}}+const.\right)+O\left(\alpha^{2}\right)\right]
+\end{equation}
+
+\end_inset
+
+for 
+\begin_inset Formula $s,\left|t\right|,\left|u\right|\gg m^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{T}_{0}=-g^{2}\left(\frac{1}{s}+\frac{1}{t}+\frac{1}{u}\right).
+\end{equation}
+
+\end_inset
+
+We used renormalization to tame UV divergences (large values of loop momenta
+ which correspond to small distances).
+ We can also see IR divergences for small values of loop momenta.
+ In fact, 
+\begin_inset Formula $\mathcal{T}$
+\end_inset
+
+ blows up in the massless limit: 
+\begin_inset Formula $m\rightarrow0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+One-particle vs multi-particle states
+\end_layout
+
+\begin_layout Standard
+There is a problem when 
+\begin_inset Formula $m\rightarrow0$
+\end_inset
+
+: 
 \begin_inset Float figure
 wide false
 sideways false
@@ -12998,7 +13608,58 @@ centering
 
 
 \begin_inset Graphics
-	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/wick rotation.svg
+	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/problem with m goes to 0.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ Many things used this picture as an underlying assumption.
+ Two major problems when separation of particle states is not clear:
+\end_layout
+
+\begin_layout Enumerate
+Collinear particles
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/nearly collinear.svg
 
 \end_inset
 
@@ -13011,16 +13672,23 @@ centering
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Wick-rotation-205"
+name "fig:The-splitting-of-particle-205"
 
 \end_inset
 
-Wick rotation
-\begin_inset Index idx
-status collapsed
+The splitting of 
+\begin_inset Formula $k$
+\end_inset
 
-\begin_layout Plain Layout
-Wick rotation
+ into 
+\begin_inset Formula $k_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $k_{2}$
+\end_inset
+
+ cannot happen for particles with mass
 \end_layout
 
 \end_inset
@@ -13030,20 +13698,203 @@ Wick rotation
 
 \end_inset
 
+/soft particles (e.g.
+ 
+\begin_inset Quotes eld
+\end_inset
 
+soft gluon
+\begin_inset Quotes erd
+\end_inset
+
+).
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Enumerate
+We trivially have for 
+\begin_inset Formula $m^{2}=0$
+\end_inset
 
-\end_layout
+:
+\begin_inset Formula 
+\begin{eqnarray}
+\Pi\left(-m^{2}\right) & = & 0\\
+\Pi^{'}\left(-m^{2}\right) & = & 0
+\end{eqnarray}
 
 \end_inset
 
-
-\begin_inset space ~
+is ill-defined for 
+\begin_inset Formula $m^{2}=0$
 \end_inset
 
+.
+\end_layout
 
+\begin_layout Standard
+The amplitude for the split process (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-splitting-of-particle-205"
+
+\end_inset
+
+):
+\begin_inset Formula 
+\begin{equation}
+\mathcal{T}_{split}=ig\underbrace{\frac{-i}{k^{2}+m^{2}}}_{\tilde{\Delta}\left(k^{2}\right)}\mathcal{T}.
+\end{equation}
+
+\end_inset
+
+Let
+\begin_inset Formula 
+\begin{eqnarray}
+\omega_{1} & = & \left|\vec{k}_{1}\right|\\
+\omega_{2} & = & \left|\vec{k}_{2}\right|\\
+\vec{k}_{1}.\vec{k}_{2} & \equiv & \left|\vec{k}_{1}\right|\left|\vec{k}_{2}\right|\cos\theta
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is the angle between 
+\begin_inset Formula $\vec{k}_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{k}_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Let us suppose that our detector cannot distinguish the split process from
+ the non-split process for:
+\end_layout
+
+\begin_layout Itemize
+collinear particles: 
+\begin_inset Formula $\theta\sim<\delta\leq1$
+\end_inset
+
+, where 
+\begin_inset Formula $\delta$
+\end_inset
+
+ is the resolution of the detector.
+\end_layout
+
+\begin_layout Itemize
+The limit of soft particles, which have a small value of 
+\begin_inset Formula $\omega_{1}$
+\end_inset
+
+ or 
+\begin_inset Formula $\omega_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+(usually detectors do not measure number of particles but something like
+ total energy or charge) Let us look at the observed cross-section for the
+ scattering experiment:
+\begin_inset Formula 
+\begin{eqnarray}
+\left|\mathcal{T}_{observed}\right|^{2}d\tilde{k} & = & \left|\mathcal{T}\right|^{2}d\tilde{k}+\frac{1}{2}\left|\mathcal{T}_{split}\right|^{2}d\tilde{k}_{1}d\tilde{k}_{2}+\left(\mbox{more split particles}\right)\\
+ & = & \left|\mathcal{T}\right|^{2}\left(d\tilde{k}+\frac{g^{2}}{\left(k^{2}+m^{2}\right)}\left(2\pi\right)^{d-1}2\omega\delta^{d-1}\left(\vec{k}_{1}+\vec{k}_{2}-\vec{k}\right)\frac{1}{2}d\tilde{k}_{1}d\tilde{k}_{2}+...\right)
+\end{eqnarray}
+
+\end_inset
+
+For 
+\begin_inset Formula $m=0$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+k^{2}=\left(k_{1}+k_{2}\right)^{2}-4\omega_{1}\omega_{2}\sin^{2}\left(\frac{\theta}{2}\right).
+\end{equation}
+
+\end_inset
+
+If we have two outgoing particles, we have 
+\begin_inset Formula $d\tilde{k}_{1}d\tilde{k}_{2}\sim\left(\omega_{1}^{d-3}d\omega_{1}\right)\left(\omega_{2}^{d-3}d\omega_{2}\right)\left(\sin^{d-3}\theta d\theta\right)$
+\end_inset
+
+ (numerical factors ignored).
+ Combining, for small values of 
+\begin_inset Formula $\theta$
+\end_inset
+
+, we have that
+\begin_inset Formula 
+\begin{equation}
+\frac{d\tilde{k}_{1}d\tilde{k}_{2}}{\left(k^{2}\right)^{2}}\sim\frac{d\omega_{1}}{\omega_{1}^{5-d}}\frac{d\omega_{2}}{\omega_{2}^{5-d}}\frac{d\theta}{\theta^{7-d}}.
+\end{equation}
+
+\end_inset
+
+To calculate the cross-section, we have to integrate over 
+\begin_inset Formula $\theta$
+\end_inset
+
+, 
+\begin_inset Formula $\omega_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega_{2}$
+\end_inset
+
+ and we can anticipate that we will have divergences for 
+\begin_inset Formula $\theta\approx0$
+\end_inset
+
+.
+ From this rough structure, we can make the following 'punchlines'
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\left(...\right)d\omega$
+\end_inset
+
+ diverges at the low end for 
+\begin_inset Formula $d\leq4$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\left(...\right)d\theta$
+\end_inset
+
+ diverges at the low end for 
+\begin_inset Formula $d\leq6$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Note that 
+\begin_inset Formula $m\neq0$
+\end_inset
+
+ cuts off the divergence (In Pauli-Villars regularization scheme, the cut-off
+ 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ depended on the mass).
 \end_layout
 
 \begin_layout Chapter
