@@ -13639,6 +13639,16 @@ centering
 
 \begin_layout Enumerate
 Collinear particles
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Collinear particles
+\end_layout
+
+\end_inset
+
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -13895,6 +13905,1068 @@ Note that
 \end_inset
 
  depended on the mass).
+\end_layout
+
+\begin_layout Section
+Beginning of Winter term lecture
+\end_layout
+
+\begin_layout Standard
+First term we spent a lot of time in formalism.
+ The second term will focus more on the Physics (i.e.
+ Applications of what we have learned).
+ 
+\end_layout
+
+\begin_layout Standard
+One of the key concepts of the formalism part of the course if renormalization.
+ Let us finish this topic.
+ The mass 
+\begin_inset Formula $m$
+\end_inset
+
+ serves as an IR cutoff.
+ However, several things 
+\begin_inset Quotes eld
+\end_inset
+
+go bad
+\begin_inset Quotes erd
+\end_inset
+
+ as 
+\begin_inset Formula $m\rightarrow0$
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Enumerate
+We talked about collinear particles/soft particles which we can see in collision
+ experiments and scattering cross-section.
+ (example: 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/nearly collinear.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:The-splitting-of-particle-205-1"
+
+\end_inset
+
+The splitting of 
+\begin_inset Formula $k$
+\end_inset
+
+ into 
+\begin_inset Formula $k_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $k_{2}$
+\end_inset
+
+ cannot happen for particles with mass
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+In the OS (on-shell) renormalization scheme, we have a problem with the
+ self energy 
+\begin_inset Formula $\Pi\left(-m^{2}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\Pi^{'}\left(-m^{2}\right)$
+\end_inset
+
+ as 
+\begin_inset Formula $m\rightarrow0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+etc ...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/poles multi-particles states.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The pole and branch cut merge as 
+\begin_inset Formula $m\rightarrow0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The renormalization schemes that we introduced are:
+\end_layout
+
+\begin_layout Enumerate
+OS=
+\begin_inset Quotes erd
+\end_inset
+
+on-shell
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+MS=
+\begin_inset Quotes erd
+\end_inset
+
+minimal-substraction
+\begin_inset Quotes erd
+\end_inset
+
+ (with 
+\begin_inset Formula $\mu=\tilde{\mu}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\bar{MS}=$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+modified minimal substraction
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Very similar to MS with difference that 
+\begin_inset Formula $\mu^{2}=4\pi e^{-\gamma}\tilde{\mu}^{2}$
+\end_inset
+
+).
+ To see when MS or 
+\begin_inset Formula $\bar{MS}$
+\end_inset
+
+ is favored, we will first need to understand the Physics.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Pi_{\overline{MS}}\left(k^{2}\right)$
+\end_inset
+
+ has a well-defined limit as 
+\begin_inset Formula $m\rightarrow0$
+\end_inset
+
+, but 
+\begin_inset Formula $\Pi_{OS}\left(k^{2}\right)$
+\end_inset
+
+ does not.
+ Like the unphysical auxiliary quantity 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ in the 
+\begin_inset Formula $d=6-\epsilon$
+\end_inset
+
+ formalism, the 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{\mu}$
+\end_inset
+
+ are unphysical and are expected to not affect the Physics.
+ However, we found that 
+\begin_inset Formula $\Pi_{\bar{MS}}\left(k^{2}\right)$
+\end_inset
+
+ depends on 
+\begin_inset Formula $\mu$
+\end_inset
+
+, but 
+\begin_inset Formula $\Pi_{OS}\left(k^{2}\right)$
+\end_inset
+
+ does not.
+ 
+\begin_inset Formula $\tilde{{\bf \Delta}}\left(k^{2}\right)$
+\end_inset
+
+ now has a pole at 
+\begin_inset Formula $k^{2}=-m_{ph}^{2}\neq-m^{2}$
+\end_inset
+
+ with residue 
+\begin_inset Formula $R\neq1$
+\end_inset
+
+.
+ So on-shell is violated and so we have to revisit the LSZ reduction formula.
+\end_layout
+
+\begin_layout Subsection
+Computing 
+\begin_inset Formula $m_{ph}$
+\end_inset
+
+ and 
+\begin_inset Formula $R$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+By definition, 
+\begin_inset Formula 
+\begin{eqnarray*}
+\tilde{\bm{\Delta}}_{\overline{MS}}\left(k^{2}\right)^{-1} & = & k^{2}+m^{2}-\Pi_{\overline{MS}}\left(k^{2}\right)\\
+\end{eqnarray*}
+
+\end_inset
+
+and the definition of physical mass, 
+\begin_inset Formula $m_{ph}$
+\end_inset
+
+, is given by 
+\begin_inset Formula 
+\begin{eqnarray*}
+\tilde{\bm{\Delta}}_{\overline{MS}}\left(k^{2}=-m_{ph}^{2}\right)^{-1} & = & 0,\\
+\end{eqnarray*}
+
+\end_inset
+
+which implies that 
+\begin_inset Formula $m_{ph}^{2}=m^{2}-\Pi_{\overline{MS}}\left(-m_{ph}^{2}\right)$
+\end_inset
+
+.
+ This equation determines 
+\begin_inset Formula $m_{ph}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $m_{ph}$
+\end_inset
+
+ is not very far from 
+\begin_inset Formula $m$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+m_{ph}^{2} & = & m^{2}-\Pi_{\overline{MS}}\left(-m^{2}\right)+O\left(\alpha^{2}\right).
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula $\Pi_{\overline{MS}}\left(-m^{2}\right)$
+\end_inset
+
+ is of order 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ We will later make a self-consistency check.
+ We then find that
+\begin_inset Formula 
+\begin{equation}
+m_{ph}^{2}=m^{2}-\frac{\alpha}{2}\left[\frac{1}{6}m^{2}-m^{2}+\int_{0}^{1}dxD_{0}\ln\frac{D_{0}}{\mu^{2}}\right]+O\left(\alpha^{2}\right),
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $D_{0}=\left[1-x\left(1-x\right)\right]m^{2}$
+\end_inset
+
+.
+ Taking the integral:
+\begin_inset Formula 
+\begin{equation}
+m_{ph}^{2}=m^{2}\left[1+\frac{5}{12}\alpha\left(\ln\frac{\mu^{2}}{m^{2}}+\frac{34-3\pi\sqrt{3}}{15}\right)+O\left(\alpha^{2}\right)\right].
+\end{equation}
+
+\end_inset
+
+This is equivalent to (a more convenient way to write the formula)
+\begin_inset Formula 
+\begin{equation}
+\ln m_{ph}=\ln m+\frac{5}{12}\alpha\left(\ln\frac{\mu}{m}+const.\right)+O\left(\alpha^{2}\right).
+\end{equation}
+
+\end_inset
+
+For the following to make sense, we would like to have 
+\begin_inset Formula $m_{ph}$
+\end_inset
+
+ be independent of the auxiliary scale 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ So, allowing the parameter 
+\begin_inset Formula $m$
+\end_inset
+
+ to be dependent of 
+\begin_inset Formula $\mu$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+0=\frac{d}{d\ln\mu}\ln m_{ph}=\frac{1}{m}\frac{dm}{d\mu}+\frac{5}{12}\alpha+O\left(\alpha^{2}\right)
+\end{equation}
+
+\end_inset
+
+giving that
+\begin_inset Formula 
+\begin{equation}
+\frac{dm}{d\ln\mu}\equiv\gamma_{m}m
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\begin{equation}
+\gamma_{m}\left(\alpha\right)\equiv-\frac{5}{12}\alpha+O\left(\alpha^{2}\right)
+\end{equation}
+
+\end_inset
+
+is the 
+\emph on
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+anomalous dimension 
+\end_layout
+
+\end_inset
+
+anomalous dimension 
+\emph default
+of 
+\begin_inset Formula $m$
+\end_inset
+
+.
+ It is called anomolous because we expect the dimension of 
+\begin_inset Formula $m$
+\end_inset
+
+ to be 1 (as it is in classical physics), but we see there a small quantum
+ correction.
+ The next task is to compute the residue of the pole.
+\end_layout
+
+\begin_layout Subsection
+Computing 
+\begin_inset Formula $R$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We had that by definition
+\begin_inset Formula 
+\begin{eqnarray}
+R^{-1} & = & \left.\frac{d}{dk^{2}}\left[\tilde{\bm{\Delta}}_{\overline{MS}}\left(k^{2}\right)^{-1}\right]\right|_{k^{2}=-m_{ph}^{2}}\\
+ & = & \left.\frac{d}{dk^{2}}\left[k^{2}+m^{2}-\Pi_{\overline{MS}}\left(k^{2}\right)\right]\right|_{k^{2}=-m_{ph}^{2}}\\
+ & = & 1-\Pi_{\overline{MS}}^{'}\left(-m_{ph}^{2}\right),
+\end{eqnarray}
+
+\end_inset
+
+which to leading order in 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ gives
+\begin_inset Formula 
+\begin{eqnarray}
+R^{-1} & = & 1-\Pi_{\overline{MS}}^{'}\left(-m^{2}\right)+O\left(\alpha^{2}\right)\\
+ & = & 1+\frac{1}{12}\alpha\left(\ln\frac{\mu^{2}}{m^{2}}+\frac{17-3\pi\sqrt{3}}{3}\right)+O\left(\alpha^{2}\right).
+\end{eqnarray}
+
+\end_inset
+
+Let us now proceed to physical interpretation:
+\end_layout
+
+\begin_layout Standard
+The first calculation is an observable amplitude-square calculation with
+ an imperfect detector: 
+\begin_inset Formula 
+\begin{equation}
+\left|\mathcal{T}_{obs}\right|^{2}\left(1+\frac{\alpha}{3}\left(\ln\frac{\delta^{2}s}{m^{2}}+O\left(m^{2}\right)\right)+O\left(\alpha^{2}\right)\right)
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\delta$
+\end_inset
+
+ is the angular resolution of the detector, and with 
+\begin_inset Formula $\mathcal{T}$
+\end_inset
+
+ incoporating tree-level contributions and higher-order Feynman diagrams
+ 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{T}=\left(R^{1/2}\right)^{4}\underbrace{\left[1-\frac{11}{12}\alpha\left(\ln\frac{s}{\mu^{2}}+O\left(m^{2}\right)\right)+O\left(\alpha^{2}\right)\right]}_{quantum/loop\mbox{ }correction}\mathcal{T}_{0},
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathcal{T}_{0}$
+\end_inset
+
+ is the tree-level calculation: 
+\begin_inset Formula $\mathcal{T}_{0}=-g^{2}\left(\frac{1}{s}+\frac{1}{t}+\frac{1}{u}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(R^{1/2}\right)^{4}$
+\end_inset
+
+ is from amputation of external lines.
+ This gives, substituting the expression for 
+\begin_inset Formula $R$
+\end_inset
+
+ into 
+\begin_inset Formula $\mathcal{T}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\left|\mathcal{T}_{obs}\right|^{2}=\left|\mathcal{T}_{0}\right|^{2}\left[1-\alpha\left(\frac{3}{2}\ln\frac{s}{\mu^{2}}+\frac{1}{3}\ln\frac{1}{\delta^{2}}+O\left(m^{2}\right)\right)+O\left(\alpha^{2}\right)\right].
+\end{equation}
+
+\end_inset
+
+Notice that 
+\begin_inset Formula $\ln m^{2}$
+\end_inset
+
+ has disappeared.
+ We no longer have to worry about IR divergences and can treat massless
+ particles.
+ 
+\end_layout
+
+\begin_layout Standard
+Notice the funny dependence of the auxiliary constant 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ Following a similar procedure as the one for 
+\begin_inset Formula $m_{ph}$
+\end_inset
+
+, first, take the ln:
+\begin_inset Formula 
+\begin{equation}
+\ln\left|\mathcal{T}_{obs}\right|^{2}=const+2\ln\alpha+3\alpha\left(\ln\mu+const\right)+O\left(\alpha^{2}\right).
+\end{equation}
+
+\end_inset
+
+Then, say that 
+\begin_inset Formula $\left|\mathcal{T}_{obs}\right|^{2}$
+\end_inset
+
+ should be independent of 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ Then, letting 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ be 
+\begin_inset Formula $\mu$
+\end_inset
+
+ dependent
+\begin_inset Formula 
+\begin{equation}
+0=\frac{d}{d\ln\mu}\ln\left|\mathcal{T}_{obs}\right|^{2}=\frac{2}{\alpha}\frac{d\alpha}{d\ln\mu}+3\alpha+O\left(\alpha^{2}\right).
+\end{equation}
+
+\end_inset
+
+Hence,
+\begin_inset Formula 
+\begin{equation}
+\frac{d\alpha}{d\ln\mu}\equiv\beta\left(\alpha\right),
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\begin{equation}
+\beta\left(\alpha\right)=-\frac{3}{2}\alpha^{2}+O\left(\alpha^{3}\right)
+\end{equation}
+
+\end_inset
+
+is called the 
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+beta function
+\end_layout
+
+\end_inset
+
+beta function.
+ Hence,
+\begin_inset Formula 
+\begin{equation}
+\alpha\left(\mu_{2}\right)=\frac{\alpha}{1+\frac{3}{2}\alpha\left(\mu_{1}\right)\ln\frac{\mu_{2}}{\mu_{1}}}.
+\end{equation}
+
+\end_inset
+
+notice that the change is logarithmic and so very slow.
+ A theory is called:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Asymptotically free 
+\end_layout
+
+\end_inset
+
+Asymptotically free if 
+\begin_inset Formula $\beta<0$
+\end_inset
+
+.
+ E.g.
+ QCD 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/bassa_000/Documents/GitHub/Ph205-notes/QFT notes/howalphadependsonmu.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Infrared free
+\end_layout
+
+\end_inset
+
+Infrared free if 
+\begin_inset Formula $\beta>0$
+\end_inset
+
+.
+ Here 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ increases with 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ E.g.
+ QED
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Scale-invariant 
+\end_layout
+
+\end_inset
+
+Scale-invariant (conformal) if 
+\begin_inset Formula $\beta=0$
+\end_inset
+
+.
+ If for example that 
+\begin_inset Formula $\mu^{2}\sim s$
+\end_inset
+
+ then as energy scale increases, interaction strength decreases.
+ E.g.
+ critical phenomena and phase transitions.
+\end_layout
+
+\begin_layout Standard
+We had that 
+\begin_inset Formula $\left|\mathcal{T}_{obs}\right|^{2}$
+\end_inset
+
+ independent of 
+\begin_inset Formula $\mu$
+\end_inset
+
+ implied 
+\begin_inset Quotes eld
+\end_inset
+
+running
+\begin_inset Quotes erd
+\end_inset
+
+ (renormalization) of coupling constants (parameters).
+\end_layout
+
+\begin_layout Section
+Renormalization group
+\end_layout
+
+\begin_layout Standard
+We had the bare lagrangian with parameters 
+\begin_inset Formula $m_{o},$
+\end_inset
+
+ 
+\begin_inset Formula $g_{o}$
+\end_inset
+
+, ...
+ Then we say the renormalized parameters: 
+\begin_inset Formula $m\left(\mu\right)$
+\end_inset
+
+, 
+\begin_inset Formula $g\left(\mu\right)$
+\end_inset
+
+, ...
+ There is also the physical parameters which contain other errors: 
+\begin_inset Formula $m_{phys}$
+\end_inset
+
+, 
+\begin_inset Formula $g_{phys}$
+\end_inset
+
+, ...
+\end_layout
+
+\begin_layout Standard
+Take for example the classical lagrangian 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}=\frac{1}{2}\left(\partial_{\mu}\phi_{o}\right)\left(\partial^{\mu}\phi_{o}\right)-\frac{1}{2}m_{o}^{2}\phi_{o}^{2}+\frac{1}{6}g_{o}\phi_{o}^{3}
+\end{equation}
+
+\end_inset
+
+Then introducing counter terms in 
+\begin_inset Formula $d=6-\epsilon$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}=-\frac{1}{2}Z_{\phi}\left(\partial_{\mu}\phi\right)\left(\partial^{\mu}\phi\right)-\frac{1}{2}Z_{m}m^{2}\phi^{2}+\frac{1}{6}Z_{g}g\tilde{\mu}^{\epsilon/2}\phi^{3},
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $m$
+\end_inset
+
+ and 
+\begin_inset Formula $g$
+\end_inset
+
+ are renormalized and
+\begin_inset Formula 
+\begin{equation}
+\mu^{2}=4\pi e^{-\gamma}\tilde{\mu}^{2}
+\end{equation}
+
+\end_inset
+
+Moreover comparing both
+\begin_inset Formula 
+\begin{eqnarray}
+\phi_{o}\left(x\right) & = & Z_{\phi}^{1/2}\phi\left(x\right)\\
+m_{o} & = & \underbrace{Z_{\phi}^{-1/2}Z_{m}^{1/2}}_{e^{M}}m\\
+g_{o} & = & \underbrace{Z_{\phi}^{-3/2}Z_{g}}_{e^{G/2}}g\tilde{\mu}^{\epsilon/2}
+\end{eqnarray}
+
+\end_inset
+
+Introduce
+\begin_inset Formula 
+\begin{equation}
+\alpha_{o}\equiv\frac{g_{o}^{2}}{\left(4\pi\right)^{3}}=Z_{g}^{2}Z_{\phi}^{-3}\tilde{\mu}^{\epsilon}\alpha.
+\end{equation}
+
+\end_inset
+
+In addition,
+\begin_inset Formula 
+\begin{eqnarray}
+G\left(\alpha,\epsilon\right) & \equiv & \ln\left(Z_{g}^{2}Z_{\phi}^{-3}\right)\\
+M\left(\alpha,\epsilon\right) & \equiv & \ln\left(Z_{m}^{1/2}Z_{\phi}^{-1/2}\right)
+\end{eqnarray}
+
+\end_inset
+
+In the MS 
+\begin_inset Formula $\left(\bar{MS}\right)$
+\end_inset
+
+ scheme:
+\begin_inset Formula 
+\begin{eqnarray}
+Z_{\phi} & = & 1+\sum_{n=1}^{\infty}\frac{a_{n}\left(\alpha\right)}{\epsilon^{n}}\\
+Z_{m} & = & 1+\sum_{n=1}^{\infty}\frac{b_{n}\left(\alpha\right)}{\epsilon^{n}}\\
+Z_{g} & = & 1+\sum_{n=1}^{\infty}\frac{c_{n}\left(\alpha\right)}{\epsilon^{n}}
+\end{eqnarray}
+
+\end_inset
+
+We showed that
+\begin_inset Formula 
+\begin{eqnarray}
+a_{1}\left(\alpha\right) & = & -\frac{1}{6}\alpha+O\left(\alpha^{2}\right)\\
+b_{1}\left(\alpha\right) & = & -\alpha+O\left(\alpha^{2}\right)\\
+c_{1}\left(\alpha\right) & = & -\alpha+O\left(\alpha^{2}\right)
+\end{eqnarray}
+
+\end_inset
+
+The fact that the constants are proportional to 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is expected from the structure of the 1-loop Feynman diagrams.
+ So, from the definition of 
+\begin_inset Formula $G$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+G\left(\alpha,\epsilon\right)=\sum_{n=1}^{\infty}\frac{G_{n}\left(\alpha\right)}{\epsilon^{n}}
+\end{equation}
+
+\end_inset
+
+with
+\begin_inset Formula 
+\begin{eqnarray}
+G_{1}\left(\alpha\right) & = & 2c_{1}\left(\alpha\right)-3a_{1}\left(\alpha\right)\\
+ & = & \frac{3}{2}\alpha+O\left(\alpha^{2}\right).
+\end{eqnarray}
+
+\end_inset
+
+Moreover,
+\begin_inset Formula 
+\begin{equation}
+M\left(\alpha,\epsilon\right)=\sum_{n=1}^{\infty}\frac{M_{n}\left(\alpha\right)}{\epsilon^{n}}
+\end{equation}
+
+\end_inset
+
+with
+\begin_inset Formula 
+\begin{eqnarray}
+M_{1}\left(\alpha\right) & = & \frac{1}{2}b_{1}\left(\alpha\right)-\frac{1}{2}a_{1}\left(\alpha\right)\\
+ & = & -\frac{5}{12}\alpha+O\left(\alpha^{2}\right)
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bare/tree fields and parameters must be independent of 
+\begin_inset Formula $\mu$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\ln\alpha_{o}=G\left(\alpha,\epsilon\right)+\ln\alpha+\epsilon\ln\tilde{\mu}.
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray}
+\implies0 & = & \frac{d}{d\ln\mu}\ln\alpha_{o}=\frac{\partial G}{\partial\alpha}\frac{d\alpha}{d\ln\mu}+\frac{1}{\alpha}\frac{d\alpha}{d\ln\mu}+\epsilon\\
+\implies\left(1+\alpha\frac{\partial G\left(\alpha,\epsilon\right)}{\partial\alpha}\right)\frac{d\alpha}{d\ln\mu}+\epsilon\alpha & = & 0.
+\end{eqnarray}
+
+\end_inset
+
+Define 
+\begin_inset Formula $\beta\left(\alpha\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\frac{d\alpha}{d\ln\mu}=-\epsilon\alpha+\beta\left(\alpha\right)
+\end{equation}
+
+\end_inset
+
+with 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ the classical dimension of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Assume that the theory is renormalizable (we only introduce counter terms
+ for terms in the original classical lagrangian), which implies that 
+\begin_inset Formula 
+\begin{equation}
+\frac{d\alpha}{d\ln\mu}
+\end{equation}
+
+\end_inset
+
+should be finite as 
+\begin_inset Formula $\epsilon\rightarrow0$
+\end_inset
+
+.
+ Thus,
+\begin_inset Formula 
+\begin{equation}
+\left(1+\frac{\alpha G_{1}^{'}\left(\alpha\right)}{\epsilon}+\frac{\alpha G_{2}^{'}\left(\alpha\right)}{\epsilon^{2}}+...\right)\left(-\epsilon\alpha+\beta\left(\alpha\right)\right)+\epsilon\alpha=0,
+\end{equation}
+
+\end_inset
+
+which gives 
+\begin_inset Formula 
+\begin{eqnarray}
+\beta\left(\alpha\right) & = & \alpha^{2}G_{1}^{'}\left(\alpha\right)\\
+G_{2}^{'}\left(\alpha\right) & = & \alpha G_{1}^{'}\left(\alpha\right),...
+\end{eqnarray}
+
+\end_inset
+
+with 
+\begin_inset Formula 
+\begin{equation}
+\beta\left(\alpha\right)=\alpha^{2}G_{1}^{'}\left(\alpha\right)=-\frac{3}{2}\alpha^{2}+O\left(\alpha^{3}\right).
+\end{equation}
+
+\end_inset
+
+Similarly,
+\begin_inset Formula 
+\begin{equation}
+\ln m_{o}=M\left(\alpha,\epsilon\right)+\ln m
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray}
+0 & = & \frac{d}{d\ln\mu}\ln m_{o}=\frac{\partial M}{\partial\alpha}\frac{d\alpha}{d\ln\mu}+\frac{1}{m}\frac{dm}{d\ln\mu}\\
+ & = & \frac{\partial M\left(\alpha,\epsilon\right)}{\partial\alpha}\left(-\epsilon\alpha+\beta\left(\alpha\right)\right)+\gamma_{m}\left(\alpha\right)
+\end{eqnarray}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{equation}
+\gamma_{m}\left(\alpha\right)\equiv\frac{1}{m}\frac{dm}{d\ln\mu}
+\end{equation}
+
+\end_inset
+
+is the anomalous dimension of the mass parameter.
+ Thus,
+\begin_inset Formula 
+\begin{eqnarray}
+\gamma_{m}\left(\alpha\right) & = & \left(\epsilon\alpha-\beta\left(\alpha\right)\right)\sum_{n=1}^{\infty}\frac{M_{n}^{'}\left(\alpha\right)}{\epsilon^{n}}\\
+ & = & \alpha M_{1}^{'}\left(\alpha\right)+\underbrace{\left(\frac{1}{\epsilon}\mbox{ terms}\right)}_{=0}\\
+ & = & \alpha M_{1}^{'}\left(\alpha\right)=-\frac{5}{12}\alpha+O\left(\alpha^{2}\right)
+\end{eqnarray}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
